@@ -11,6 +11,8 @@
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
 		9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD982B7B02920043D51C /* WidgetWindow.swift */; };
+		9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */; };
+		9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		9ECAAD902B7AFBE10043D51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetsb.entitlements; sourceTree = "<group>"; };
 		9ECAAD982B7B02920043D51C /* WidgetWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWindow.swift; sourceTree = "<group>"; };
+		9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWindowController.swift; sourceTree = "<group>"; };
+		9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 			isa = PBXGroup;
 			children = (
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
+				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
+				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
@@ -131,6 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
+				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
 			);
