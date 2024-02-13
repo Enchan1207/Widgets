@@ -10,6 +10,7 @@
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
+		9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD982B7B02920043D51C /* WidgetWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9ECAAD902B7AFBE10043D51C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = widgetsb.entitlements; sourceTree = "<group>"; };
+		9ECAAD982B7B02920043D51C /* WidgetWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
+				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
 			path = widgetsb;
@@ -129,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
+				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,14 +280,15 @@
 				DEVELOPMENT_TEAM = 9JTFXT4CWH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Enchan1207";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = enchantcode.widgetsb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -303,14 +308,15 @@
 				DEVELOPMENT_TEAM = 9JTFXT4CWH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Enchan1207";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = enchantcode.widgetsb;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
