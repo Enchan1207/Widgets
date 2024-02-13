@@ -10,7 +10,7 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet weak var window: WidgetWindow!
+    private let window = WidgetWindow()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window.makeKey()
