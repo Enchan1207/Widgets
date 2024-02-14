@@ -20,14 +20,7 @@ class WidgetWindowController: NSWindowController {
         super.init(window: widgetWindow)
         self.window?.delegate = self
     }
-    
-    func activate(){
-        (self.window as? WidgetWindow)?.isActive = true
-    }
-    
-    func deactivate(){
-        (self.window as? WidgetWindow)?.isActive = false
-    }
+
 }
 
 extension WidgetWindowController: NSWindowDelegate {

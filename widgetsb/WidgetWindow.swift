@@ -12,11 +12,11 @@ import Cocoa
 class WidgetWindow: NSWindow {
     
     /// ウィンドウの状態を設定・取得
-    var isActive: Bool = true {
-        didSet {
+    var widgetMode: WidgetMode = .Edittable {
+        didSet{
             DispatchQueue.main.async {[weak self] in
                 guard let `self` = self else {return}
-                isActive ? activate() : deactivate()
+                widgetMode == .Edittable ? activate() : deactivate()
             }
         }
     }
@@ -24,9 +24,17 @@ class WidgetWindow: NSWindow {
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         
-        // ウィンドウを透明化
+        // 透明なウィンドウを構成
         configureTransparentWindow()
         
+        // ウィジェットモード切替通知を受け取る
+        NotificationCenter.default.addObserver(self, selector: #selector(onReceiveWidgetSwitchNotification), name: .WidgetDidChangeMode, object: nil)
+        
+    }
+    
+    deinit{
+        // オブザーバを外す
+        NotificationCenter.default.removeObserver(self)
     }
     
     /// ウィンドウの透明化
@@ -45,6 +53,14 @@ class WidgetWindow: NSWindow {
         
         self.isMovableByWindowBackground = true // ウィンドウ領域をドラッグすることで移動できるようにする
         
+    }
+    
+    /// ウィジェットモード切替通知を受け取った時の処理
+    /// - Parameter notification: 通知
+    @objc private func onReceiveWidgetSwitchNotification(_ notification: Notification){
+        // userInfoのmodeプロパティに更新後のモードが入っている
+        guard let newMode = notification.userInfo?["mode"] as? WidgetMode else {return}
+        newMode == .Edittable ? activate() : deactivate()
     }
     
     /// ウィジェットを編集・移動可能な状態にする

@@ -19,12 +19,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // ボタンの状態を更新
             updateMenuBarButton()
             
-            // ウィンドウコントローラに通知
-            if widgetMode == .Edittable{
-                windowController.activate()
-            }else{
-                windowController.deactivate()
-            }
+            // 各ウィンドウに通知
+            NotificationCenter.default.post(name: .WidgetDidChangeMode, object: nil, userInfo: ["mode": widgetMode])
         }
     }
     
