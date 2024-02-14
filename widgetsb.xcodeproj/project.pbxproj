@@ -45,6 +45,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E2A0B712B7C7D220078AA06 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */,
+				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E2A0B722B7C7D3D0078AA06 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
+				9E2A0B732B7C7D540078AA06 /* Window */,
+				9E2A0B742B7C7D6F0078AA06 /* Views */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		9E2A0B732B7C7D540078AA06 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
+				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		9E2A0B742B7C7D6F0078AA06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E2A0B6D2B7C66880078AA06 /* WidgetViewController.swift */,
+				9E2A0B6E2B7C66880078AA06 /* WidgetViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9ECAAD7F2B7AFBDD0043D51C = {
 			isa = PBXGroup;
 			children = (
@@ -67,13 +104,8 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
-				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
-				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
-				9E2A0B6D2B7C66880078AA06 /* WidgetViewController.swift */,
-				9E2A0B6E2B7C66880078AA06 /* WidgetViewController.xib */,
-				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
-				9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */,
-				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
+				9E2A0B722B7C7D3D0078AA06 /* Widget */,
+				9E2A0B712B7C7D220078AA06 /* Extensions */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
 			path = widgetsb;
