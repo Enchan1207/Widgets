@@ -22,11 +22,11 @@ class WidgetWindowController: NSWindowController {
     }
     
     func activate(){
-        (self.window as? WidgetWindow)?.activate()
+        (self.window as? WidgetWindow)?.isActive = true
     }
     
     func deactivate(){
-        (self.window as? WidgetWindow)?.deactivate()
+        (self.window as? WidgetWindow)?.isActive = false
     }
 }
 

@@ -11,75 +11,67 @@ import Cocoa
 /// ウィジェット用の透明なウィンドウ
 class WidgetWindow: NSWindow {
     
-    private let blurView = NSVisualEffectView()
+    /// ウィンドウの状態を設定・取得
+    var isActive: Bool = true {
+        didSet {
+            DispatchQueue.main.async {[weak self] in
+                guard let `self` = self else {return}
+                isActive ? activate() : deactivate()
+            }
+        }
+    }
     
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing backingStoreType: NSWindow.BackingStoreType, defer flag: Bool) {
         super.init(contentRect: contentRect, styleMask: style, backing: backingStoreType, defer: flag)
         
         // ウィンドウを透明化
+        configureTransparentWindow()
+        
+    }
+    
+    /// ウィンドウの透明化
+    private func configureTransparentWindow(){
         self.styleMask = [.fullSizeContentView, .borderless, .titled, .closable, .resizable] // スタイルマスクを設定
-        self.hasShadow = false // ウィンドウに影をつけない
-        self.isOpaque = false // ウィンドウを透明にする
+        
+        self.hasShadow = false // ウィンドウは影を持たない
+        self.isOpaque = false // ウィンドウは半透明でない
+        self.invalidateShadow() // ウィンドウの影を無効化
+        
+        self.backgroundColor = .clear // 背景色を透明に
+        
         self.titlebarSeparatorStyle = .none // タイトルバーとウィンドウとの間の区切り線を表示しない
         self.titlebarAppearsTransparent = true // タイトルバーを透明にする
-        self.backgroundColor = .clear // 背景色を透明に
-        self.invalidateShadow() // ウィンドウの陰影を無効化する
         self.titleVisibility = .hidden // タイトルを表示しない
+        
         self.isMovableByWindowBackground = true // ウィンドウ領域をドラッグすることで移動できるようにする
         
-        // ブラービュー初期化
-        if let contentView = self.contentView {
-            blurView.frame = contentView.frame
-            blurView.material = .fullScreenUI
-            blurView.blendingMode = .behindWindow
-            blurView.state = .active
-            blurView.autoresizingMask = [.width, .height]
-            contentView.addSubview(blurView)
-        }
     }
     
     /// ウィジェットを編集・移動可能な状態にする
-    func activate(){
+    private func activate(){
         // ウィンドウを手前に移動
         self.level = .normal
         
-        // タイトルを表示
+        // タイトルバーを表示し、マウスイベントを受け取るようにする
         self.styleMask.insert(.titled)
+        self.ignoresMouseEvents = false
         
-        // 徐々に透明度を下げていく
-        NSAnimationContext.runAnimationGroup { [weak self] context in
-            context.duration = 0.5
-            self?.blurView.animator().alphaValue = 1.0
-        } completionHandler: { [weak self] in
-            guard let `self` = self else {return}
-            
-            //　マウスイベントを受け取れるようにする
-            self.ignoresMouseEvents = false
-            
-            // キーウィンドウ・メインウィンドウになる
-            self.becomeKey()
-            self.becomeMain()
-        }
+        // メインウィンドウになる
+        self.becomeMain()
     }
     
     /// ウィジェットを背景に移動する
-    func deactivate(){
+    private func deactivate(){
         // キーウィンドウ・メインウィンドウから外れる
         self.resignKey()
         self.resignMain()
         
-        // タイトルを外し、マウスイベントを無視する
+        // タイトルバーを外し、マウスイベントを無視する
         self.styleMask.remove(.titled)
         self.ignoresMouseEvents = true
         
-        // 徐々に透明度を上げていく
-        NSAnimationContext.runAnimationGroup { [weak self] context in
-            context.duration = 0.5
-            self?.blurView.animator().alphaValue = 0.0
-        } completionHandler: { [weak self] in
-            // 完全に透明になったらウィンドウを背景に移動
-            self?.level = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopIconWindow)))
-        }
+        // ウィンドウを奥に移動する
+        self.level = .desktopIcon
     }
     
 }
