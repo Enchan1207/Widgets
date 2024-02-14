@@ -10,7 +10,12 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    private let windowController = WidgetWindowController()
+    /// 空のウィジェットウィンドウコントローラ
+    private let emptyWidgetWindowController = WidgetWindowController()
+    
+    /// コンテントビューコントローラを持つウィジェットウィンドウコントローラ
+    ///  - note: ウィンドウコントローラがNSWindowControllerなので、メニューバーボタンには反応しない
+    private let xibWidgetWindowController = NSWindowController(window: WidgetWindow(contentViewController: WidgetViewController()))
     
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
@@ -29,7 +34,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configureMenuBarButton()
         
         // ウィンドウを表示
-        windowController.showWindow(self)
+        emptyWidgetWindowController.showWindow(self)
+        xibWidgetWindowController.showWindow(self)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
