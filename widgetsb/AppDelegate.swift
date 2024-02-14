@@ -10,12 +10,8 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// 空のウィジェットウィンドウコントローラ
-    private let emptyWidgetWindowController = WidgetWindowController()
-    
     /// コンテントビューコントローラを持つウィジェットウィンドウコントローラ
-    ///  - note: ウィンドウコントローラがNSWindowControllerなので、メニューバーボタンには反応しない
-    private let xibWidgetWindowController = NSWindowController(window: WidgetWindow(contentViewController: WidgetViewController()))
+    private let xibWidgetWindowController = WidgetWindowController(widgetWindow: WidgetWindow(contentViewController: WidgetViewController()))
     
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
@@ -34,7 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configureMenuBarButton()
         
         // ウィンドウを表示
-        emptyWidgetWindowController.showWindow(self)
         xibWidgetWindowController.showWindow(self)
     }
     

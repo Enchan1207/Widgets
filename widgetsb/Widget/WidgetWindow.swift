@@ -51,12 +51,20 @@ class WidgetWindow: NSWindow {
         // ウィンドウを手前に移動
         self.level = .normal
         
-        // タイトルバーを表示し、マウスイベントを受け取るようにする
+        // タイトルバーを表示
         self.styleMask.insert(.titled)
-        self.ignoresMouseEvents = false
         
-        // メインウィンドウになる
-        self.becomeMain()
+        // 徐々に透明度を下げていく
+        NSAnimationContext.runAnimationGroup { [weak self] context in
+            guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
+            context.duration = 0.5
+            blurView.animator().alphaValue = 1.0
+        } completionHandler: { [weak self] in
+            // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
+            self?.ignoresMouseEvents = false
+            self?.orderFront(nil)
+            self?.becomeMain()
+        }
     }
     
     /// ウィジェットを背景に移動する
@@ -69,8 +77,16 @@ class WidgetWindow: NSWindow {
         self.styleMask.remove(.titled)
         self.ignoresMouseEvents = true
         
-        // ウィンドウを奥に移動する
-        self.level = .desktopIcon
+        // 徐々に透明度を上げていく
+        NSAnimationContext.runAnimationGroup { [weak self] context in
+            guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
+            context.duration = 0.5
+            blurView.animator().alphaValue = 0.0
+        } completionHandler: { [weak self] in
+            // 完全に透明になったらウィンドウを奥に移動する
+            self?.orderBack(nil)
+            self?.level = .desktopIcon
+        }
     }
     
 }

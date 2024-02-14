@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9E2A0B6F2B7C66880078AA06 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2A0B6D2B7C66880078AA06 /* WidgetViewController.swift */; };
 		9E2A0B702B7C66880078AA06 /* WidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E2A0B6E2B7C66880078AA06 /* WidgetViewController.xib */; };
+		9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		9E2A0B6D2B7C66880078AA06 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
 		9E2A0B6E2B7C66880078AA06 /* WidgetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetViewController.xib; sourceTree = "<group>"; };
+		9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundView.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
 				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
+				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
+				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
