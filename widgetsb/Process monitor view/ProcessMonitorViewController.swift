@@ -1,13 +1,13 @@
 //
-//  WidgetViewController.swift
+//  ProcessMonitorViewController.swift
 //  widgetsb
 //
-//  Created by EnchantCode on 2024/02/14.
+//  Created by EnchantCode on 2024/02/15.
 //
 
 import Cocoa
 
-class WidgetViewController: NSViewController {
+class ProcessMonitorViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,8 +10,8 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// コンテントビューコントローラを持つウィジェットウィンドウコントローラ
-    private let xibWidgetWindowController = WidgetWindowController(widgetWindow: WidgetWindow(contentViewController: WidgetViewController()))
+    /// プロセスモニタウィジェット
+    private let psWidgetWindowController = WidgetWindowController(widgetWindow: .init(contentViewController: ProcessMonitorViewController()))
     
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
@@ -20,17 +20,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // ボタンの状態を更新
             updateMenuBarButton()
             
+            // 編集モードに移行したならアプリをアクティベート
+            if widgetMode == .Edittable {
+                activateApp()
+            }
+            
             // 各ウィンドウに通知
             NotificationCenter.default.post(name: .WidgetDidChangeMode, object: nil, userInfo: ["mode": widgetMode])
         }
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // メニューバーボタンを構成
         configureMenuBarButton()
+
+        activateApp()
         
-        // ウィンドウを表示
-        xibWidgetWindowController.showWindow(self)
+        // ウィジェットを表示
+        psWidgetWindowController.showWindow(self)
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -45,20 +51,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
-    func configureMenuBarButton(){
+    /// アプリケーションをアクティブにする
+    private func activateApp(){
+        if #available(macOS 14.0, *) {
+            NSApp.activate()
+        } else {
+            NSApp.activate(ignoringOtherApps: true)
+        }
+    }
+    
+    /// メニューバーボタンの構成
+    private func configureMenuBarButton(){
         guard let button = menuBarItem.button else {return}
         button.action = #selector(onClickMenuBarButton)
         updateMenuBarButton()
     }
     
-    func updateMenuBarButton(){
+    /// メニューバーボタンの更新
+    private func updateMenuBarButton(){
         guard let button = menuBarItem.button else {return}
         let buttonSymbolName = widgetMode == .Edittable ? "list.bullet.rectangle.fill" : "list.bullet.rectangle"
         button.image = .init(systemSymbolName: buttonSymbolName, accessibilityDescription: "widget mode switcher")
     }
     
-    @objc func onClickMenuBarButton(){
-        // モードを切り替える
+    /// メニューバーボタンクリック時の処理
+    @objc private func onClickMenuBarButton(){
         widgetMode = widgetMode == .Edittable ? .Fixed : .Edittable
     }
     
