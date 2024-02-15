@@ -10,8 +10,14 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// プロセスモニタウィジェット
-    private let psWidgetWindowController = WidgetWindowController(widgetWindow: .init(contentViewController: ProcessMonitorViewController()))
+    /// プロセス情報Model
+    private let processInfoModel = ProcessInfoModel()
+    
+    /// プロセスモニタウィジェットのVC
+    private lazy var processMonitorViewController = ProcessMonitorViewController(processInfoModel: processInfoModel)
+    
+    /// プロセスモニタウィジェットのWC
+    private let psWidgetWindowController = WidgetWindowController()
     
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
@@ -32,10 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         configureMenuBarButton()
-
-        activateApp()
+        
+        // ウィジェットWCにVCを割り当て
+        psWidgetWindowController.contentViewController = processMonitorViewController
         
         // ウィジェットを表示
+        activateApp()
         psWidgetWindowController.showWindow(self)
     }
     

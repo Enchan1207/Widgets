@@ -8,7 +8,9 @@
 import Foundation
 
 /// プロセス情報モデル
-class ProcessInfoModel {
+class ProcessInfoModel: NSObject {
+    
+    // MARK: - Properties
     
     /// プロセス情報の配列
     private (set) public var processInfos: [ProcessInfo] = []
@@ -16,11 +18,17 @@ class ProcessInfoModel {
     /// 最大プロセス表示数
     private var maxProcessCount: Int = 30
     
+    /// psコマンドの実行を担うプロセス
     private let psProcess = Process()
     
+    /// プロセスの出力を受け取るパイプ
     private var psOutputPipe = Pipe()
     
-    init(){
+    // MARK: - Initializers
+    
+    override init(){
+        super.init()
+        
         // プロセス情報を収集するコマンドを構成
         let commandPathStr = "/bin/ps"
         let commandURL: URL
@@ -36,6 +44,8 @@ class ProcessInfoModel {
         psProcess.terminationHandler = onProcessInfoFetched
     }
     
+    // MARK: - Public methods
+    
     /// プロセス情報を収集する
     func fetchProcessInfo(){
         // 出力パイプを再構成
@@ -49,6 +59,8 @@ class ProcessInfoModel {
             print("An error occured during fetch process information: \(error)")
         }
     }
+    
+    // MARK: - Private methods
     
     /// プロセス情報の収集が完了したときの処理
     /// - Parameter process: プロセスオブジェクト
