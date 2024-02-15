@@ -20,6 +20,7 @@
 		9ED7DC9D2B7DD079004957E0 /* ProcessMonitorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ProcessMonitorViewController.xib */; };
 		9ED7DCA32B7DDC43004957E0 /* ProcessInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */; };
 		9ED7DCA52B7DDCA8004957E0 /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */; };
+		9ED7DCAB2B7E4CD2004957E0 /* ProcessInfoModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9ED7DC9B2B7DD079004957E0 /* ProcessMonitorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessMonitorViewController.xib; sourceTree = "<group>"; };
 		9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoModel.swift; sourceTree = "<group>"; };
 		9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
+		9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */,
+				9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */,
 				9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */,
 			);
 			path = Model;
@@ -214,6 +217,7 @@
 				9ED7DCA32B7DDC43004957E0 /* ProcessInfoModel.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
+				9ED7DCAB2B7E4CD2004957E0 /* ProcessInfoModelDelegate.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ProcessMonitorViewController.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,

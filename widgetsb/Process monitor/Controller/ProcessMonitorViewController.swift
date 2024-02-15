@@ -15,53 +15,51 @@ class ProcessMonitorViewController: NSViewController {
     
     // MARK: - Properties
     
+    
+    // TODO: このあたりを「ウィジェットウィンドウコレクションのModel」としてまとめて持って、preferenceとかから変更できるようにする?
+    
     /// 表示内容の更新間隔
-    private let updateInterval: Double = 10
+    private let updateInterval: Double = 5
+    
+    /// フェッチするプロセスの最大数
+    private var maxProcessCount: UInt = 30
     
     /// 更新を司るタイマ
     private var updateTimer: Timer?
     
     /// プロセス情報Model
-    private weak var processInfoModel: ProcessInfoModel?
-    
-    // MARK: - Initializers
-    
-    init(processInfoModel: ProcessInfoModel?){
-        self.processInfoModel = processInfoModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private lazy var processInfoModel = ProcessInfoModel()
     
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.processInfoModel.delegate = self
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        // 一番最初に一回だけ発火し、タイマを構成
-        onUpdate(timer: nil)
-        updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: onUpdate)
+        // TODO: タイマはここで制御されるべきなのか? ウィンドウコントローラが持つべきか?
+        // タイマを構成
+        updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: { [weak self] _ in
+            guard let `self` = self else {return}
+            self.processInfoModel.fetchProcessInfo(maxProcessCount: self.maxProcessCount)
+        })
     }
     
     override func viewDidDisappear() {
         super.viewDidDisappear()
         
+        // タイマを無効化
         updateTimer?.invalidate()
     }
+}
+
+extension ProcessMonitorViewController: ProcessInfoModelDelegate {
     
-    // MARK: - Private methods
-    
-    /// タイマ更新時の処理
-    /// - Parameter timer: タイマ
-    private func onUpdate(timer: Timer?) {
-        processTextField.stringValue = "\(Date.timeIntervalBetween1970AndReferenceDate)"
-        
+    func processInfoDidUpdate() {
+        // TODO: プロセス情報を画面にレンダリング
+        print(processInfoModel.processInfos)
     }
-    
 }

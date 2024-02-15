@@ -10,26 +10,51 @@ import Foundation
 /// プロセス情報モデル
 class ProcessInfoModel: NSObject {
     
-    // MARK: - Properties
+    // MARK: - Public properties
     
     /// プロセス情報の配列
-    private (set) public var processInfos: [ProcessInfo] = []
+    private (set) public var processInfos: [ProcessInfo] = [] {
+        didSet{
+            delegate?.processInfoDidUpdate()
+        }
+    }
     
-    /// 最大プロセス表示数
-    private var maxProcessCount: Int = 30
+    /// デリゲート
+    public weak var delegate: ProcessInfoModelDelegate?
     
-    /// psコマンドの実行を担うプロセス
-    private let psProcess = Process()
+    // MARK: - Private properties
     
-    /// プロセスの出力を受け取るパイプ
+    /// フェッチするプロセスの最大数
+    private var maxProcessCount: UInt = 0
+    
+    /// プロセスの標準出力
     private var psOutputPipe = Pipe()
     
-    // MARK: - Initializers
+    // MARK: - Public methods
     
-    override init(){
-        super.init()
+    /// プロセス情報を更新する
+    /// - Parameter maxProcessCount: フェッチするプロセスの最大数
+    func fetchProcessInfo(maxProcessCount: UInt){
+        // 最大数を保持しておく
+        self.maxProcessCount = maxProcessCount
         
-        // プロセス情報を収集するコマンドを構成
+        // プロセスを準備して実行
+        let process = configurePsProcess()
+        psOutputPipe = Pipe()
+        process.standardOutput = psOutputPipe.fileHandleForWriting
+        do {
+            try process.run()
+        }catch{
+            print("An error occured during fetch process information: \(error)")
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    /// psコマンドを実行するプロセスを構成して返す
+    /// - Returns: 構成されたProcessオブジェクト
+    private func configurePsProcess() -> Process {
+        let psProcess = Process()
         let commandPathStr = "/bin/ps"
         let commandURL: URL
         if #available(macOS 13.0, *) {
@@ -42,25 +67,8 @@ class ProcessInfoModel: NSObject {
         psProcess.standardError = nil
         psProcess.standardInput = nil
         psProcess.terminationHandler = onProcessInfoFetched
+        return psProcess
     }
-    
-    // MARK: - Public methods
-    
-    /// プロセス情報を収集する
-    func fetchProcessInfo(){
-        // 出力パイプを再構成
-        psOutputPipe = Pipe()
-        psProcess.standardOutput = psOutputPipe.fileHandleForWriting
-        
-        // 実行
-        do {
-            try psProcess.run()
-        }catch{
-            print("An error occured during fetch process information: \(error)")
-        }
-    }
-    
-    // MARK: - Private methods
     
     /// プロセス情報の収集が完了したときの処理
     /// - Parameter process: プロセスオブジェクト
@@ -83,10 +91,17 @@ class ProcessInfoModel: NSObject {
               let processOutputStr = String(data: processOutputData, encoding: .utf8) else {return}
         
         // ヘッダ行を捨て、先頭から指定個数分のプロセス文字列を取り出す
-        let processOutputLines: [String] = processOutputStr.split(separator: "\n")[1..<(maxProcessCount + 1)].map {.init($0)}
+        let processOutputLines = processOutputStr.split(separator: "\n")
+        let fetchCount: Int
+        if maxProcessCount < (processOutputLines.count - 1){
+            fetchCount = Int(maxProcessCount)
+        }else{
+            fetchCount = processOutputLines.count - 1
+        }
+        let targetProcessLines: [String] = processOutputLines[1...fetchCount].map {.init($0)}
         
         // 出力をパースして構造体配列に変換し、更新
-        processInfos = processOutputLines.compactMap({parseInfo($0)})
+        processInfos = targetProcessLines.compactMap({parseInfo($0)})
     }
     
     /// psコマンドの出力をパースしてProcessInfo構造体を生成

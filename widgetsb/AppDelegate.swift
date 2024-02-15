@@ -10,11 +10,8 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// プロセス情報Model
-    private let processInfoModel = ProcessInfoModel()
-    
     /// プロセスモニタウィジェットのVC
-    private lazy var processMonitorViewController = ProcessMonitorViewController(processInfoModel: processInfoModel)
+    private lazy var processMonitorViewController = ProcessMonitorViewController()
     
     /// プロセスモニタウィジェットのWC
     private let psWidgetWindowController = WidgetWindowController()
