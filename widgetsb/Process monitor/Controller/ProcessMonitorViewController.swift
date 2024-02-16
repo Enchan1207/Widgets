@@ -13,6 +13,8 @@ class ProcessMonitorViewController: NSViewController {
     
     @IBOutlet weak var processTextField: NSTextField!
     
+    private lazy var processInfoView = ProcessInfoView(frame: self.view.bounds)
+    
     // MARK: - Properties
     
     
@@ -34,6 +36,7 @@ class ProcessMonitorViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addSubview(processInfoView)
         self.processInfoModel.delegate = self
     }
     
@@ -59,7 +62,6 @@ class ProcessMonitorViewController: NSViewController {
 extension ProcessMonitorViewController: ProcessInfoModelDelegate {
     
     func processInfoDidUpdate() {
-        // TODO: プロセス情報を画面にレンダリング
-        print(processInfoModel.processInfos)
+        processInfoView.string = "Hello!\nHello!\nHello!\nHello!\nHello!\n"
     }
 }
