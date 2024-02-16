@@ -20,6 +20,8 @@ class ProcessMonitorViewController: NSViewController {
     
     // TODO: このあたりを「ウィジェットウィンドウコレクションのModel」としてまとめて持って、preferenceとかから変更できるようにする?
     
+    override var nibName: NSNib.Name? { "ProcessMonitorView" }
+    
     /// 表示内容の更新間隔
     private let updateInterval: Double = 5
     
