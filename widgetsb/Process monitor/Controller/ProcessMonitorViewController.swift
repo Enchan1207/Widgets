@@ -36,6 +36,7 @@ class ProcessMonitorViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        processInfoView.autoresizingMask = [.width, .height]
         self.view.addSubview(processInfoView)
         self.processInfoModel.delegate = self
     }
