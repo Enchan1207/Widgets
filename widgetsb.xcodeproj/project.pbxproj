@@ -62,7 +62,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9E2A0B722B7C7D3D0078AA06 /* Widget */ = {
+		9E2A0B722B7C7D3D0078AA06 /* Widget core */ = {
 			isa = PBXGroup;
 			children = (
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
@@ -70,7 +70,7 @@
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
 			);
-			path = Widget;
+			path = "Widget core";
 			sourceTree = "<group>";
 		};
 		9ECAAD7F2B7AFBDD0043D51C = {
@@ -95,22 +95,22 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
-				9ED7DC992B7DD05F004957E0 /* Shell command widget */,
-				9E2A0B722B7C7D3D0078AA06 /* Widget */,
+				9ED7DC992B7DD05F004957E0 /* Widget views */,
+				9E2A0B722B7C7D3D0078AA06 /* Widget core */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
 			path = widgetsb;
 			sourceTree = "<group>";
 		};
-		9ED7DC992B7DD05F004957E0 /* Shell command widget */ = {
+		9ED7DC992B7DD05F004957E0 /* Widget views */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7DCA02B7DDBF4004957E0 /* Model */,
 				9ED7DCA12B7DDC0B004957E0 /* View */,
 				9ED7DC9F2B7DDBEF004957E0 /* Controller */,
 			);
-			path = "Shell command widget";
+			path = "Widget views";
 			sourceTree = "<group>";
 		};
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
