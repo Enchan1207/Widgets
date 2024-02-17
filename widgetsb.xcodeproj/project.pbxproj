@@ -95,7 +95,7 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
-				9ED7DC992B7DD05F004957E0 /* Process monitor */,
+				9ED7DC992B7DD05F004957E0 /* Shell command widget */,
 				9E2A0B722B7C7D3D0078AA06 /* Widget */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
@@ -103,14 +103,14 @@
 			path = widgetsb;
 			sourceTree = "<group>";
 		};
-		9ED7DC992B7DD05F004957E0 /* Process monitor */ = {
+		9ED7DC992B7DD05F004957E0 /* Shell command widget */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7DCA02B7DDBF4004957E0 /* Model */,
 				9ED7DCA12B7DDC0B004957E0 /* View */,
 				9ED7DC9F2B7DDBEF004957E0 /* Controller */,
 			);
-			path = "Process monitor";
+			path = "Shell command widget";
 			sourceTree = "<group>";
 		};
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
