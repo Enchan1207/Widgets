@@ -50,6 +50,7 @@ class WidgetWindow: NSWindow {
     private func activate(){
         // ウィンドウを手前に移動
         self.level = .normal
+        self.orderFront(nil)
         
         // タイトルバーを表示
         self.styleMask.insert(.titled)
@@ -62,7 +63,6 @@ class WidgetWindow: NSWindow {
         } completionHandler: { [weak self] in
             // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
             self?.ignoresMouseEvents = false
-            self?.orderFront(nil)
             self?.becomeMain()
         }
     }

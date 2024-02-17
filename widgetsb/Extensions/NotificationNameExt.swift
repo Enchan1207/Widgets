@@ -7,6 +7,6 @@
 
 import Foundation
 
-extension NSNotification.Name {
-    static let WidgetDidChangeMode = NSNotification.Name("WidgetDidChangeMode")
+extension Notification.Name {
+    static let WidgetDidChangeMode = Notification.Name("WidgetDidChangeMode")
 }
