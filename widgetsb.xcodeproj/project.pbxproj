@@ -16,12 +16,11 @@
 		9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */; };
 		9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */; };
 		9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */; };
-		9ED6959D2B7ED7300046B70A /* ProcessInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* ProcessInfoView.swift */; };
-		9ED7DC9C2B7DD079004957E0 /* ProcessMonitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ProcessMonitorViewController.swift */; };
-		9ED7DC9D2B7DD079004957E0 /* ProcessMonitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ProcessMonitorView.xib */; };
-		9ED7DCA32B7DDC43004957E0 /* ProcessInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */; };
-		9ED7DCA52B7DDCA8004957E0 /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */; };
-		9ED7DCAB2B7E4CD2004957E0 /* ProcessInfoModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */; };
+		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
+		9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */; };
+		9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */; };
+		9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */; };
+		9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,12 +35,11 @@
 		9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetMode.swift; sourceTree = "<group>"; };
 		9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLevelExt.swift; sourceTree = "<group>"; };
 		9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExt.swift; sourceTree = "<group>"; };
-		9ED6959C2B7ED7300046B70A /* ProcessInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoView.swift; sourceTree = "<group>"; };
-		9ED7DC9A2B7DD079004957E0 /* ProcessMonitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessMonitorViewController.swift; sourceTree = "<group>"; };
-		9ED7DC9B2B7DD079004957E0 /* ProcessMonitorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProcessMonitorView.xib; sourceTree = "<group>"; };
-		9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoModel.swift; sourceTree = "<group>"; };
-		9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
-		9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfoModelDelegate.swift; sourceTree = "<group>"; };
+		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
+		9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandViewController.swift; sourceTree = "<group>"; };
+		9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellCommandView.xib; sourceTree = "<group>"; };
+		9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModel.swift; sourceTree = "<group>"; };
+		9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +116,7 @@
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7DC9A2B7DD079004957E0 /* ProcessMonitorViewController.swift */,
+				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -126,9 +124,8 @@
 		9ED7DCA02B7DDBF4004957E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7DCA22B7DDC43004957E0 /* ProcessInfoModel.swift */,
-				9ED7DCAA2B7E4CD1004957E0 /* ProcessInfoModelDelegate.swift */,
-				9ED7DCA42B7DDCA8004957E0 /* ProcessInfo.swift */,
+				9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */,
+				9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,8 +133,8 @@
 		9ED7DCA12B7DDC0B004957E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7DC9B2B7DD079004957E0 /* ProcessMonitorView.xib */,
-				9ED6959C2B7ED7300046B70A /* ProcessInfoView.swift */,
+				9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */,
+				9ED6959C2B7ED7300046B70A /* GradientTextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -201,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
-				9ED7DC9D2B7DD079004957E0 /* ProcessMonitorView.xib in Resources */,
+				9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */,
 				9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,15 +211,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
-				9ED7DCA52B7DDCA8004957E0 /* ProcessInfo.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
-				9ED7DCA32B7DDC43004957E0 /* ProcessInfoModel.swift in Sources */,
+				9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
-				9ED6959D2B7ED7300046B70A /* ProcessInfoView.swift in Sources */,
+				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
-				9ED7DCAB2B7E4CD2004957E0 /* ProcessInfoModelDelegate.swift in Sources */,
-				9ED7DC9C2B7DD079004957E0 /* ProcessMonitorViewController.swift in Sources */,
+				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
+				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
 			);

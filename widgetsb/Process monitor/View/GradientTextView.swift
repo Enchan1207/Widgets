@@ -1,5 +1,5 @@
 //
-//  ProcessInfoView.swift
+//  GradientTextView.swift
 //  widgetsb
 //
 //  Created by EnchantCode on 2024/02/16.
@@ -7,7 +7,40 @@
 
 import Cocoa
 
-class ProcessInfoView: NSView {
+/// テキストをアルファチャネルでグラデーションするView
+class GradientTextView: NSView {
+    
+    // MARK: - Public properties
+    
+    /// 背景色の配列
+    var backgroundColors: [NSColor] = [] {
+        didSet{
+            layerTransaction {[weak self] in
+                guard let `self` = self else {return}
+                self.gradientMask.colors = backgroundColors.map{$0.cgColor}
+            }
+        }
+    }
+    
+    /// グラデーション開始位置
+    var startPoint: CGPoint = .zero {
+        didSet{
+            layerTransaction {[weak self] in
+                guard let `self` = self else {return}
+                self.gradientMask.startPoint = startPoint
+            }
+        }
+    }
+
+    /// グラデーション終了位置
+    var endPoint: CGPoint = .zero {
+        didSet{
+            layerTransaction {[weak self] in
+                guard let `self` = self else {return}
+                self.gradientMask.endPoint = endPoint
+            }
+        }
+    }
     
     /// 文字色
     var textColor = NSColor() {
@@ -40,9 +73,13 @@ class ProcessInfoView: NSView {
         }
     }
     
+    // MARK: - Private properties
+    
     private let textLayer = CATextLayer()
     
     private let gradientMask = CAGradientLayer()
+    
+    // MARK: - Initializers
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -50,8 +87,11 @@ class ProcessInfoView: NSView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        configure()
     }
+    
+    // MARK: - Private methods
     
     private func configure(){
         // テキストレイヤを初期化
@@ -68,13 +108,12 @@ class ProcessInfoView: NSView {
         self.font = .systemFont(ofSize: 14.0)
         
         // グラデーションマスクを初期化
-        let colors: [NSColor] = [.white, .clear]
         gradientMask.frame = self.frame
         gradientMask.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
-        gradientMask.colors = colors.map{$0.cgColor}
-        gradientMask.startPoint = .init(x: 0.5, y: 1.0)
-        gradientMask.endPoint = .init(x: 0.5, y: 0.0)
         gradientMask.isOpaque = false
+        self.backgroundColors = [.white, .clear]
+        self.startPoint = .init(x: 0.5, y: 1.0)
+        self.endPoint = .init(x: 0.5, y: 0.0)
         
         // マスクに割り当ててサブレイヤに追加
         textLayer.mask = gradientMask

@@ -10,8 +10,8 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// プロセスモニタウィジェットのVC
-    private lazy var processMonitorViewController = ProcessMonitorViewController()
+    /// シェルコマンドウィジェットのVC
+    private lazy var shellCommandViewController = ShellCommandViewController()
     
     /// プロセスモニタウィジェットのWC
     private let psWidgetWindowController = WidgetWindowController()
@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configureMenuBarButton()
         
         // ウィジェットWCにVCを割り当て
-        psWidgetWindowController.contentViewController = processMonitorViewController
+        psWidgetWindowController.contentViewController = shellCommandViewController
         
         // ウィジェットを表示
         activateApp()
