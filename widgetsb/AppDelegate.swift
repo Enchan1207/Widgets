@@ -13,8 +13,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// シェルコマンドウィジェットのVC
     private lazy var shellCommandViewController = ShellCommandViewController()
     
-    /// プロセスモニタウィジェットのWC
+    /// シェルコマンドウィジェットのWC
     private let psWidgetWindowController = WidgetWindowController()
+    
+    /// メディアModel
+    // TODO: AppDelegateレベルで気にするべきはウィジェットの構成であり表示内容ではないため、本来ここでこのModelを持つべきではない
+    // TODO: issue#6のマルチウィンドウ対応が完了した段階で削除
+    private let mediaModel = MediaModel()
+    
+    /// メディアウィジェットのVC
+    private lazy var mediaWidgetViewController = MediaWidgetViewController(mediaModel: mediaModel)
+    
+    /// メディアウィジェットのWC
+    private let mediaWidgetWindowController = WidgetWindowController()
     
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
@@ -38,10 +49,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // ウィジェットWCにVCを割り当て
         psWidgetWindowController.contentViewController = shellCommandViewController
+        mediaWidgetWindowController.contentViewController = mediaWidgetViewController
         
         // ウィジェットを表示
         activateApp()
         psWidgetWindowController.showWindow(self)
+        mediaWidgetWindowController.showWindow(self)
+        
+        // メディアウィジェットの内容を変更
+        // TODO: ウィジェットVCが持つ「表示内容を司るModel」を直接書き換えるべきではない ウィジェットWCが持つ「ウィジェットの属性を司るModel」経由で操作するべき
+        // TODO: issue#6のマルチウィンドウ対応が完了した段階で削除
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseFiles = true
+        openPanel.canChooseDirectories = false
+        let response = openPanel.runModal()
+        if response == .OK, let url = openPanel.url {
+            mediaModel.mediaURL = url
+        }
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */; };
+		9E39F5872B82F3AE00C8CFF7 /* UTTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -17,6 +18,10 @@
 		9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */; };
 		9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
+		9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A02B8084FE0046B70A /* MediaModel.swift */; };
+		9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A22B8088180046B70A /* MediaModelDelegate.swift */; };
+		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
+		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
 		9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */; };
 		9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */; };
 		9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */; };
@@ -25,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundView.swift; sourceTree = "<group>"; };
+		9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeExtension.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,6 +42,10 @@
 		9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowLevelExt.swift; sourceTree = "<group>"; };
 		9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExt.swift; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
+		9ED695A02B8084FE0046B70A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
+		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
+		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaWidgetViewController.swift; path = "widgetsb/Widget views/Controller/MediaWidgetViewController.swift"; sourceTree = SOURCE_ROOT; };
+		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = "widgetsb/Widget views/Controller/MediaWidgetView.xib"; sourceTree = SOURCE_ROOT; };
 		9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandViewController.swift; sourceTree = "<group>"; };
 		9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellCommandView.xib; sourceTree = "<group>"; };
 		9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModel.swift; sourceTree = "<group>"; };
@@ -58,6 +68,7 @@
 			children = (
 				9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */,
 				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
+				9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,6 +127,7 @@
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */,
 				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
 			);
 			path = Controller;
@@ -126,6 +138,8 @@
 			children = (
 				9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */,
 				9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */,
+				9ED695A02B8084FE0046B70A /* MediaModel.swift */,
+				9ED695A22B8088180046B70A /* MediaModelDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +149,7 @@
 			children = (
 				9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */,
 				9ED6959C2B7ED7300046B70A /* GradientTextView.swift */,
+				9ED695A52B8091750046B70A /* MediaWidgetView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
+				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
 				9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */,
 				9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */,
 			);
@@ -210,14 +226,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
+				9E39F5872B82F3AE00C8CFF7 /* UTTypeExtension.swift in Sources */,
 				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
+				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
 				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
+				9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
