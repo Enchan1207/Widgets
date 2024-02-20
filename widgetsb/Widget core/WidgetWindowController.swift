@@ -51,6 +51,10 @@ class WidgetWindowController: NSWindowController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        self.widgetModel.multicastDelegate.removeDelegate(self)
+    }
+    
     // MARK: - Overridden methods
     
     override func showWindow(_ sender: Any?) {
