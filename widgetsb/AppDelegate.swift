@@ -10,25 +10,20 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// シェルコマンドウィジェットのVC
-    private lazy var shellCommandViewController = ShellCommandViewController()
+    /// ウィジェットモデルの配列
+    // TODO: 追加/削除UIをちゃんと作る
+    private let widgetModels: [WidgetModel] = [
+        .init(visibility: .Show, kind: .ShellCommand, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["update_interval": "5"]),
+        .init(visibility: .Show, kind: .Media, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["filepath": "/Users/enchantcode/Pictures/icon.jpg"])
+    ]
     
-    /// シェルコマンドウィジェットのWC
-    private let psWidgetWindowController = WidgetWindowController()
+    /// WCを保持するリスト
+    private var widgetWCs: [WidgetWindowController] = []
     
-    /// メディアModel
-    // TODO: AppDelegateレベルで気にするべきはウィジェットの構成であり表示内容ではないため、本来ここでこのModelを持つべきではない
-    // TODO: issue#6のマルチウィンドウ対応が完了した段階で削除
-    private let mediaModel = MediaModel()
-    
-    /// メディアウィジェットのVC
-    private lazy var mediaWidgetViewController = MediaWidgetViewController(mediaModel: mediaModel)
-    
-    /// メディアウィジェットのWC
-    private let mediaWidgetWindowController = WidgetWindowController()
-    
+    /// メニューバーボタン
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     
+    /// ウィジェットウィンドウの表示モード
     private var widgetMode: WidgetMode = .Edittable {
         didSet{
             // ボタンの状態を更新
@@ -45,27 +40,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // メニューバーボタンを構成
         configureMenuBarButton()
         
-        // ウィジェットWCにVCを割り当て
-        psWidgetWindowController.contentViewController = shellCommandViewController
-        mediaWidgetWindowController.contentViewController = mediaWidgetViewController
+        // ウィジェットモデルの配列からウィジェットWCを生成
+        widgetWCs = widgetModels.compactMap({ widgetModel in
+            // TODO: WidgetModelから渡ったinfoを誰かに渡す (WC? VC?)
+            // TODO: 一連の処理をファクトリ化する
+            
+            // ViewControllerを生成
+            let widgetVC: NSViewController
+            switch widgetModel.kind {
+            case .Media:
+                widgetVC = MediaWidgetViewController(mediaModel: .init())
+            case .ShellCommand:
+                widgetVC = ShellCommandViewController(shellCommandModel: .init())
+            }
+            
+            // contentViewControllerに渡してWindowを、さらにWindowControllerを生成
+            let widgetWindow = WidgetWindow(contentViewController: widgetVC)
+            let widgetWC = WidgetWindowController(window: widgetWindow, model: widgetModel)
+            return widgetWC
+        })
         
-        // ウィジェットを表示
+        // アプリをアクティベート
         activateApp()
-        psWidgetWindowController.showWindow(self)
-        mediaWidgetWindowController.showWindow(self)
+        
+        // ウィンドウを表示
+        widgetWCs.forEach({$0.showWindow(nil)})
         
         // メディアウィジェットの内容を変更
-        // TODO: ウィジェットVCが持つ「表示内容を司るModel」を直接書き換えるべきではない ウィジェットWCが持つ「ウィジェットの属性を司るModel」経由で操作するべき
-        // TODO: issue#6のマルチウィンドウ対応が完了した段階で削除
+        // TODO: もう少しまともに実装する
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseFiles = true
         openPanel.canChooseDirectories = false
         let response = openPanel.runModal()
         if response == .OK, let url = openPanel.url {
-            mediaModel.mediaURL = url
+            widgetModels[1].info["filepath"] = url.path
         }
     }
     

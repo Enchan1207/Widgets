@@ -7,6 +7,7 @@
 
 import Cocoa
 
+/// ウィジェットウィンドウコントローラ
 class WidgetWindowController: NSWindowController {
     
     // MARK: - Properties
@@ -25,18 +26,25 @@ class WidgetWindowController: NSWindowController {
         }
     }
     
+    /// ウィジェットModel
+    private let widgetModel: WidgetModel
+    
     // MARK: - Initializers
     
     /// 空のウィジェットウィンドウからウィンドウコントローラを初期化
-    convenience init() {
-        self.init(widgetWindow: WidgetWindow())
+    /// - Parameter model: ウィジェットモデル
+    convenience init(model: WidgetModel) {
+        self.init(window: .init(), model: model)
     }
     
     /// ウィジェットウィンドウを渡してウィンドウコントローラを初期化
-    /// - Parameter widgetWindow: ウィジェットウィンドウ
-    init(widgetWindow: WidgetWindow){
-        super.init(window: widgetWindow)
+    /// - Parameter window: ウィジェットウィンドウ
+    /// - Parameter model: ウィジェットモデル
+    init(window: WidgetWindow, model: WidgetModel){
+        self.widgetModel = model
+        super.init(window: window)
         self.window?.delegate = self
+        self.widgetModel.multicastDelegate.addDelegate(self)
     }
     
     required init?(coder: NSCoder) {
@@ -66,5 +74,25 @@ class WidgetWindowController: NSWindowController {
 extension WidgetWindowController: NSWindowDelegate {
     func windowWillClose(_ notification: Notification) {
         isObserved = false
+    }
+}
+
+extension WidgetWindowController: WidgetModelDelegate {
+    // TODO: まともに実装する (VCへの通知など…)
+    
+    func widget(_ model: WidgetModel, visibilityDidChange to: WidgetModel.Visibility) {
+        print("WidgetWindow #\(hashValue): widget visibility was modified")
+    }
+    
+    func widget(_ model: WidgetModel, kindDidChange to: WidgetModel.Kind) {
+        print("WidgetWindow #\(hashValue): widget kind was modified")
+    }
+    
+    func widget(_ model: WidgetModel, frameDidChange to: NSRect) {
+        print("WidgetWindow #\(hashValue): widget frame was modified")
+    }
+    
+    func widget(_ model: WidgetModel, infoDidChange to: [String : String]) {
+        print("WidgetWindow #\(hashValue): widget info was modified")
     }
 }

@@ -20,7 +20,7 @@ class MediaWidgetViewController: NSViewController {
     override var nibName: NSNib.Name? { "MediaWidgetView" }
     
     /// メディアModel
-    private lazy var mediaModel = MediaModel()
+    private var mediaModel: MediaModel
     
     /// ビューが動画を保持する場合のプレイヤー
     private var player: AVQueuePlayer?
@@ -34,8 +34,8 @@ class MediaWidgetViewController: NSViewController {
     // MARK: - Initializers
     
     init(mediaModel: MediaModel){
-        super.init(nibName: nil, bundle: nil)
         self.mediaModel = mediaModel
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {

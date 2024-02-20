@@ -26,8 +26,19 @@ class ShellCommandViewController: NSViewController {
     /// 更新を司るタイマ
     private var updateTimer: Timer?
     
-    /// プロセス情報Model
-    private lazy var processInfoModel = ShellCommandModel()
+    /// シェルコマンドModel
+    private var shellCommandModel: ShellCommandModel
+    
+    // MARK: - Initializers
+    
+    init(shellCommandModel: ShellCommandModel){
+        self.shellCommandModel = shellCommandModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View lifecycle
     
@@ -38,19 +49,19 @@ class ShellCommandViewController: NSViewController {
         processOutputView.font = .monospacedSystemFont(ofSize: 14.0, weight: .regular)
         processOutputView.autoresizingMask = [.width, .height]
         self.view.addSubview(processOutputView)
-        self.processInfoModel.delegate = self
+        self.shellCommandModel.delegate = self
     }
     
     override func viewWillAppear() {
         super.viewWillAppear()
         
         // 一回実行しておく
-        self.processInfoModel.requestForExecution()
+        self.shellCommandModel.requestForExecution()
 
         // タイマを構成
         updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: { [weak self] _ in
             guard let `self` = self else {return}
-            self.processInfoModel.requestForExecution()
+            self.shellCommandModel.requestForExecution()
         })
     }
     
