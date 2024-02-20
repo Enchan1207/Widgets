@@ -10,6 +10,8 @@
 		9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */; };
 		9E39F5872B82F3AE00C8CFF7 /* UTTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */; };
 		9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */; };
+		9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */; };
+		9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -33,6 +35,8 @@
 		9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundView.swift; sourceTree = "<group>"; };
 		9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeExtension.swift; sourceTree = "<group>"; };
 		9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuticastDelegate.swift; sourceTree = "<group>"; };
+		9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,6 +112,7 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
+				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
 				9ED7DC992B7DD05F004957E0 /* Widget views */,
 				9E2A0B722B7C7D3D0078AA06 /* Widget core */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */,
+				9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */,
 				9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */,
 				9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */,
 				9ED695A02B8084FE0046B70A /* MediaModel.swift */,
@@ -229,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */,
+				9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */,
 				9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */,
 				9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,

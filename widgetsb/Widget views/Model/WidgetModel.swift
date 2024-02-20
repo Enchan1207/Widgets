@@ -38,36 +38,34 @@ final class WidgetModel {
     
     // MARK: - Properties
     
-    // TODO: 通知センタをやめてマルチキャストデリゲートを検討
-    
-    /// モデルの変化を受け取るための通知センタ
-    let notificationCenter: NotificationCenter
+    /// モデルの変化を監視するデリゲートのリスト
+    let multicastDelegate: MulticastDelegate<WidgetModelDelegate>
     
     /// ウィジェット表示状態
     var visibility: Visibility {
         didSet{
-            notificationCenter.post(name: .WidgetDidChangeVisibility, object: nil)
+            multicastDelegate.invoke{$0.widget(self, visibilityDidChange: self.visibility)}
         }
     }
     
     /// ウィジェット種別
     var kind: Kind {
         didSet{
-            notificationCenter.post(name: .WidgetDidChangeKind, object: nil)
+            multicastDelegate.invoke{$0.widget(self, kindDidChange: self.kind)}
         }
     }
     
     /// ウィジェットフレーム
     var frame: NSRect {
         didSet{
-            notificationCenter.post(name: .WidgetDidChangeFrame, object: nil)
+            multicastDelegate.invoke{$0.widget(self, frameDidChange: self.frame)}
         }
     }
     
     /// ウィジェット構成情報
     var info: [String: String] {
         didSet{
-            notificationCenter.post(name: .WidgetDidChangeInfo, object: nil)
+            multicastDelegate.invoke{$0.widget(self, infoDidChange: self.info)}
         }
     }
     
@@ -80,13 +78,13 @@ final class WidgetModel {
     ///   - frame: ウィジェットウィンドウの枠
     ///   - info: ウィジェット構成情報
     init(visibility: Visibility, kind: Kind, frame: NSRect = .zero, info: [String : String] = [:]) {
-        self.notificationCenter = .init()
+        self.multicastDelegate = .init()
         self.kind = kind
         self.frame = frame
         self.info = info
         self.visibility = visibility
     }
-
+    
 }
 
 extension WidgetModel: Codable {
