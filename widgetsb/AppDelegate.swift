@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             
             // 各ウィンドウに通知
-            NotificationCenter.default.post(name: .WidgetDidChangeMode, object: nil, userInfo: ["mode": widgetMode])
+            NotificationCenter.default.post(name: .WidgetWindowDidChangeMode, object: nil, userInfo: ["mode": widgetMode])
         }
     }
     

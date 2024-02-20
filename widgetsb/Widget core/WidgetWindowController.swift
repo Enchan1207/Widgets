@@ -18,7 +18,7 @@ class WidgetWindowController: NSWindowController {
             guard oldValue != isObserved else {return}
             
             if isObserved {
-                NotificationCenter.default.addObserver(self, selector: #selector(onReceiveWidgetSwitchNotification), name: .WidgetDidChangeMode, object: nil)
+                NotificationCenter.default.addObserver(self, selector: #selector(onReceiveWidgetSwitchNotification), name: .WidgetWindowDidChangeMode, object: nil)
             }else{
                 NotificationCenter.default.removeObserver(self)
             }

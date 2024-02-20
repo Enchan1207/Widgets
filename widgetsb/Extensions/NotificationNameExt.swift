@@ -8,5 +8,8 @@
 import Foundation
 
 extension Notification.Name {
-    static let WidgetDidChangeMode = Notification.Name("WidgetDidChangeMode")
+    
+    /// ウィジェットウィンドウの表示モードが切り替わった
+    static let WidgetWindowDidChangeMode = Notification.Name("WidgetWindowDidChangeMode")
+    
 }
