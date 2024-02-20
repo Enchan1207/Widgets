@@ -44,24 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configureMenuBarButton()
         
         // ウィジェットモデルの配列からウィジェットWCを生成
-        widgetWCs = widgetModels.compactMap({ widgetModel in
-            // TODO: WidgetModelから渡ったinfoを誰かに渡す (WC? VC?)
-            // TODO: 一連の処理をファクトリ化する
-            
-            // ViewControllerを生成
-            let widgetVC: NSViewController
-            switch widgetModel.kind {
-            case .Media:
-                widgetVC = MediaWidgetViewController(mediaModel: .init())
-            case .ShellCommand:
-                widgetVC = ShellCommandViewController(shellCommandModel: .init())
-            }
-            
-            // contentViewControllerに渡してWindowを、さらにWindowControllerを生成
-            let widgetWindow = WidgetWindow(contentViewController: widgetVC)
-            let widgetWC = WidgetWindowController(window: widgetWindow, model: widgetModel)
-            return widgetWC
-        })
+        widgetWCs = widgetModels.compactMap({.init(model: $0)})
         
         // アプリをアクティベート
         activateApp()

@@ -33,16 +33,16 @@ class WidgetWindowController: NSWindowController {
     
     /// 空のウィジェットウィンドウからウィンドウコントローラを初期化
     /// - Parameter model: ウィジェットモデル
-    convenience init(model: WidgetModel) {
-        self.init(window: .init(), model: model)
-    }
-    
-    /// ウィジェットウィンドウを渡してウィンドウコントローラを初期化
-    /// - Parameter window: ウィジェットウィンドウ
-    /// - Parameter model: ウィジェットモデル
-    init(window: WidgetWindow, model: WidgetModel){
+    /// - Note: 渡されたモデルをもとにView
+    init(model: WidgetModel) {
+        // モデルを渡し、新規ウィジェットウィンドウを生成してsuper.init
         self.widgetModel = model
-        super.init(window: window)
+        super.init(window: WidgetWindow())
+        
+        // ファクトリを用いてWidgetModelからVCを生成し、contentVCに割り当て
+        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: widgetModel)
+        
+        // ウィンドウのデリゲート、モデルのデリゲートを自身に設定
         self.window?.delegate = self
         self.widgetModel.multicastDelegate.addDelegate(self)
     }
@@ -89,6 +89,8 @@ extension WidgetWindowController: WidgetModelDelegate {
     }
     
     func widget(_ model: WidgetModel, kindDidChange to: WidgetModel.Kind) {
+        // TODO: こんな感じになるだろうか?
+//        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: model)
         print("WidgetWindow #\(hashValue): widget kind was modified")
     }
     

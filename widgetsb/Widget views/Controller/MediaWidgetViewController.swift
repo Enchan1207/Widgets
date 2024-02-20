@@ -8,7 +8,7 @@
 import Cocoa
 import AVKit
 
-class MediaWidgetViewController: NSViewController {
+final class MediaWidgetViewController: WidgetViewController {
     
     // MARK: - GUI Components
     
@@ -33,9 +33,10 @@ class MediaWidgetViewController: NSViewController {
     
     // MARK: - Initializers
     
-    init(mediaModel: MediaModel){
-        self.mediaModel = mediaModel
-        super.init(nibName: nil, bundle: nil)
+    override init?(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) {
+        // TODO: ここでwidgetModelの値をもとにshellCommandModelやupdateInterval、processOutputViewを設定
+        self.mediaModel = .init()
+        super.init(widgetModel: widgetModel)
     }
     
     required init?(coder: NSCoder) {

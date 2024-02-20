@@ -12,6 +12,8 @@
 		9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */; };
 		9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */; };
 		9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */; };
+		9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */; };
+		9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -37,6 +39,8 @@
 		9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
 		9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuticastDelegate.swift; sourceTree = "<group>"; };
 		9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelDelegate.swift; sourceTree = "<group>"; };
+		9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
+		9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
+				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
 			);
 			path = "Widget core";
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			children = (
 				9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */,
 				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
+				9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
 				9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
+				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
+				9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
 			);

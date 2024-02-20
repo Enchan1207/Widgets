@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class ShellCommandViewController: NSViewController {
+final class ShellCommandViewController: WidgetViewController {
     
     // MARK: - GUI Components
     
@@ -31,9 +31,10 @@ class ShellCommandViewController: NSViewController {
     
     // MARK: - Initializers
     
-    init(shellCommandModel: ShellCommandModel){
-        self.shellCommandModel = shellCommandModel
-        super.init(nibName: nil, bundle: nil)
+    override init?(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) {
+        // TODO: ここでwidgetModelの値をもとにshellCommandModelやupdateInterval、processOutputViewを設定
+        self.shellCommandModel = .init()
+        super.init(widgetModel: widgetModel)
     }
     
     required init?(coder: NSCoder) {
