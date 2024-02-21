@@ -34,8 +34,11 @@ final class MediaWidgetViewController: WidgetViewController {
     // MARK: - Initializers
     
     override init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
-        // TODO: ここでwidgetModelの値をもとにshellCommandModelやupdateInterval、processOutputViewを設定
-        self.mediaModel = .init()
+        // ウィジェット構成情報からファイルパスを取得
+        guard let filePathStr = widgetModel.info["filepath"] else {
+            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"filepath\" not found")
+        }
+        self.mediaModel = .init(mediaURL: .init(fileURLWithPath: filePathStr))
         try super.init(widgetModel: widgetModel)
     }
     

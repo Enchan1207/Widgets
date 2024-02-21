@@ -25,8 +25,7 @@ final class MediaModel {
     
     // MARK: - Initializers
     
-    init(delegate: MediaModelDelegate? = nil, mediaURL: URL? = nil) {
-        self.delegate = delegate
+    init(mediaURL: URL? = nil) {
         self.mediaURL = mediaURL
     }
     

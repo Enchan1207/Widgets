@@ -18,10 +18,10 @@ final class ShellCommandViewController: WidgetViewController {
     override var nibName: NSNib.Name? { "ShellCommandView" }
     
     /// 表示内容の更新間隔
-    private let updateInterval: Double = 5
+    private let updateInterval: Double
     
     /// 最大行数
-    private let maxLineCount: Int = 30
+    private let maxLineCount: Int
     
     /// 更新を司るタイマ
     private var updateTimer: Timer?
@@ -32,7 +32,21 @@ final class ShellCommandViewController: WidgetViewController {
     // MARK: - Initializers
     
     override init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
-        // TODO: ここでwidgetModelの値をもとにshellCommandModelやupdateInterval、processOutputViewを設定
+        
+        // TODO: 文字色やフォントも構成情報からいじれるように
+        
+        // ウィジェット構成情報から更新間隔を取得
+        guard let updateIntervalStr = widgetModel.info["update_interval"], let updateInterval = Double(updateIntervalStr), updateInterval > 0 else {
+            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"update_interval\" not found or it has invalid value (expects positive number greater than 0)")
+        }
+        self.updateInterval = updateInterval
+        
+        // ウィジェット構成情報から最大行数を取得
+        guard let maxLineCountStr = widgetModel.info["max_lines"], let maxLineCount = Int(maxLineCountStr), maxLineCount >= 0 else {
+            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"max_lines\" not found or it has invalid value (expects positive integer greater than or equal to 0)")
+        }
+        self.maxLineCount = maxLineCount
+        
         self.shellCommandModel = .init()
         try super.init(widgetModel: widgetModel)
     }
@@ -59,6 +73,7 @@ final class ShellCommandViewController: WidgetViewController {
         // 一回実行しておく
         self.shellCommandModel.requestForExecution()
 
+        // TODO: 更新間隔をいじった段階でタイマを再構成するべき?
         // タイマを構成
         updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: { [weak self] _ in
             guard let `self` = self else {return}

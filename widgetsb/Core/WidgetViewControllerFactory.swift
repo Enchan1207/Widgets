@@ -24,11 +24,15 @@ final class WidgetViewControllerFactory {
             case .Media:
                 widgetViewController = try MediaWidgetViewController(widgetModel: widget)
             }
-        } catch WidgetViewController.InitializationError.InsufficientWidgetInfo {
+        } catch WidgetViewController.InitializationError.InsufficientWidgetInfo(let message) {
             // TODO: VCの初期化に失敗したときに表示するフォールバックVCを実装する
+            print("Failed to create WidgetViewController: \(message)")
+            
+            // TODO: むりやり生成してるせいでここで暴走する
             widgetViewController = try! .init(widgetModel: .init(visibility: .Hide, kind: .Media))
         } catch {
             // TODO: エラーのパターンマッチめんどくさい(VC生成コード同じの幾つも書きたくない)のでこれもありかなと
+            print("Failed to create WidgetViewController: \(error)")
             /*
                 switch error {
                 case WidgetViewController.InitializationError.InsufficientWidgetInfo:
