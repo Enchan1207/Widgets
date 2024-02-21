@@ -141,11 +141,9 @@ final class MediaWidgetViewController: NSViewController {
 extension MediaWidgetViewController: MediaModelDelegate {
     
     func media(_ model: MediaModel, didChangeURL to: URL?) {
-        // nilが与えられた場合はコンテンツを削除する
-        guard let mediaURL = to else {
-            removeMediaContent()
-            return
-        }
+        // 一旦コンテンツを削除し、再構成
+        removeMediaContent()
+        guard let mediaURL = to else {return}
         updateMediaContent(with: mediaURL)
     }
     
@@ -155,9 +153,9 @@ extension MediaWidgetViewController: MediaModelDelegate {
 extension MediaWidgetViewController: WidgetViewController {
     
     func widget(_ model: WidgetModel, didChange info: [String : String]) {
-        if let filePathStr = info["filepath"] {
-            updateMediaContent(with: .init(fileURLWithPath: filePathStr))
-        }
+        // ファイルパスを取得し、長さゼロならnilを、そうでなければURLに変換してモデルに渡す
+        let mediaPathStr = info["filepath"] ?? ""
+        mediaModel.mediaURL = mediaPathStr.count > 0 ? .init(fileURLWithPath: mediaPathStr) : nil
     }
     
 }

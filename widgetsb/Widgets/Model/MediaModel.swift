@@ -18,7 +18,8 @@ final class MediaModel {
     /// モデルが参照するメディアのURL
     var mediaURL: URL? {
         didSet{
-            // デリゲートに通知
+            // 内容が変わった場合のみデリゲートに通知
+            guard oldValue != mediaURL else {return}
             delegate?.media(self, didChangeURL: mediaURL)
         }
     }
