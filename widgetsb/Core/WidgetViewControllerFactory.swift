@@ -5,7 +5,7 @@
 //  Created by EnchantCode on 2024/02/20.
 //
 
-import Foundation
+import Cocoa
 
 /// ウィジェットModelからVCを生成するファクトリ
 final class WidgetViewControllerFactory {
@@ -13,8 +13,8 @@ final class WidgetViewControllerFactory {
     /// ウィジェット ModelからVCを生成する
     /// - Parameter widget: ウィジェットModelインスタンス
     /// - Returns: 生成結果
-    static func makeViewController(from widget: WidgetModel) -> WidgetViewController {
-        let widgetViewController: WidgetViewController
+    static func makeViewController(from widget: WidgetModel) -> NSViewController {
+        let widgetViewController: NSViewController
         do {
             switch widget.kind {
             case .ShellCommand:

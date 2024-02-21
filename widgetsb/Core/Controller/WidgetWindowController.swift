@@ -27,7 +27,7 @@ class WidgetWindowController: NSWindowController {
     }
     
     /// ウィジェットModel
-    private let widgetModel: WidgetModel
+    private weak var widgetModel: WidgetModel?
     
     // MARK: - Initializers
     
@@ -40,11 +40,12 @@ class WidgetWindowController: NSWindowController {
         super.init(window: WidgetWindow())
         
         // ファクトリを用いてWidgetModelからVCを生成し、contentVCに割り当て
-        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: widgetModel)
+        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: model)
+        self.window!.setFrame(model.frame, display: true)
         
         // ウィンドウのデリゲート、モデルのデリゲートを自身に設定
         self.window?.delegate = self
-        self.widgetModel.multicastDelegate.addDelegate(self)
+        self.widgetModel?.multicastDelegate.addDelegate(self)
     }
     
     required init?(coder: NSCoder) {
@@ -52,7 +53,7 @@ class WidgetWindowController: NSWindowController {
     }
     
     deinit {
-        self.widgetModel.multicastDelegate.removeDelegate(self)
+        self.widgetModel?.multicastDelegate.removeDelegate(self)
     }
     
     // MARK: - Overridden methods
@@ -60,6 +61,14 @@ class WidgetWindowController: NSWindowController {
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         isObserved = true
+    }
+    
+    // MARK: - Public methods
+    
+    /// ウィジェットウィンドウを表示
+    func showWindowIfNeeded(){
+        guard widgetModel?.visibility == .Show else {return}
+        self.showWindow(nil)
     }
     
     // MARK: - Private methods
@@ -82,17 +91,23 @@ extension WidgetWindowController: NSWindowDelegate {
 }
 
 extension WidgetWindowController: WidgetModelDelegate {
-    // TODO: まともに実装する (VCへの通知など…)
     
-    func widget(_ model: WidgetModel, visibilityDidChange to: WidgetModel.Visibility) {
-        print("WidgetWindow #\(hashValue): widget visibility was modified")
+    func widget(_ model: WidgetModel, didChange visibility: WidgetModel.Visibility) {
+        switch visibility {
+        case .Show:
+            self.showWindowIfNeeded()
+        case .Hide:
+            self.close()
+        }
     }
     
-    func widget(_ model: WidgetModel, frameDidChange to: NSRect) {
-        print("WidgetWindow #\(hashValue): widget frame was modified")
+    func widget(_ model: WidgetModel, didChange frame: NSRect) {
+        self.window?.setFrame(frame, display: true)
     }
     
-    func widget(_ model: WidgetModel, infoDidChange to: [String : String]) {
-        print("WidgetWindow #\(hashValue): widget info was modified")
+    func widget(_ model: WidgetModel, didChange info: [String : String]) {
+        // 現在のcontentVCに任せられるなら任せる
+        guard let widgetViewController = self.contentViewController as? WidgetViewController else {return}
+        widgetViewController.widget(model, didChange: info)
     }
 }

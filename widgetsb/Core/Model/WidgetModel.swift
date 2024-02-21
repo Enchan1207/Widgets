@@ -44,7 +44,9 @@ final class WidgetModel {
     /// ウィジェット表示状態
     var visibility: Visibility {
         didSet{
-            multicastDelegate.invoke{$0.widget(self, visibilityDidChange: self.visibility)}
+            // 値が変化した場合のみデリゲートに通知する
+            guard oldValue != visibility else {return}
+            multicastDelegate.invoke{$0.widget(self, didChange: self.visibility)}
         }
     }
     
@@ -54,14 +56,14 @@ final class WidgetModel {
     /// ウィジェットフレーム
     var frame: NSRect {
         didSet{
-            multicastDelegate.invoke{$0.widget(self, frameDidChange: self.frame)}
+            multicastDelegate.invoke{$0.widget(self, didChange: self.frame)}
         }
     }
     
     /// ウィジェット構成情報
     var info: [String: String] {
         didSet{
-            multicastDelegate.invoke{$0.widget(self, infoDidChange: self.info)}
+            multicastDelegate.invoke{$0.widget(self, didChange: self.info)}
         }
     }
     

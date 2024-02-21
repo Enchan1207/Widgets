@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activateApp()
         
         // ウィンドウを表示
-        widgetWCs.forEach({$0.showWindow(nil)})
+        widgetWCs.forEach({$0.showWindowIfNeeded()})
         
         // メディアウィジェットの内容を変更
         // TODO: もう少しまともに実装する

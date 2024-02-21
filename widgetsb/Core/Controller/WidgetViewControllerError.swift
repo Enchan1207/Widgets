@@ -7,14 +7,10 @@
 
 import Foundation
 
-extension WidgetViewController {
+/// ウィジェットVC初期化時のエラー
+enum WidgetVCInitializationError: Error {
     
-    /// ウィジェットVC初期化時のエラー
-    enum InitializationError: Error {
-        
-        /// 構成情報が不十分
-        case InsufficientWidgetInfo(message: String)
-        
-    }
-
+    /// 構成情報が不十分
+    case InsufficientWidgetInfo(message: String)
+    
 }

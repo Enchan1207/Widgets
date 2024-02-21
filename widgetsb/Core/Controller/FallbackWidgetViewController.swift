@@ -7,7 +7,7 @@
 
 import Cocoa
 
-final class FallbackWidgetViewController: WidgetViewController {
+final class FallbackWidgetViewController: NSViewController {
     
     // MARK: - GUI Components
     
@@ -44,11 +44,11 @@ final class FallbackWidgetViewController: WidgetViewController {
     
     private func configureErrorInfoViews(error: Error){
         // 既知のエラーなら警告、そうでなければエラーアイコンを表示する
-        setErrorIcon(isErrorExpected: error is WidgetViewController.InitializationError)
+        setErrorIcon(isErrorExpected: error is WidgetVCInitializationError)
         
         // メッセージを取り出して割り当てる
         switch error {
-        case WidgetViewController.InitializationError.InsufficientWidgetInfo(let message):
+        case WidgetVCInitializationError.InsufficientWidgetInfo(let message):
             errorLabel.stringValue = message
         default:
             errorLabel.stringValue = "Unexpected error: \(error.localizedDescription)"

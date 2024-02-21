@@ -8,7 +8,7 @@
 import Cocoa
 import AVKit
 
-final class MediaWidgetViewController: WidgetViewController {
+final class MediaWidgetViewController: NSViewController {
     
     // MARK: - GUI Components
     
@@ -33,13 +33,13 @@ final class MediaWidgetViewController: WidgetViewController {
     
     // MARK: - Initializers
     
-    override init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
+    init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
         // ウィジェット構成情報からファイルパスを取得
         guard let filePathStr = widgetModel.info["filepath"] else {
-            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"filepath\" not found")
+            throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"filepath\" not found")
         }
         self.mediaModel = .init(mediaURL: .init(fileURLWithPath: filePathStr))
-        try super.init(widgetModel: widgetModel)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -151,3 +151,11 @@ extension MediaWidgetViewController: MediaModelDelegate {
     
 }
 
+
+extension MediaWidgetViewController: WidgetViewController {
+    
+    func widget(_ model: WidgetModel, didChange info: [String : String]) {
+        
+    }
+    
+}

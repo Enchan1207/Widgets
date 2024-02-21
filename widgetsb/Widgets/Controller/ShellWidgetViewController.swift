@@ -7,7 +7,7 @@
 
 import Cocoa
 
-final class ShellWidgetViewController: WidgetViewController {
+final class ShellWidgetViewController: NSViewController {
     
     // MARK: - GUI Components
     
@@ -31,24 +31,24 @@ final class ShellWidgetViewController: WidgetViewController {
     
     // MARK: - Initializers
     
-    override init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
+    init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
         
         // TODO: 文字色やフォントも構成情報からいじれるように
         
         // ウィジェット構成情報から更新間隔を取得
         guard let updateIntervalStr = widgetModel.info["update_interval"], let updateInterval = Double(updateIntervalStr), updateInterval > 0 else {
-            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"update_interval\" not found or it has invalid value (expects positive number greater than 0)")
+            throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"update_interval\" not found or it has invalid value (expects positive number greater than 0)")
         }
         self.updateInterval = updateInterval
         
         // ウィジェット構成情報から最大行数を取得
         guard let maxLineCountStr = widgetModel.info["max_lines"], let maxLineCount = Int(maxLineCountStr), maxLineCount >= 0 else {
-            throw Self.InitializationError.InsufficientWidgetInfo(message: "required key \"max_lines\" not found or it has invalid value (expects positive integer greater than or equal to 0)")
+            throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"max_lines\" not found or it has invalid value (expects positive integer greater than or equal to 0)")
         }
         self.maxLineCount = maxLineCount
         
         self.shellCommandModel = .init()
-        try super.init(widgetModel: widgetModel)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -115,6 +115,14 @@ extension ShellWidgetViewController: ShellCommandModelDelegate {
     
     func shellCommand(_ model: ShellCommandModel, processDidFail error: Error) {
         processOutputView.string = "An error occured during process execution: \(error)"
+    }
+    
+}
+
+extension ShellWidgetViewController: WidgetViewController {
+    
+    func widget(_ model: WidgetModel, didChange info: [String : String]) {
+        
     }
     
 }
