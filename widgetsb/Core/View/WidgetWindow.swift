@@ -83,9 +83,10 @@ class WidgetWindow: NSWindow {
             self?.animator().alphaValue = 0.0
             blurView.animator().alphaValue = 0.0
         } completionHandler: { [weak self] in
-            // 完全に透明になったらウィンドウを奥に移動する
+            // 完全に透明になったらウィンドウを奥に移動して透明度を戻す
             self?.orderBack(nil)
             self?.level = .desktopIcon
+            self?.alphaValue = 1.0
         }
     }
     
