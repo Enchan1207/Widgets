@@ -96,8 +96,8 @@
 				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
 				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
 				9E39F5962B85868700C8CFF7 /* Model */,
-				9E39F5972B8586C100C8CFF7 /* Controller */,
 				9E39F5982B8586D400C8CFF7 /* View */,
+				9E39F5972B8586C100C8CFF7 /* Controller */,
 			);
 			path = Core;
 			sourceTree = "<group>";
