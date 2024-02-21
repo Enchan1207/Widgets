@@ -30,8 +30,8 @@
 		9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A22B8088180046B70A /* MediaModelDelegate.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
-		9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */; };
-		9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */; };
+		9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */; };
+		9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */; };
 		9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */; };
 		9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -62,8 +62,8 @@
 		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
 		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
 		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = ../Controller/MediaWidgetView.xib; sourceTree = "<group>"; };
-		9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandViewController.swift; sourceTree = "<group>"; };
-		9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellCommandView.xib; sourceTree = "<group>"; };
+		9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellWidgetViewController.swift; sourceTree = "<group>"; };
+		9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellWidgetView.xib; sourceTree = "<group>"; };
 		9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModel.swift; sourceTree = "<group>"; };
 		9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */,
-				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
+				9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 		9ED7DCA12B7DDC0B004957E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */,
+				9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */,
 				9ED6959C2B7ED7300046B70A /* GradientTextView.swift */,
 				9ED695A52B8091750046B70A /* MediaWidgetView.xib */,
 			);
@@ -262,7 +262,7 @@
 			files = (
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
-				9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */,
+				9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */,
 				9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */,
 				9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */,
 			);
@@ -291,7 +291,7 @@
 				9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */,
 				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
 				9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */,
-				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
+				9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */,
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
 				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
 				9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */,

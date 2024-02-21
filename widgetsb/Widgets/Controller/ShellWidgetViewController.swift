@@ -1,5 +1,5 @@
 //
-//  ShellCommandViewController.swift
+//  ShellWidgetViewController.swift
 //  widgetsb
 //
 //  Created by EnchantCode on 2024/02/15.
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-final class ShellCommandViewController: WidgetViewController {
+final class ShellWidgetViewController: WidgetViewController {
     
     // MARK: - GUI Components
     
@@ -15,7 +15,7 @@ final class ShellCommandViewController: WidgetViewController {
     
     // MARK: - Properties
     
-    override var nibName: NSNib.Name? { "ShellCommandView" }
+    override var nibName: NSNib.Name? { "ShellWidgetView" }
     
     /// 表示内容の更新間隔
     private let updateInterval: Double
@@ -89,7 +89,7 @@ final class ShellCommandViewController: WidgetViewController {
     }
 }
 
-extension ShellCommandViewController: ShellCommandModelDelegate {
+extension ShellWidgetViewController: ShellCommandModelDelegate {
     
     func shellCommand(_ model: ShellCommandModel, processDidTerminate output: Data?) {
         // 終了コードチェック

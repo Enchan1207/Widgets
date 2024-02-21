@@ -18,7 +18,7 @@ final class WidgetViewControllerFactory {
         do {
             switch widget.kind {
             case .ShellCommand:
-                widgetViewController = try ShellCommandViewController(widgetModel: widget)
+                widgetViewController = try ShellWidgetViewController(widgetModel: widget)
             case .Media:
                 widgetViewController = try MediaWidgetViewController(widgetModel: widget)
             }
