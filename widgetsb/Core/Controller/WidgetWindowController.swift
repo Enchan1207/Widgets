@@ -26,7 +26,7 @@ class WidgetWindowController: NSWindowController {
         }
     }
     
-    /// ウィジェットModel
+    /// ウィジェットモデル
     private weak var widgetModel: WidgetModel?
     
     // MARK: - Initializers

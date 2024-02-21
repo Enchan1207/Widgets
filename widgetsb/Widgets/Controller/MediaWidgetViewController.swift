@@ -19,7 +19,7 @@ final class MediaWidgetViewController: NSViewController {
     
     override var nibName: NSNib.Name? { "MediaWidgetView" }
     
-    /// メディアModel
+    /// メディアモデル
     private var mediaModel: MediaModel
     
     /// ビューが動画を保持する場合のプレイヤー

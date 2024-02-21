@@ -10,9 +10,9 @@ import Cocoa
 /// ウィジェットVC
 protocol WidgetViewController: AnyObject {
     
-    /// ウィジェットの構成情報が変化した
+    /// 構成情報が変化した
     /// - Parameters:
-    ///   - model: Widtetモデルのインスタンス
+    ///   - model: ウィジェットモデルのインスタンス
     ///   - info: 構成情報
     func widget(_ model: WidgetModel, didChange info: [String: String])
     

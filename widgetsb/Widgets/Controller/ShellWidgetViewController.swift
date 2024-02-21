@@ -26,7 +26,7 @@ final class ShellWidgetViewController: NSViewController {
     /// 更新を司るタイマ
     private var updateTimer: Timer?
     
-    /// シェルコマンドModel
+    /// シェルコマンドモデル
     private var shellCommandModel: ShellCommandModel
     
     // MARK: - Initializers

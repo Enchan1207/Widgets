@@ -7,11 +7,11 @@
 
 import Cocoa
 
-/// ウィジェットModelからVCを生成するファクトリ
+/// ウィジェットモデルからVCを生成するファクトリ
 final class WidgetViewControllerFactory {
     
-    /// ウィジェット ModelからVCを生成する
-    /// - Parameter widget: ウィジェットModelインスタンス
+    /// ウィジェットモデルからVCを生成する
+    /// - Parameter widget: ウィジェットモデルインスタンス
     /// - Returns: 生成結果
     static func makeViewController(from widget: WidgetModel) -> NSViewController {
         let widgetViewController: NSViewController

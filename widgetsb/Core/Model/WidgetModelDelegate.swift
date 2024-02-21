@@ -7,24 +7,24 @@
 
 import Foundation
 
-/// Widgetモデルのデリゲート
+/// ウィジェットモデルのデリゲート
 protocol WidgetModelDelegate {
     
-    /// ウィジェット表示状態が変化した
+    /// 表示状態が変化した
     /// - Parameters:
-    ///   - model: Widgetモデルのインスタンス
+    ///   - model: ウィジェットモデル
     ///   - visibility: 表示状態
     func widget(_ model: WidgetModel, didChange visibility: WidgetModel.Visibility)
     
-    /// ウィジェットフレームが変化した
+    /// フレームが変化した
     /// - Parameters:
-    ///   - model: Widgetモデルのインスタンス
+    ///   - model: ウィジェットモデル
     ///   - frame: フレーム
     func widget(_ model: WidgetModel, didChange frame: NSRect)
     
-    /// ウィジェット構成情報が変化した
+    /// 構成情報が変化した
     /// - Parameters:
-    ///   - model: Widgetモデルのインスタンス
+    ///   - model: ウィジェットモデル
     ///   - info: 構成情報
     func widget(_ model: WidgetModel, didChange info: [String: String])
     

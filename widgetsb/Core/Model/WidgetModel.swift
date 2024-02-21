@@ -69,7 +69,7 @@ final class WidgetModel {
     
     // MARK: - Initialiers
     
-    /// WidgetModelオブジェクトを初期化
+    /// ウィジェットモデルを初期化
     /// - Parameters:
     ///   - visibility: ウィジェット表示状態
     ///   - kind: ウィジェットの種類
