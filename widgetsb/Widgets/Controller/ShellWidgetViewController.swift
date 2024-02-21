@@ -11,17 +11,21 @@ final class ShellWidgetViewController: NSViewController {
     
     // MARK: - GUI Components
     
-    @IBOutlet weak var processOutputView: GradientTextView!
+    @IBOutlet weak var processOutputView: GradientTextView! {
+        didSet {
+            processOutputView.autoresizingMask = [.width, .height]
+        }
+    }
     
     // MARK: - Properties
     
     override var nibName: NSNib.Name? { "ShellWidgetView" }
     
-    /// 表示内容の更新間隔
-    private let updateInterval: Double
+    /// コマンド実行間隔
+    private var updateInterval: Double = 0
     
     /// 最大行数
-    private let maxLineCount: Int
+    private var maxLineCount: Int = 0
     
     /// 更新を司るタイマ
     private var updateTimer: Timer?
@@ -35,14 +39,14 @@ final class ShellWidgetViewController: NSViewController {
         
         // TODO: 文字色やフォントも構成情報からいじれるように
         
-        // ウィジェット構成情報から更新間隔を取得
-        guard let updateIntervalStr = widgetModel.info["update_interval"], let updateInterval = Double(updateIntervalStr), updateInterval > 0 else {
+        // 更新間隔を設定
+        guard let updateInterval = Double(widgetModel.info["update_interval"] ?? ""), updateInterval > 0 else {
             throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"update_interval\" not found or it has invalid value (expects positive number greater than 0)")
         }
         self.updateInterval = updateInterval
         
-        // ウィジェット構成情報から最大行数を取得
-        guard let maxLineCountStr = widgetModel.info["max_lines"], let maxLineCount = Int(maxLineCountStr), maxLineCount >= 0 else {
+        // 最大行数を設定
+        guard let maxLineCount = Int(widgetModel.info["max_lines"] ?? ""), maxLineCount >= 0 else {
             throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"max_lines\" not found or it has invalid value (expects positive integer greater than or equal to 0)")
         }
         self.maxLineCount = maxLineCount
@@ -62,23 +66,11 @@ final class ShellWidgetViewController: NSViewController {
         processOutputView.textColor = .green.withAlphaComponent(0.5)
         processOutputView.startPoint = .init(x: 0.5, y: 0.3)
         processOutputView.font = .monospacedSystemFont(ofSize: 14.0, weight: .regular)
-        processOutputView.autoresizingMask = [.width, .height]
-        self.view.addSubview(processOutputView)
         self.shellCommandModel.delegate = self
-    }
-    
-    override func viewWillAppear() {
-        super.viewWillAppear()
         
-        // 一回実行しておく
+        // 一度実行要求を出してから更新タイマを構成
         self.shellCommandModel.requestForExecution()
-
-        // TODO: 更新間隔をいじった段階でタイマを再構成するべき?
-        // タイマを構成
-        updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: { [weak self] _ in
-            guard let `self` = self else {return}
-            self.shellCommandModel.requestForExecution()
-        })
+        configureUpdateTimer()
     }
     
     override func viewDidDisappear() {
@@ -87,6 +79,24 @@ final class ShellWidgetViewController: NSViewController {
         // タイマを無効化
         updateTimer?.invalidate()
     }
+    
+    // MARK: - Priate methods
+    
+    /// コマンド更新タイマを構成する
+    private func configureUpdateTimer(){
+        // 一旦今のタイマを止める
+        updateTimer?.invalidate()
+        
+        // 更新間隔ゼロならタイマを動かさない
+        guard updateInterval > 0 else {return}
+        
+        // 構成
+        updateTimer = .scheduledTimer(withTimeInterval: updateInterval, repeats: true, block: { [weak self] _ in
+            guard let `self` = self else {return}
+            self.shellCommandModel.requestForExecution()
+        })
+    }
+    
 }
 
 extension ShellWidgetViewController: ShellCommandModelDelegate {
@@ -122,7 +132,16 @@ extension ShellWidgetViewController: ShellCommandModelDelegate {
 extension ShellWidgetViewController: WidgetViewController {
     
     func widget(_ model: WidgetModel, didChange info: [String : String]) {
+        // 情報に従ってメンバを更新
+        if let maxLineCount = Int(info["max_lines"] ?? ""), maxLineCount >= 0 {
+            self.maxLineCount = maxLineCount
+        }
+        if let updateInterval = Double(info["update_interval"] ?? ""), updateInterval > 0 {
+            self.updateInterval = updateInterval
+        }
         
+        // コマンド実行タイマを再構成
+        configureUpdateTimer()
     }
     
 }

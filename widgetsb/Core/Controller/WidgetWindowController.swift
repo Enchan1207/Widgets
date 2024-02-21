@@ -93,21 +93,27 @@ extension WidgetWindowController: NSWindowDelegate {
 extension WidgetWindowController: WidgetModelDelegate {
     
     func widget(_ model: WidgetModel, didChange visibility: WidgetModel.Visibility) {
-        switch visibility {
-        case .Show:
-            self.showWindowIfNeeded()
-        case .Hide:
-            self.close()
+        DispatchQueue.main.async{[weak self] in
+            switch visibility {
+            case .Show:
+                self?.showWindowIfNeeded()
+            case .Hide:
+                self?.close()
+            }
         }
     }
     
     func widget(_ model: WidgetModel, didChange frame: NSRect) {
-        self.window?.setFrame(frame, display: true)
+        DispatchQueue.main.async{[weak self] in
+            self?.window?.setFrame(frame, display: true)
+        }
     }
     
     func widget(_ model: WidgetModel, didChange info: [String : String]) {
         // 現在のcontentVCに任せられるなら任せる
-        guard let widgetViewController = self.contentViewController as? WidgetViewController else {return}
-        widgetViewController.widget(model, didChange: info)
+        DispatchQueue.main.async{[weak self] in
+            guard let widgetViewController = self?.contentViewController as? WidgetViewController else {return}
+            widgetViewController.widget(model, didChange: info)
+        }
     }
 }

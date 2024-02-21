@@ -155,7 +155,9 @@ extension MediaWidgetViewController: MediaModelDelegate {
 extension MediaWidgetViewController: WidgetViewController {
     
     func widget(_ model: WidgetModel, didChange info: [String : String]) {
-        
+        if let filePathStr = info["filepath"] {
+            updateMediaContent(with: .init(fileURLWithPath: filePathStr))
+        }
     }
     
 }

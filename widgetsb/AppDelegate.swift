@@ -52,8 +52,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // ウィンドウを表示
         widgetWCs.forEach({$0.showWindowIfNeeded()})
         
+        // TODO: 以下はただのテストコード 実装終了後に消す
+        
         // メディアウィジェットの内容を変更
-        // TODO: もう少しまともに実装する
         let openPanel = NSOpenPanel()
         openPanel.allowsMultipleSelection = false
         openPanel.canChooseFiles = true
@@ -62,6 +63,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if response == .OK, let url = openPanel.url {
             widgetModels[1].info["filepath"] = url.path
         }
+        
+        // コマンドウィジェットの内容を変更
+        DispatchQueue.global().asyncAfter(deadline: .now().advanced(by: .seconds(2)), execute: {[weak self] in
+            self?.widgetModels[0].info["max_lines"] = "2"
+        })
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
