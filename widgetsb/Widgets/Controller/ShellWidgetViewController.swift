@@ -59,6 +59,10 @@ final class ShellWidgetViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        updateTimer?.invalidate()
+    }
+    
     // MARK: - View lifecycle
     
     override func viewDidLoad() {
@@ -71,13 +75,6 @@ final class ShellWidgetViewController: NSViewController {
         // 一度実行要求を出してから更新タイマを構成
         self.shellCommandModel.requestForExecution()
         configureUpdateTimer()
-    }
-    
-    override func viewDidDisappear() {
-        super.viewDidDisappear()
-        
-        // タイマを無効化
-        updateTimer?.invalidate()
     }
     
     // MARK: - Priate methods
@@ -140,7 +137,8 @@ extension ShellWidgetViewController: WidgetViewController {
             self.updateInterval = updateInterval
         }
         
-        // コマンド実行タイマを再構成
+        // 一度実行し、コマンド実行タイマを再構成
+        self.shellCommandModel.requestForExecution()
         configureUpdateTimer()
     }
     
