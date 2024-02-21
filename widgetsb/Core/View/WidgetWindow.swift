@@ -15,10 +15,10 @@ class WidgetWindow: NSWindow {
     
     /// ウィンドウの状態を設定・取得
     var widgetMode: WidgetMode = .Edittable {
-        didSet{
-            DispatchQueue.main.async {[weak self] in
+        didSet {
+            Task {@MainActor [weak self] in
                 guard let `self` = self else {return}
-                widgetMode == .Edittable ? activate() : deactivate()
+                await self.widgetMode == .Edittable ? self.activate() : self.deactivate()
             }
         }
     }
@@ -45,7 +45,13 @@ class WidgetWindow: NSWindow {
     // MARK: - Private methods
     
     /// ウィジェットを編集・移動可能な状態にする
-    private func activate(){
+    private func activate() async {
+        // 一旦透明にする
+        await NSAnimationContext.runAnimationGroup { [weak self] context in
+            context.duration = 0.3
+            self?.animator().alphaValue = 0.0
+        }
+        
         // ウィンドウを手前に移動
         self.level = .normal
         self.orderFront(nil)
@@ -54,20 +60,20 @@ class WidgetWindow: NSWindow {
         self.styleMask.insert(.titled)
         
         // 徐々に透明度を下げていく
-        NSAnimationContext.runAnimationGroup { [weak self] context in
+        await NSAnimationContext.runAnimationGroup { [weak self] context in
             guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
-            context.duration = 0.5
-            self?.animator().alphaValue = 1.0
+            context.duration = 0.3
             blurView.animator().alphaValue = 1.0
-        } completionHandler: { [weak self] in
-            // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
-            self?.ignoresMouseEvents = false
-            self?.becomeMain()
+            self?.animator().alphaValue = 1.0
         }
+        
+        // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
+        self.ignoresMouseEvents = false
+        self.becomeMain()
     }
     
     /// ウィジェットを背景に移動する
-    private func deactivate(){
+    private func deactivate() async {
         // キーウィンドウ・メインウィンドウから外れる
         self.resignKey()
         self.resignMain()
@@ -76,16 +82,22 @@ class WidgetWindow: NSWindow {
         self.styleMask.remove(.titled)
         self.ignoresMouseEvents = true
         
-        // 徐々に透明度を上げていく
-        NSAnimationContext.runAnimationGroup { [weak self] context in
+        // ウィンドウごと透明にする
+        await NSAnimationContext.runAnimationGroup { [weak self] context in
             guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
-            context.duration = 0.5
-            self?.animator().alphaValue = 0.0
+            context.duration = 0.3
             blurView.animator().alphaValue = 0.0
-        } completionHandler: { [weak self] in
-            // 完全に透明になったらウィンドウを奥に移動する
-            self?.orderBack(nil)
-            self?.level = .desktopIcon
+            self?.animator().alphaValue = 0.0
+        }
+        
+        // 完全に透明になったらウィンドウを奥に移動
+        self.orderBack(nil)
+        self.level = .desktopIcon
+        
+        // 透明度を戻す
+        await NSAnimationContext.runAnimationGroup { [weak self] context in
+            context.duration = 0.3
+            self?.animator().alphaValue = 1.0
         }
     }
     
