@@ -8,7 +8,7 @@
 import Foundation
 
 /// シェルコマンドの実行を担うモデル
-class ShellCommandModel: NSObject {
+final class ShellCommandModel {
     
     // MARK: - Public properties
     

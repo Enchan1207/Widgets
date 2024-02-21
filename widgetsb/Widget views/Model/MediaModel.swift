@@ -8,7 +8,7 @@
 import Foundation
 
 /// メディア(画像や動画)の管理を担うモデル
-class MediaModel: NSObject {
+final class MediaModel {
     
     /// デリゲート
     public weak var delegate: MediaModelDelegate?
