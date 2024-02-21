@@ -16,12 +16,6 @@ protocol WidgetModelDelegate {
     ///   - to: 新しい表示状態
     func widget(_ model: WidgetModel, visibilityDidChange to: WidgetModel.Visibility)
     
-    /// ウィジェット種別が変化した
-    /// - Parameters:
-    ///   - model: Widgetモデルのインスタンス
-    ///   - to: 新しい種別
-    func widget(_ model: WidgetModel, kindDidChange to: WidgetModel.Kind)
-    
     /// ウィジェットフレームが変化した
     /// - Parameters:
     ///   - model: Widgetモデルのインスタンス

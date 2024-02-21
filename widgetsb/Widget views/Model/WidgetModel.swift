@@ -49,11 +49,7 @@ final class WidgetModel {
     }
     
     /// ウィジェット種別
-    var kind: Kind {
-        didSet{
-            multicastDelegate.invoke{$0.widget(self, kindDidChange: self.kind)}
-        }
-    }
+    let kind: Kind
     
     /// ウィジェットフレーム
     var frame: NSRect {

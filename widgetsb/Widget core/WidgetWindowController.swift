@@ -88,12 +88,6 @@ extension WidgetWindowController: WidgetModelDelegate {
         print("WidgetWindow #\(hashValue): widget visibility was modified")
     }
     
-    func widget(_ model: WidgetModel, kindDidChange to: WidgetModel.Kind) {
-        // TODO: こんな感じになるだろうか?
-//        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: model)
-        print("WidgetWindow #\(hashValue): widget kind was modified")
-    }
-    
     func widget(_ model: WidgetModel, frameDidChange to: NSRect) {
         print("WidgetWindow #\(hashValue): widget frame was modified")
     }
