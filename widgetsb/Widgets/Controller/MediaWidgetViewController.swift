@@ -102,7 +102,7 @@ final class MediaWidgetViewController: NSViewController {
             return
         }
         
-        mediaView = NSImageView(image: image)
+        mediaView = DraggableImageView(image: image)
         mediaView?.autoresizingMask = [.width, .height]
         mediaView?.frame = self.view.bounds
     }
