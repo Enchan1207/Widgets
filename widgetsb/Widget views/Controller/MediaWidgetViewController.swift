@@ -33,10 +33,10 @@ final class MediaWidgetViewController: WidgetViewController {
     
     // MARK: - Initializers
     
-    override init?(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) {
+    override init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
         // TODO: ここでwidgetModelの値をもとにshellCommandModelやupdateInterval、processOutputViewを設定
         self.mediaModel = .init()
-        super.init(widgetModel: widgetModel)
+        try super.init(widgetModel: widgetModel)
     }
     
     required init?(coder: NSCoder) {

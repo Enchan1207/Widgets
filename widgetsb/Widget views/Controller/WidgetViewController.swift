@@ -21,7 +21,7 @@ class WidgetViewController: NSViewController {
     /// - Parameter widgetModel: ウィジェットModelインスタンス
     /// - Parameter nibName: nibファイル名
     /// - Parameter bundle: nibが属するBundle
-    init?(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) {
+    init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
         self.widgetModel = widgetModel
         super.init(nibName: nibName, bundle: bundle)
     }
