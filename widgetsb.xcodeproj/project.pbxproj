@@ -56,8 +56,8 @@
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A02B8084FE0046B70A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
-		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaWidgetViewController.swift; path = "widgetsb/Widget views/Controller/MediaWidgetViewController.swift"; sourceTree = SOURCE_ROOT; };
-		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = "widgetsb/Widget views/Controller/MediaWidgetView.xib"; sourceTree = SOURCE_ROOT; };
+		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
+		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = ../Controller/MediaWidgetView.xib; sourceTree = "<group>"; };
 		9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandViewController.swift; sourceTree = "<group>"; };
 		9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellCommandView.xib; sourceTree = "<group>"; };
 		9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModel.swift; sourceTree = "<group>"; };
@@ -85,16 +85,45 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9E2A0B722B7C7D3D0078AA06 /* Widget core */ = {
+		9E2A0B722B7C7D3D0078AA06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
+				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
+				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
+				9E39F5962B85868700C8CFF7 /* Model */,
+				9E39F5972B8586C100C8CFF7 /* Controller */,
+				9E39F5982B8586D400C8CFF7 /* View */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9E39F5962B85868700C8CFF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */,
+				9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E39F5972B8586C100C8CFF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */,
+				9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */,
 				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E39F5982B8586D400C8CFF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
-				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
 			);
-			path = "Widget core";
+			path = View;
 			sourceTree = "<group>";
 		};
 		9ECAAD7F2B7AFBDD0043D51C = {
@@ -119,23 +148,22 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
-				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
-				9ED7DC992B7DD05F004957E0 /* Widget views */,
-				9E2A0B722B7C7D3D0078AA06 /* Widget core */,
+				9ED7DC992B7DD05F004957E0 /* Widgets */,
+				9E2A0B722B7C7D3D0078AA06 /* Core */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
 			path = widgetsb;
 			sourceTree = "<group>";
 		};
-		9ED7DC992B7DD05F004957E0 /* Widget views */ = {
+		9ED7DC992B7DD05F004957E0 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7DCA02B7DDBF4004957E0 /* Model */,
 				9ED7DCA12B7DDC0B004957E0 /* View */,
 				9ED7DC9F2B7DDBEF004957E0 /* Controller */,
 			);
-			path = "Widget views";
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
@@ -143,8 +171,6 @@
 			children = (
 				9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */,
 				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
-				9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */,
-				9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,8 +178,6 @@
 		9ED7DCA02B7DDBF4004957E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */,
-				9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */,
 				9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */,
 				9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */,
 				9ED695A02B8084FE0046B70A /* MediaModel.swift */,
