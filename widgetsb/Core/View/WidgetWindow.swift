@@ -57,6 +57,7 @@ class WidgetWindow: NSWindow {
         NSAnimationContext.runAnimationGroup { [weak self] context in
             guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
             context.duration = 0.5
+            self?.animator().alphaValue = 1.0
             blurView.animator().alphaValue = 1.0
         } completionHandler: { [weak self] in
             // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
@@ -79,6 +80,7 @@ class WidgetWindow: NSWindow {
         NSAnimationContext.runAnimationGroup { [weak self] context in
             guard let blurView = (self?.contentView as? WidgetBackgroundView)?.blurView else {return}
             context.duration = 0.5
+            self?.animator().alphaValue = 0.0
             blurView.animator().alphaValue = 0.0
         } completionHandler: { [weak self] in
             // 完全に透明になったらウィンドウを奥に移動する
