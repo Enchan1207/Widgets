@@ -8,7 +8,9 @@
 import Foundation
 
 /// メディア(画像や動画)の管理を担うモデル
-class MediaModel: NSObject {
+final class MediaModel {
+
+    // MARK: - Properties
     
     /// デリゲート
     public weak var delegate: MediaModelDelegate?
@@ -19,6 +21,12 @@ class MediaModel: NSObject {
             // デリゲートに通知
             delegate?.media(self, didChangeURL: mediaURL)
         }
+    }
+    
+    // MARK: - Initializers
+    
+    init(mediaURL: URL? = nil) {
+        self.mediaURL = mediaURL
     }
     
 }

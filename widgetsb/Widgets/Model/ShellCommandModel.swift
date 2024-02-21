@@ -8,7 +8,7 @@
 import Foundation
 
 /// シェルコマンドの実行を担うモデル
-class ShellCommandModel: NSObject {
+final class ShellCommandModel {
     
     // MARK: - Public properties
     
@@ -22,6 +22,15 @@ class ShellCommandModel: NSObject {
     
     /// プロセスの標準出力
     private var processOutputPipe = Pipe()
+    
+    // MARK: - Initializers
+    
+    // TODO: 実行するコマンドをイニシャライザでも挿入できるようにする?
+    /*
+     init(command: Command){
+     ...
+     }
+     */
     
     // MARK: - Public methods
     

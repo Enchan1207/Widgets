@@ -8,7 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */; };
-		9E39F5872B82F3AE00C8CFF7 /* UTTypeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */; };
+		9E39F5872B82F3AE00C8CFF7 /* UTTypeExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5862B82F3AE00C8CFF7 /* UTTypeExt.swift */; };
+		9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */; };
+		9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */; };
+		9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */; };
+		9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */; };
+		9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */; };
+		9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */; };
+		9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */; };
+		9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -22,15 +30,23 @@
 		9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A22B8088180046B70A /* MediaModelDelegate.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
-		9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */; };
-		9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */; };
+		9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */; };
+		9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */; };
 		9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */; };
 		9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBackgroundView.swift; sourceTree = "<group>"; };
-		9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeExtension.swift; sourceTree = "<group>"; };
+		9E39F5862B82F3AE00C8CFF7 /* UTTypeExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTTypeExt.swift; sourceTree = "<group>"; };
+		9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModel.swift; sourceTree = "<group>"; };
+		9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuticastDelegate.swift; sourceTree = "<group>"; };
+		9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelDelegate.swift; sourceTree = "<group>"; };
+		9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
+		9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
+		9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerError.swift; sourceTree = "<group>"; };
+		9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackWidgetViewController.swift; sourceTree = "<group>"; };
+		9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FallbackWidgetView.xib; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,10 +60,10 @@
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A02B8084FE0046B70A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
-		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaWidgetViewController.swift; path = "widgetsb/Widget views/Controller/MediaWidgetViewController.swift"; sourceTree = SOURCE_ROOT; };
-		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = "widgetsb/Widget views/Controller/MediaWidgetView.xib"; sourceTree = SOURCE_ROOT; };
-		9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandViewController.swift; sourceTree = "<group>"; };
-		9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellCommandView.xib; sourceTree = "<group>"; };
+		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
+		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MediaWidgetView.xib; path = ../Controller/MediaWidgetView.xib; sourceTree = "<group>"; };
+		9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellWidgetViewController.swift; sourceTree = "<group>"; };
+		9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellWidgetView.xib; sourceTree = "<group>"; };
 		9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModel.swift; sourceTree = "<group>"; };
 		9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellCommandModelDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,20 +84,52 @@
 			children = (
 				9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */,
 				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
-				9E39F5862B82F3AE00C8CFF7 /* UTTypeExtension.swift */,
+				9E39F5862B82F3AE00C8CFF7 /* UTTypeExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9E2A0B722B7C7D3D0078AA06 /* Widget core */ = {
+		9E2A0B722B7C7D3D0078AA06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
+				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
+				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
+				9E39F5962B85868700C8CFF7 /* Model */,
+				9E39F5982B8586D400C8CFF7 /* View */,
+				9E39F5972B8586C100C8CFF7 /* Controller */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9E39F5962B85868700C8CFF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E39F5882B843E2600C8CFF7 /* WidgetModel.swift */,
+				9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E39F5972B8586C100C8CFF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */,
+				9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */,
+				9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */,
 				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E39F5982B8586D400C8CFF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */,
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
 			);
-			path = "Widget core";
+			path = View;
 			sourceTree = "<group>";
 		};
 		9ECAAD7F2B7AFBDD0043D51C = {
@@ -106,29 +154,29 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
-				9ED7DC992B7DD05F004957E0 /* Widget views */,
-				9E2A0B722B7C7D3D0078AA06 /* Widget core */,
+				9ED7DC992B7DD05F004957E0 /* Widgets */,
+				9E2A0B722B7C7D3D0078AA06 /* Core */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
 				9ECAAD922B7AFBE10043D51C /* widgetsb.entitlements */,
 			);
 			path = widgetsb;
 			sourceTree = "<group>";
 		};
-		9ED7DC992B7DD05F004957E0 /* Widget views */ = {
+		9ED7DC992B7DD05F004957E0 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
 				9ED7DCA02B7DDBF4004957E0 /* Model */,
 				9ED7DCA12B7DDC0B004957E0 /* View */,
 				9ED7DC9F2B7DDBEF004957E0 /* Controller */,
 			);
-			path = "Widget views";
+			path = Widgets;
 			sourceTree = "<group>";
 		};
 		9ED7DC9F2B7DDBEF004957E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */,
-				9ED7DC9A2B7DD079004957E0 /* ShellCommandViewController.swift */,
+				9ED7DC9A2B7DD079004957E0 /* ShellWidgetViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -147,7 +195,7 @@
 		9ED7DCA12B7DDC0B004957E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ED7DC9B2B7DD079004957E0 /* ShellCommandView.xib */,
+				9ED7DC9B2B7DD079004957E0 /* ShellWidgetView.xib */,
 				9ED6959C2B7ED7300046B70A /* GradientTextView.swift */,
 				9ED695A52B8091750046B70A /* MediaWidgetView.xib */,
 			);
@@ -214,7 +262,8 @@
 			files = (
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
-				9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */,
+				9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */,
+				9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */,
 				9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,19 +275,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */,
+				9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */,
 				9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */,
+				9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ShellCommandModel.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
-				9E39F5872B82F3AE00C8CFF7 /* UTTypeExtension.swift in Sources */,
+				9E39F5872B82F3AE00C8CFF7 /* UTTypeExt.swift in Sources */,
 				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
 				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
+				9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */,
 				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
 				9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */,
-				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
+				9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */,
+				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
+				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
+				9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
 			);
