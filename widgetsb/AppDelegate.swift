@@ -13,7 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// ウィジェットモデルの配列
     // TODO: 追加/削除UIをちゃんと作る
     private let widgetModels: [WidgetModel] = [
-        .init(visibility: .Show, kind: .ShellCommand, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["update_interval": "5"]),
+        .init(visibility: .Show, kind: .ShellCommand, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["update_interval": "5", "max_lines": "30"]),
         .init(visibility: .Show, kind: .Media, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["filepath": "/Users/enchantcode/Pictures/icon.jpg"])
     ]
     

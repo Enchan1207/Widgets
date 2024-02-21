@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="FallbackWidgetViewController" customModule="widgetsb" customModuleProvider="target">
+            <connections>
+                <outlet property="errorIcon" destination="u2f-f5-ivb" id="9Gu-16-yxZ"/>
+                <outlet property="errorLabel" destination="cl4-BA-qzB" id="aUS-j3-pBM"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY" customClass="WidgetBackgroundView" customModule="widgetsb" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3np-ta-FRx">
+                    <rect key="frame" x="210" y="126" width="61" height="20"/>
+                    <subviews>
+                        <imageView horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-f5-ivb">
+                            <rect key="frame" x="0.0" y="-2" width="20" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="3vX-Mi-bjI"/>
+                                <constraint firstAttribute="width" secondItem="u2f-f5-ivb" secondAttribute="height" multiplier="1:1" id="5sg-9A-n92"/>
+                            </constraints>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="J9A-ma-xTc">
+                                <imageReference key="image" image="exclamationmark.triangle.fill" catalog="system" symbolScale="default" renderingMode="original"/>
+                            </imageCell>
+                        </imageView>
+                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="cl4-BA-qzB">
+                            <rect key="frame" x="26" y="2" width="37" height="16"/>
+                            <textFieldCell key="cell" lineBreakMode="charWrapping" title="Label" id="ugk-KZ-Xla">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="cl4-BA-qzB" firstAttribute="centerY" secondItem="3np-ta-FRx" secondAttribute="centerY" id="bJ4-WJ-ELM"/>
+                        <constraint firstItem="u2f-f5-ivb" firstAttribute="centerY" secondItem="3np-ta-FRx" secondAttribute="centerY" id="eAb-0m-Uk2"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="3np-ta-FRx" firstAttribute="width" relation="lessThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="width" multiplier="0.9" id="1ky-oV-rbj"/>
+                <constraint firstItem="3np-ta-FRx" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="ce7-d0-9fO"/>
+                <constraint firstItem="3np-ta-FRx" firstAttribute="height" relation="lessThanOrEqual" secondItem="Hz6-mo-xeY" secondAttribute="height" multiplier="0.9" id="jmg-mK-6Bo"/>
+                <constraint firstItem="3np-ta-FRx" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="puS-VL-IaV"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="-36"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="exclamationmark.triangle.fill" catalog="system" width="16" height="15"/>
+    </resources>
+</document>

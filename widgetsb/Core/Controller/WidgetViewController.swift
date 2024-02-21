@@ -26,6 +26,15 @@ class WidgetViewController: NSViewController {
         super.init(nibName: nibName, bundle: bundle)
     }
     
+    /// ウィジェットモデルを渡さずに初期化
+    /// - Parameters:
+    ///   - nibName: nibファイル名
+    ///   - bundle: nibが属するBundle
+    /// - Note: このイニシャライザはフォールバックVCを生成するためのものです。通常は使用する必要はありません。
+    override init(nibName: NSNib.Name?, bundle: Bundle?) {
+        super.init(nibName: nibName, bundle: bundle)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

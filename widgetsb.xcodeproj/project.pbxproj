@@ -15,6 +15,8 @@
 		9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */; };
 		9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */; };
 		9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */; };
+		9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */; };
+		9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
 		9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */; };
@@ -43,6 +45,8 @@
 		9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
 		9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
 		9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerError.swift; sourceTree = "<group>"; };
+		9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackWidgetViewController.swift; sourceTree = "<group>"; };
+		9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FallbackWidgetView.xib; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */,
 				9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */,
+				9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */,
 				9ECAAD9C2B7B0B680043D51C /* WidgetWindowController.swift */,
 			);
 			path = Controller;
@@ -120,6 +125,7 @@
 		9E39F5982B8586D400C8CFF7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */,
 				9ECAAD982B7B02920043D51C /* WidgetWindow.swift */,
 				9E2A0B792B7C8A890078AA06 /* WidgetBackgroundView.swift */,
 			);
@@ -257,6 +263,7 @@
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
 				9ED7DC9D2B7DD079004957E0 /* ShellCommandView.xib in Resources */,
+				9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */,
 				9ECAAD912B7AFBE10043D51C /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +293,7 @@
 				9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ShellCommandViewController.swift in Sources */,
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
+				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
 				9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
