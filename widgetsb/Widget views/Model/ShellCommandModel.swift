@@ -23,6 +23,15 @@ final class ShellCommandModel {
     /// プロセスの標準出力
     private var processOutputPipe = Pipe()
     
+    // MARK: - Initializers
+    
+    // TODO: 実行するコマンドをイニシャライザでも挿入できるようにする?
+    /*
+     init(command: Command){
+     ...
+     }
+     */
+    
     // MARK: - Public methods
     
     /// モデルが保持するプロセスの実行を要求する
