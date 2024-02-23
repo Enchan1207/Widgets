@@ -55,20 +55,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Public methods
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // 構成ファイルからのリストアを試みる 構成ファイルがないか、あってもデコードできないか、含まれているウィジェットが一つもなければデフォルト構成を採用する
+        // デフォルト構成をあらかじめ用意しておく
         let defaultWidgetCollection = WidgetCollection(widgets: [
             // TODO: デフォルトウィジェットを用意する
         ])
-        if let widgetConfData = try? Data(contentsOf: widgetConfigURL),
-           let decodedWidgetCollection = try? JSONDecoder().decode(WidgetCollection.self, from: widgetConfData),
-           decodedWidgetCollection.widgets.count > 0 {
-            widgetCollection = decodedWidgetCollection
-            print("Widget configuration restored. Now \(widgetCollection!.widgets.count) widgets loaded.")
-        }else{
-            widgetCollection = defaultWidgetCollection
-            print("Widget configuration not found or no widget stored. use default configuration.")
-        }
+        widgetCollection = defaultWidgetCollection
         
+        // 構成ファイルからのリストアを試みる 構成ファイルがないか、あってもデコードできないか、含まれているウィジェットが一つもなければデフォルト構成を採用する
+        do {
+            let widgetConfData = try Data(contentsOf: widgetConfigURL)
+            let decodedWidgetCollection = try JSONDecoder().decode(WidgetCollection.self, from: widgetConfData)
+            if decodedWidgetCollection.widgets.count > 0 {
+                widgetCollection = decodedWidgetCollection
+                print("Widget configuration loaded. Now \(widgetCollection!.widgets.count) widgets loaded.")
+            }else{
+                print("Widget configuration loaded, but no widget found. Fallback to default one.")
+            }
+        } catch {
+            print("An error occurred while restoring the configuration: \(error.localizedDescription) Fallback to default one.")
+        }
+
         // メニューバーボタンを構成
         configureMenuBarButton()
         
@@ -89,7 +95,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let encodedWidgetCollection = try JSONEncoder().encode(widgetCollection)
             try FileManager.default.createDirectory(at: widgetConfigURL.deletingLastPathComponent(), withIntermediateDirectories: true)
             try encodedWidgetCollection.write(to: widgetConfigURL)
-            print("Widget configuration saved at \(widgetConfigURL)")
+            let widgetConfigPath: String
+            if #available(macOS 13.0, *) {
+                widgetConfigPath = widgetConfigURL.path()
+            } else {
+                widgetConfigPath = widgetConfigURL.path
+            }
+            print("Widget configuration saved at \"\(widgetConfigPath)\".")
         } catch {
             print("Failed to save widget collection data: \(error)")
         }
