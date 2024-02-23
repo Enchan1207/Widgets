@@ -35,7 +35,6 @@ extension WidgetWindowState: Codable {
     
     convenience init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        
         let visibility = try values.decode(WidgetVisibility.self, forKey: .visibility)
         let frame = try values.decode(NSRect.self, forKey: .frame)
         self.init(visibility: visibility, frame: frame)

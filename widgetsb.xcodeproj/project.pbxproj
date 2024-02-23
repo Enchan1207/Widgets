@@ -32,6 +32,8 @@
 		9ECC864C2B88667E00A615F6 /* WidgetContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC864B2B88667E00A615F6 /* WidgetContentDelegate.swift */; };
 		9ECC864E2B88674700A615F6 /* WidgetWindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC864D2B88674700A615F6 /* WidgetWindowState.swift */; };
 		9ECC86502B88675E00A615F6 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC864F2B88675E00A615F6 /* WidgetContent.swift */; };
+		9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */; };
+		9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A02B8084FE0046B70A /* MediaModel.swift */; };
 		9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A22B8088180046B70A /* MediaModelDelegate.swift */; };
@@ -71,6 +73,8 @@
 		9ECC864B2B88667E00A615F6 /* WidgetContentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContentDelegate.swift; sourceTree = "<group>"; };
 		9ECC864D2B88674700A615F6 /* WidgetWindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetWindowState.swift; sourceTree = "<group>"; };
 		9ECC864F2B88675E00A615F6 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
+		9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellWidgetContent.swift; sourceTree = "<group>"; };
+		9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetContent.swift; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A02B8084FE0046B70A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
@@ -204,8 +208,10 @@
 		9ED7DCA02B7DDBF4004957E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */,
 				9ED7DCA22B7DDC43004957E0 /* ShellCommandModel.swift */,
 				9ED7DCAA2B7E4CD1004957E0 /* ShellCommandModelDelegate.swift */,
+				9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */,
 				9ED695A02B8084FE0046B70A /* MediaModel.swift */,
 				9ED695A22B8088180046B70A /* MediaModelDelegate.swift */,
 			);
@@ -300,6 +306,7 @@
 				9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */,
 				9ECC864C2B88667E00A615F6 /* WidgetContentDelegate.swift in Sources */,
 				9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */,
+				9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */,
 				9E39F5892B843E2600C8CFF7 /* WidgetModel.swift in Sources */,
 				9ECC86482B88656900A615F6 /* WidgetVisibility.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
@@ -309,6 +316,7 @@
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
 				9E39F5872B82F3AE00C8CFF7 /* UTTypeExt.swift in Sources */,
 				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
+				9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */,
 				9ECC86462B88651800A615F6 /* Widget.swift in Sources */,
 				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,

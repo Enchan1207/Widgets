@@ -40,17 +40,16 @@ extension Widget: Codable {
         let contentTypeName = try values.decode(String.self, forKey: .contentType)
         let contentType: WidgetContent.Type
         switch contentTypeName {
-            // TODO: WidgetContentサブクラス時に実装
-            /*
-        case .init(describing: ShellWidgetInfo.self):
-            contentType = ShellWidgetInfo.self
-             */
+        case .init(describing: ShellWidgetContent.self):
+            contentType = ShellWidgetContent.self
+        case .init(describing: MediaWidgetContent.self):
+            contentType = MediaWidgetContent.self
         default:
             throw DecodingError.dataCorrupted(.init(codingPath: [CodingKeys.contentType], debugDescription: "unknown type of WidgetContent subclass: \"\(contentTypeName)\""))
         }
         
         // 型名から得られた型オブジェクトをもとに表示内容をデコード
-        let info = try values.decode(contentType, forKey: .content)
+        let content = try values.decode(contentType, forKey: .content)
         
         self.init(windowState: windowState, content: content)
     }
