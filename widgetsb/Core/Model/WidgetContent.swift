@@ -12,9 +12,6 @@ protocol WidgetContent: AnyObject, Codable {
     
     /// デリゲート
     var delegates: MulticastDelegate<WidgetContentDelegate> { get }
-    
-    /// ウィジェットVCの型
-    var widgetViewControllerType: WidgetViewController.Type { get }
 
     // TODO: 設定画面実装時に追加
     /*

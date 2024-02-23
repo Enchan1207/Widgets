@@ -13,9 +13,6 @@ final class ShellWidgetContent: WidgetContent {
     /// 表示内容の変更を通知するデリゲート
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
-    /// このWidgetContentに紐づけられたViewControllerの型
-    var widgetViewControllerType: WidgetViewController.Type { ShellWidgetViewController.self }
-    
     /// 表示する最大行数
     var maxLines: Int
     
