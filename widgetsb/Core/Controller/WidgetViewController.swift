@@ -8,12 +8,22 @@
 import Cocoa
 
 /// ウィジェットVC
-protocol WidgetViewController: AnyObject {
+class WidgetViewController: NSViewController {
     
-    /// 構成情報が変化した
-    /// - Parameters:
-    ///   - model: ウィジェットモデルのインスタンス
-    ///   - info: 構成情報
-    func widget(_ model: WidgetModel, didChange info: [String: String])
+    // MARK: - Properties
+    
+    /// 表示内容
+    private (set) public weak var widgetContent: WidgetContent?
+    
+    // MARK: - Initializers
+    
+    init(widgetContent: WidgetContent) {
+        self.widgetContent = widgetContent
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }

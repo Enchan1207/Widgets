@@ -26,26 +26,26 @@ class WidgetWindowController: NSWindowController {
         }
     }
     
-    /// ウィジェットモデル
-    private weak var widgetModel: WidgetModel?
+    /// ウィジェット表示状態モデル
+    private weak var windowState: WidgetWindowState?
     
     // MARK: - Initializers
     
-    /// 空のウィジェットウィンドウからウィンドウコントローラを初期化
-    /// - Parameter model: ウィジェットモデル
+    /// ウィジェットモデルの情報をもとにウィンドウコントローラを初期化
+    /// - Parameter widget: ウィジェットモデル
     /// - Note: 渡されたモデルをもとにView
-    init(model: WidgetModel) {
+    init(widget: Widget) {
         // モデルを渡し、新規ウィジェットウィンドウを生成してsuper.init
-        self.widgetModel = model
+        self.windowState = widget.windowState
         super.init(window: WidgetWindow())
         
         // ファクトリを用いてWidgetModelからVCを生成し、contentVCに割り当て
-        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: model)
-        self.window!.setFrame(model.frame, display: true)
+        self.contentViewController = WidgetViewControllerFactory.makeViewController(from: widget.content)
+        self.window!.setFrame(widget.windowState.frame, display: true)
         
         // ウィンドウのデリゲート、モデルのデリゲートを自身に設定
         self.window?.delegate = self
-        self.widgetModel?.multicastDelegate.addDelegate(self)
+        self.windowState?.delegates.addDelegate(self)
     }
     
     required init?(coder: NSCoder) {
@@ -53,22 +53,15 @@ class WidgetWindowController: NSWindowController {
     }
     
     deinit {
-        self.widgetModel?.multicastDelegate.removeDelegate(self)
+        self.windowState?.delegates.removeDelegate(self)
     }
     
     // MARK: - Overridden methods
     
     override func showWindow(_ sender: Any?) {
+        guard windowState?.visibility == .Show else {return}
         super.showWindow(sender)
         isObserved = true
-    }
-    
-    // MARK: - Public methods
-    
-    /// ウィジェットウィンドウを表示
-    func showWindowIfNeeded(){
-        guard widgetModel?.visibility == .Show else {return}
-        self.showWindow(nil)
     }
     
     // MARK: - Private methods
@@ -90,30 +83,23 @@ extension WidgetWindowController: NSWindowDelegate {
     }
 }
 
-extension WidgetWindowController: WidgetModelDelegate {
+extension WidgetWindowController: WidgetWindowStateDelegate {
     
-    func widget(_ model: WidgetModel, didChange visibility: WidgetModel.Visibility) {
+    func widget(_ windowState: WidgetWindowState, didChange visibility: WidgetVisibility) {
         DispatchQueue.main.async{[weak self] in
             switch visibility {
             case .Show:
-                self?.showWindowIfNeeded()
+                self?.showWindow(nil)
             case .Hide:
                 self?.close()
             }
         }
     }
     
-    func widget(_ model: WidgetModel, didChange frame: NSRect) {
+    func widget(_ windowState: WidgetWindowState, didChange frame: NSRect) {
         DispatchQueue.main.async{[weak self] in
             self?.window?.setFrame(frame, display: true)
         }
     }
     
-    func widget(_ model: WidgetModel, didChange info: [String : String]) {
-        // 現在のcontentVCに任せられるなら任せる
-        DispatchQueue.main.async{[weak self] in
-            guard let widgetViewController = self?.contentViewController as? WidgetViewController else {return}
-            widgetViewController.widget(model, didChange: info)
-        }
-    }
 }

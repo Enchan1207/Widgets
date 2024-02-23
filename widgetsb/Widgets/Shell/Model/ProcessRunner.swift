@@ -1,5 +1,5 @@
 //
-//  ShellCommandModel.swift
+//  ProcessRunner.swift
 //  widgetsb
 //
 //  Created by EnchantCode on 2024/02/15.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-/// シェルコマンドの実行を担うモデル
-final class ShellCommandModel {
+/// コマンドランナー
+final class ProcessRunner {
     
     // MARK: - Public properties
     
     /// デリゲート
-    public weak var delegate: ShellCommandModelDelegate?
+    public weak var delegate: ProcessRunnerDelegate?
     
     /// 現在実行中のプロセス
     private (set) public var process = Process()
@@ -46,7 +46,7 @@ final class ShellCommandModel {
             print("An error occured during command execution: \(error)")
             
             // デリゲートに通知
-            delegate?.shellCommand(self, processDidFail: error)
+            delegate?.runner(self, processDidFail: error)
         }
     }
     
@@ -82,6 +82,6 @@ final class ShellCommandModel {
         
         // デリゲートに通知
         guard let processOutputData = try? processOutputPipe.fileHandleForReading.readToEnd() else {return}
-        delegate?.shellCommand(self, processDidTerminate: processOutputData)
+        delegate?.runner(self, processDidTerminate: processOutputData)
     }
 }

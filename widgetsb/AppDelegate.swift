@@ -11,10 +11,10 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     /// ウィジェットモデルの配列
-    // TODO: 追加/削除UIをちゃんと作る
-    private let widgetModels: [WidgetModel] = [
-        .init(visibility: .Show, kind: .ShellCommand, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["update_interval": "5", "max_lines": "30"]),
-        .init(visibility: .Show, kind: .Media, frame: .init(x: 100, y: 100, width: 400, height: 300), info: ["filepath": "/Users/enchantcode/Pictures/icon.jpg"])
+    // TODO: 追加/削除UIをちゃんと作る    
+    private let widgets: [Widget] = [
+        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: ShellWidgetContent(maxLines: 30, updateInterval: 5)),
+        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: MediaWidgetContent(mediaURL: .init(fileURLWithPath: "/Users/enchantcode/Pictures/icon.jpg")))
     ]
     
     /// WCを保持するリスト
@@ -44,13 +44,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         configureMenuBarButton()
         
         // ウィジェットモデルの配列からウィジェットWCを生成
-        widgetWCs = widgetModels.compactMap({.init(model: $0)})
+        widgetWCs = widgets.compactMap({.init(widget: $0)})
         
         // アプリをアクティベート
         activateApp()
         
         // ウィンドウを表示
-        widgetWCs.forEach({$0.showWindowIfNeeded()})
+        widgetWCs.forEach({$0.showWindow(nil)})
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

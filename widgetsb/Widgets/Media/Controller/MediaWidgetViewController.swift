@@ -8,7 +8,7 @@
 import Cocoa
 import AVKit
 
-final class MediaWidgetViewController: NSViewController {
+final class MediaWidgetViewController: WidgetViewController {
     
     // MARK: - GUI Components
     
@@ -18,9 +18,6 @@ final class MediaWidgetViewController: NSViewController {
     // MARK: - Properties
     
     override var nibName: NSNib.Name? { "MediaWidgetView" }
-    
-    /// メディアモデル
-    private var mediaModel: MediaModel
     
     /// ビューが動画を保持する場合のプレイヤー
     private var player: AVQueuePlayer?
@@ -33,37 +30,30 @@ final class MediaWidgetViewController: NSViewController {
     
     // MARK: - Initializers
     
-    init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
-        // ウィジェット構成情報からファイルパスを取得
-        guard let filePathStr = widgetModel.info["filepath"] else {
-            throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"filepath\" not found")
-        }
-        self.mediaModel = .init(mediaURL: .init(fileURLWithPath: filePathStr))
-        super.init(nibName: nil, bundle: nil)
+    init(widgetContent: MediaWidgetContent) {
+        super.init(widgetContent: widgetContent)
+        self.widgetContent?.delegates.addDelegate(self)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        self.widgetContent?.delegates.removeDelegate(self)
+    }
+    
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
         self.view.layer?.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
-        self.mediaModel.delegate = self
-    }
-    
-    override func viewWillAppear() {
+        
         // モデルのコンテンツを反映
-        if let mediaURL = mediaModel.mediaURL {
+        if let mediaURL = (widgetContent as? MediaWidgetContent)?.mediaURL {
             updateMediaContent(with: mediaURL)
         }
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
     }
     
     // MARK: - Private methods
@@ -81,12 +71,18 @@ final class MediaWidgetViewController: NSViewController {
               FileManager.default.isReadableFile(atPath: mediaPath) else {return}
         
         // メディアタイプで分岐
-        guard let mediaType = UTType(filenameExtension: mediaURL.pathExtension) else {return}
-        if mediaType.conforms(to: .image){
+        guard let mediaType = UTType(filenameExtension: mediaURL.pathExtension) else { return }
+        switch mediaType {
+        case let t where t.conforms(to: .image):
             configureImageView(with: mediaURL)
-        }
-        if mediaType.conformsAny(to: [.video, .movie]){
+            
+        case let t where t.conformsAny(to: [.video, .movie]):
             configureVideoView(with: mediaURL)
+            
+        default:
+            // メディアウィジェットビューでサポートされていないことを示すビューをなにか用意する
+            print("Unsupported media type: \(mediaType)")
+            break
         }
         
         // 正しく構成できたらviewに追加する
@@ -138,24 +134,16 @@ final class MediaWidgetViewController: NSViewController {
     }
 }
 
-extension MediaWidgetViewController: MediaModelDelegate {
+extension MediaWidgetViewController: WidgetContentDelegate {
     
-    func media(_ model: MediaModel, didChangeURL to: URL?) {
-        // 一旦コンテンツを削除し、再構成
+    func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
+        // 変更内容がメディアURLのそれであることを確認
+        guard let widgetContent = widgetContent as? MediaWidgetContent,
+              keyPath == \MediaWidgetContent.mediaURL else {return}
+        
+        // コンテンツを削除して再構成
         removeMediaContent()
-        guard let mediaURL = to else {return}
-        updateMediaContent(with: mediaURL)
-    }
-    
-}
-
-
-extension MediaWidgetViewController: WidgetViewController {
-    
-    func widget(_ model: WidgetModel, didChange info: [String : String]) {
-        // ファイルパスを取得し、長さゼロならnilを、そうでなければURLに変換してモデルに渡す
-        let mediaPathStr = info["filepath"] ?? ""
-        mediaModel.mediaURL = mediaPathStr.count > 0 ? .init(fileURLWithPath: mediaPathStr) : nil
+        updateMediaContent(with: widgetContent.mediaURL)
     }
     
 }
