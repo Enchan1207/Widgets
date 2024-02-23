@@ -50,6 +50,8 @@ final class FallbackWidgetViewController: NSViewController {
         switch error {
         case WidgetVCInitializationError.InsufficientWidgetInfo(let message):
             errorLabel.stringValue = message
+        case WidgetVCInitializationError.UnsupportedViewControllerType(let message):
+            errorLabel.stringValue = message
         default:
             errorLabel.stringValue = "Unexpected error: \(error.localizedDescription)"
         }

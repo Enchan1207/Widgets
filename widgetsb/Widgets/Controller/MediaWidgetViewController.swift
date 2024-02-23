@@ -8,7 +8,7 @@
 import Cocoa
 import AVKit
 
-final class MediaWidgetViewController: NSViewController {
+final class MediaWidgetViewController: WidgetViewController {
     
     // MARK: - GUI Components
     
@@ -33,17 +33,18 @@ final class MediaWidgetViewController: NSViewController {
     
     // MARK: - Initializers
     
-    init(widgetModel: WidgetModel, nibName: NSNib.Name? = nil, bundle: Bundle? = nil) throws {
-        // ウィジェット構成情報からファイルパスを取得
-        guard let filePathStr = widgetModel.info["filepath"] else {
-            throw WidgetVCInitializationError.InsufficientWidgetInfo(message: "required key \"filepath\" not found")
-        }
-        self.mediaModel = .init(mediaURL: .init(fileURLWithPath: filePathStr))
-        super.init(nibName: nil, bundle: nil)
+    init(widgetContent: MediaWidgetContent) {
+        self.mediaModel = .init(mediaURL: widgetContent.mediaURL)
+        super.init(widgetContent: widgetContent)
+        self.widgetContent?.delegates.addDelegate(self)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        self.widgetContent?.delegates.removeDelegate(self)
     }
     
     // MARK: - View lifecycle
@@ -149,13 +150,10 @@ extension MediaWidgetViewController: MediaModelDelegate {
     
 }
 
-
-extension MediaWidgetViewController: WidgetViewController {
+extension MediaWidgetViewController: WidgetContentDelegate {
     
-    func widget(_ model: WidgetModel, didChange info: [String : String]) {
-        // ファイルパスを取得し、長さゼロならnilを、そうでなければURLに変換してモデルに渡す
-        let mediaPathStr = info["filepath"] ?? ""
-        mediaModel.mediaURL = mediaPathStr.count > 0 ? .init(fileURLWithPath: mediaPathStr) : nil
+    func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
+        
     }
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 /// ウィジェットウィンドウの表示内容
-protocol WidgetContent: Codable {
+protocol WidgetContent: AnyObject, Codable {
     
     /// デリゲート
     var delegates: MulticastDelegate<WidgetContentDelegate> { get }

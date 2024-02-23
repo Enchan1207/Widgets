@@ -13,7 +13,6 @@
 		9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */; };
 		9E39F58D2B847DBF00C8CFF7 /* WidgetModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */; };
 		9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */; };
-		9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */; };
 		9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */; };
 		9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */; };
 		9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */; };
@@ -34,6 +33,7 @@
 		9ECC86502B88675E00A615F6 /* WidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC864F2B88675E00A615F6 /* WidgetContent.swift */; };
 		9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */; };
 		9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */; };
+		9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A12B8084FE0046B70A /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A02B8084FE0046B70A /* MediaModel.swift */; };
 		9ED695A32B8088180046B70A /* MediaModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A22B8088180046B70A /* MediaModelDelegate.swift */; };
@@ -52,7 +52,6 @@
 		9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuticastDelegate.swift; sourceTree = "<group>"; };
 		9E39F58C2B847DBF00C8CFF7 /* WidgetModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetModelDelegate.swift; sourceTree = "<group>"; };
 		9E39F5902B84EAD300C8CFF7 /* WidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewController.swift; sourceTree = "<group>"; };
-		9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
 		9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerError.swift; sourceTree = "<group>"; };
 		9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackWidgetViewController.swift; sourceTree = "<group>"; };
 		9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FallbackWidgetView.xib; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		9ECC864F2B88675E00A615F6 /* WidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetContent.swift; sourceTree = "<group>"; };
 		9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellWidgetContent.swift; sourceTree = "<group>"; };
 		9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetContent.swift; sourceTree = "<group>"; };
+		9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A02B8084FE0046B70A /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
 		9ED695A22B8088180046B70A /* MediaModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModelDelegate.swift; sourceTree = "<group>"; };
@@ -110,13 +110,13 @@
 		9E2A0B722B7C7D3D0078AA06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */,
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
-				9E39F5922B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift */,
+				9ECC86472B88656900A615F6 /* WidgetVisibility.swift */,
 				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
 				9E39F5962B85868700C8CFF7 /* Model */,
 				9E39F5982B8586D400C8CFF7 /* View */,
 				9E39F5972B8586C100C8CFF7 /* Controller */,
-				9ECC86472B88656900A615F6 /* WidgetVisibility.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -319,6 +319,7 @@
 				9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */,
 				9ECC86462B88651800A615F6 /* Widget.swift in Sources */,
 				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,
+				9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
 				9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */,
 				9ED7DCAB2B7E4CD2004957E0 /* ShellCommandModelDelegate.swift in Sources */,
@@ -329,7 +330,6 @@
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
 				9ECC864E2B88674700A615F6 /* WidgetWindowState.swift in Sources */,
 				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
-				9E39F5932B84ED7600C8CFF7 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECC86502B88675E00A615F6 /* WidgetContent.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,
 				9ECAAD992B7B02920043D51C /* WidgetWindow.swift in Sources */,
