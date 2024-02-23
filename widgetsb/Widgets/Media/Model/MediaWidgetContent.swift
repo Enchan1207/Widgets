@@ -14,7 +14,11 @@ final class MediaWidgetContent: WidgetContent {
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
     /// メディアのURL
-    var mediaURL: URL
+    var mediaURL: URL {
+        didSet {
+            delegates.invoke({$0.widget(self, didChange: \MediaWidgetContent.mediaURL)})
+        }
+    }
     
     /// エンコード/デコードの際に使われるキー
     private enum CodingKeys: String, CodingKey {

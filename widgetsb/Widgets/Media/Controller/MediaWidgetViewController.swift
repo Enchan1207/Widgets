@@ -19,9 +19,6 @@ final class MediaWidgetViewController: WidgetViewController {
     
     override var nibName: NSNib.Name? { "MediaWidgetView" }
     
-    /// メディアモデル
-    private var mediaModel: MediaModel
-    
     /// ビューが動画を保持する場合のプレイヤー
     private var player: AVQueuePlayer?
     
@@ -34,7 +31,6 @@ final class MediaWidgetViewController: WidgetViewController {
     // MARK: - Initializers
     
     init(widgetContent: MediaWidgetContent) {
-        self.mediaModel = .init(mediaURL: widgetContent.mediaURL)
         super.init(widgetContent: widgetContent)
         self.widgetContent?.delegates.addDelegate(self)
     }
@@ -48,23 +44,16 @@ final class MediaWidgetViewController: WidgetViewController {
     }
     
     // MARK: - View lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.wantsLayer = true
         self.view.layer?.autoresizingMask = [.layerWidthSizable, .layerHeightSizable]
-        self.mediaModel.delegate = self
-    }
-    
-    override func viewWillAppear() {
+        
         // モデルのコンテンツを反映
-        if let mediaURL = mediaModel.mediaURL {
+        if let mediaURL = (widgetContent as? MediaWidgetContent)?.mediaURL {
             updateMediaContent(with: mediaURL)
         }
-    }
-    
-    override func viewDidAppear() {
-        super.viewDidAppear()
     }
     
     // MARK: - Private methods
@@ -82,12 +71,18 @@ final class MediaWidgetViewController: WidgetViewController {
               FileManager.default.isReadableFile(atPath: mediaPath) else {return}
         
         // メディアタイプで分岐
-        guard let mediaType = UTType(filenameExtension: mediaURL.pathExtension) else {return}
-        if mediaType.conforms(to: .image){
+        guard let mediaType = UTType(filenameExtension: mediaURL.pathExtension) else { return }
+        switch mediaType {
+        case let t where t.conforms(to: .image):
             configureImageView(with: mediaURL)
-        }
-        if mediaType.conformsAny(to: [.video, .movie]){
+            
+        case let t where t.conformsAny(to: [.video, .movie]):
             configureVideoView(with: mediaURL)
+            
+        default:
+            // メディアウィジェットビューでサポートされていないことを示すビューをなにか用意する
+            print("Unsupported media type: \(mediaType)")
+            break
         }
         
         // 正しく構成できたらviewに追加する
@@ -139,21 +134,16 @@ final class MediaWidgetViewController: WidgetViewController {
     }
 }
 
-extension MediaWidgetViewController: MediaModelDelegate {
-    
-    func media(_ model: MediaModel, didChangeURL to: URL?) {
-        // 一旦コンテンツを削除し、再構成
-        removeMediaContent()
-        guard let mediaURL = to else {return}
-        updateMediaContent(with: mediaURL)
-    }
-    
-}
-
 extension MediaWidgetViewController: WidgetContentDelegate {
     
     func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
+        // 変更内容がメディアURLのそれであることを確認
+        guard let widgetContent = widgetContent as? MediaWidgetContent,
+              keyPath == \MediaWidgetContent.mediaURL else {return}
         
+        // コンテンツを削除して再構成
+        removeMediaContent()
+        updateMediaContent(with: widgetContent.mediaURL)
     }
     
 }
