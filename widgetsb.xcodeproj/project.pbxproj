@@ -32,6 +32,8 @@
 		9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */; };
 		9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */; };
 		9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */; };
+		9ECC86662B889FAB00A615F6 /* WidgetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */; };
+		9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
@@ -69,6 +71,8 @@
 		9ECC86512B886CFF00A615F6 /* ShellWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellWidgetContent.swift; sourceTree = "<group>"; };
 		9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetContent.swift; sourceTree = "<group>"; };
 		9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
+		9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollection.swift; sourceTree = "<group>"; };
+		9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionDelegate.swift; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
 		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaWidgetView.xib; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */,
 				9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */,
 				9ECAAD8F2B7AFBE10043D51C /* MainMenu.xib */,
+				9ECC86642B889F9E00A615F6 /* Preferences */,
 				9ED7DC992B7DD05F004957E0 /* Widgets */,
 				9E2A0B722B7C7D3D0078AA06 /* Core */,
 				9E2A0B712B7C7D220078AA06 /* Extensions */,
@@ -246,6 +251,15 @@
 				9ECC86532B886D0700A615F6 /* MediaWidgetContent.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9ECC86642B889F9E00A615F6 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */,
+				9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		9ED7DC992B7DD05F004957E0 /* Widgets */ = {
@@ -335,6 +349,7 @@
 				9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */,
 				9ECC86482B88656900A615F6 /* WidgetVisibility.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
+				9ECC86662B889FAB00A615F6 /* WidgetCollection.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ProcessRunner.swift in Sources */,
@@ -343,6 +358,7 @@
 				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
 				9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */,
 				9ECC86462B88651800A615F6 /* Widget.swift in Sources */,
+				9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */,
 				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,
 				9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,

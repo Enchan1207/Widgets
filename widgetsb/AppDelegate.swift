@@ -10,15 +10,28 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// ウィジェットモデルの配列
-    // TODO: 追加/削除UIをちゃんと作る    
-    private let widgets: [Widget] = [
-        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: ShellWidgetContent(maxLines: 30, updateInterval: 5)),
-        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: MediaWidgetContent(mediaURL: .init(fileURLWithPath: "/Users/enchantcode/Pictures/icon.jpg")))
-    ]
+    // MARK: - Properties
     
-    /// WCを保持するリスト
-    private var widgetWCs: [WidgetWindowController] = []
+    /// ウィジェット構成情報の格納先
+    private var widgetConfigURL: URL {
+        // ベースディレクトリはApplication Support
+        var appSupportDir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        
+        // バンドル識別子を足す
+        let bundleID = Bundle.main.bundleIdentifier!
+        if #available(macOS 13.0, *) {
+            appSupportDir.append(path: bundleID, directoryHint: .isDirectory)
+        } else {
+            appSupportDir.appendPathComponent(bundleID)
+        }
+        
+        // ファイル名を足してreturn
+        appSupportDir.appendPathComponent("widgetconf.json", conformingTo: .json)
+        return appSupportDir
+    }
+    
+    /// ウィジェットコレクション
+    private var widgetCollection: WidgetCollection?
     
     /// メニューバーボタン
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -39,22 +52,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    // MARK: - Public methods
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        // 構成ファイルからのリストアを試みる 構成ファイルがないか、あってもデコードできないか、含まれているウィジェットが一つもなければデフォルト構成を採用する
+        let defaultWidgetCollection = WidgetCollection(widgets: [
+            // TODO: デフォルトウィジェットを用意する
+        ])
+        if let widgetConfData = try? Data(contentsOf: widgetConfigURL),
+           let decodedWidgetCollection = try? JSONDecoder().decode(WidgetCollection.self, from: widgetConfData),
+           decodedWidgetCollection.widgets.count > 0 {
+            widgetCollection = decodedWidgetCollection
+            print("Widget configuration restored. Now \(widgetCollection!.widgets.count) widgets loaded.")
+        }else{
+            widgetCollection = defaultWidgetCollection
+            print("Widget configuration not found or no widget stored. use default configuration.")
+        }
+        
         // メニューバーボタンを構成
         configureMenuBarButton()
-        
-        // ウィジェットモデルの配列からウィジェットWCを生成
-        widgetWCs = widgets.compactMap({.init(widget: $0)})
         
         // アプリをアクティベート
         activateApp()
         
-        // ウィンドウを表示
-        widgetWCs.forEach({$0.showWindow(nil)})
+        // コレクションが持つウィジェットを表示
+        widgetCollection!.showWidgets()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        // ウィジェットを全て閉じる
+        widgetCollection?.closeWindows()
+        
+        // ウィジェットコレクションをJSONデコードして保存
+        guard widgetCollection != nil else {return}
+        do {
+            let encodedWidgetCollection = try JSONEncoder().encode(widgetCollection)
+            try FileManager.default.createDirectory(at: widgetConfigURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try encodedWidgetCollection.write(to: widgetConfigURL)
+            print("Widget configuration saved at \(widgetConfigURL)")
+        } catch {
+            print("Failed to save widget collection data: \(error)")
+        }
     }
     
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
@@ -64,6 +102,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
+    
+    // MARK: - Private methods
     
     /// アプリケーションをアクティブにする
     private func activateApp(){
