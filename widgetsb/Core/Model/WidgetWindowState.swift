@@ -13,10 +13,18 @@ final class WidgetWindowState {
     private (set) public var delegates: MulticastDelegate<WidgetWindowStateDelegate>
     
     /// 表示・非表示
-    var visibility: WidgetVisibility
+    var visibility: WidgetVisibility {
+        didSet {
+            delegates.invoke({$0.widget(self, didChange: visibility)})
+        }
+    }
     
     /// フレーム (ウィンドウの枠)
-    var frame: NSRect
+    var frame: NSRect {
+        didSet {
+            delegates.invoke({$0.widget(self, didChange: frame)})
+        }
+    }
     
     /// エンコード/デコードの際に使われるキー
     private enum CodingKeys: String, CodingKey {
