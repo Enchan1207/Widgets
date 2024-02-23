@@ -14,10 +14,18 @@ final class ShellWidgetContent: WidgetContent {
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
     /// 表示する最大行数
-    var maxLines: Int
+    var maxLines: Int {
+        didSet {
+            delegates.invoke({$0.widget(self, didChange: \ShellWidgetContent.maxLines)})
+        }
+    }
     
     /// 更新間隔
-    var updateInterval: Double
+    var updateInterval: Double {
+        didSet {
+            delegates.invoke({$0.widget(self, didChange: \ShellWidgetContent.updateInterval)})
+        }
+    }
     
     /// エンコード/デコードの際に使われるキー
     private enum CodingKeys: String, CodingKey {

@@ -24,13 +24,13 @@ final class ShellWidgetViewController: WidgetViewController {
     /// 更新を司るタイマ
     private var updateTimer: Timer?
     
-    /// シェルコマンドモデル
-    private var shellCommandModel: ShellCommandModel
+    /// コマンドランナー
+    private var runner: ProcessRunner
     
     // MARK: - Initializers
     
     init(widgetContent: ShellWidgetContent) {
-        self.shellCommandModel = .init()
+        self.runner = .init()
         super.init(widgetContent: widgetContent)
         self.widgetContent?.delegates.addDelegate(self)
     }
@@ -51,10 +51,10 @@ final class ShellWidgetViewController: WidgetViewController {
         processOutputView.textColor = .green.withAlphaComponent(0.5)
         processOutputView.startPoint = .init(x: 0.5, y: 0.3)
         processOutputView.font = .monospacedSystemFont(ofSize: 14.0, weight: .regular)
-        self.shellCommandModel.delegate = self
+        self.runner.delegate = self
         
         // 一度実行要求を出してから更新タイマを構成
-        self.shellCommandModel.requestForExecution()
+        self.runner.requestForExecution()
         configureUpdateTimer()
     }
     
@@ -71,15 +71,15 @@ final class ShellWidgetViewController: WidgetViewController {
         // 構成
         updateTimer = .scheduledTimer(withTimeInterval: widgetContent.updateInterval, repeats: true, block: { [weak self] _ in
             guard let `self` = self else {return}
-            self.shellCommandModel.requestForExecution()
+            self.runner.requestForExecution()
         })
     }
     
 }
 
-extension ShellWidgetViewController: ShellCommandModelDelegate {
+extension ShellWidgetViewController: ProcessRunnerDelegate {
     
-    func shellCommand(_ model: ShellCommandModel, processDidTerminate output: Data?) {
+    func runner(_ model: ProcessRunner, processDidTerminate output: Data?) {
         // 終了コードチェック
         guard model.process.terminationStatus == 0, let output = output else {return}
         
@@ -102,7 +102,7 @@ extension ShellWidgetViewController: ShellCommandModelDelegate {
         processOutputView.string = truncatedString
     }
     
-    func shellCommand(_ model: ShellCommandModel, processDidFail error: Error) {
+    func runner(_ model: ProcessRunner, processDidFail error: Error) {
         processOutputView.string = "An error occured during process execution: \(error)"
     }
     
@@ -110,6 +110,19 @@ extension ShellWidgetViewController: ShellCommandModelDelegate {
 
 extension ShellWidgetViewController: WidgetContentDelegate {
     func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
+        guard let widgetContent = widgetContent as? ShellWidgetContent else {return}
         
+        switch keyPath {
+        case \ShellWidgetContent.maxLines:
+            guard let maxLines = widgetContent[keyPath: keyPath] as? Int else {return}
+            print("maxLines updated: \(maxLines)")
+            
+        case \ShellWidgetContent.updateInterval:
+            guard let updateInterval = widgetContent[keyPath: keyPath] as? Double else {return}
+            print("updateInterval updated: \(updateInterval)")
+            
+        default:
+            break
+        }
     }
 }
