@@ -13,7 +13,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Properties
     
     /// ウィジェットコレクション
-    private var widgetCollection = WidgetCollection(widgets: (try? WidgetStorage.load()) ?? [])
+    private let widgetCollection = WidgetCollection(widgets: (try? WidgetStorage.load()) ?? [])
+    
+    /// 設定画面
+    private lazy var preferencesWindowController = PreferencesWindowController(widgetCollection: widgetCollection)
     
     /// メニューバーボタン
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -24,9 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // ボタンの状態を更新
             updateMenuBarButton()
             
-            // 編集モードに移行したならアプリをアクティベート
+            // 編集モードに移行したらアプリをアクティベートし、設定画面を表示
             if widgetMode == .Edittable {
                 activateApp()
+                preferencesWindowController.showWindow(nil)
             }
             
             // 各ウィンドウに通知
@@ -60,7 +64,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
+        return false
     }
     
     // MARK: - Private methods

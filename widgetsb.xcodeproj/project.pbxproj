@@ -35,6 +35,8 @@
 		9ECC86662B889FAB00A615F6 /* WidgetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */; };
 		9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */; };
 		9ECC86712B89797C00A615F6 /* WidgetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86702B89797C00A615F6 /* WidgetStorage.swift */; };
+		9ECC86762B89A67000A615F6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */; };
+		9ECC86772B89A67000A615F6 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
@@ -75,6 +77,8 @@
 		9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollection.swift; sourceTree = "<group>"; };
 		9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionDelegate.swift; sourceTree = "<group>"; };
 		9ECC86702B89797C00A615F6 /* WidgetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStorage.swift; sourceTree = "<group>"; };
+		9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
 		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaWidgetView.xib; sourceTree = "<group>"; };
@@ -261,8 +265,26 @@
 		9ECC86642B889F9E00A615F6 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC86792B89A67A00A615F6 /* View */,
+				9ECC867A2B89A67E00A615F6 /* Controller */,
 			);
 			path = Preferences;
+			sourceTree = "<group>";
+		};
+		9ECC86792B89A67A00A615F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9ECC867A2B89A67E00A615F6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9ED7DC992B7DD05F004957E0 /* Widgets */ = {
@@ -332,6 +354,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ECC86772B89A67000A615F6 /* PreferencesWindow.xib in Resources */,
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
 				9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */,
@@ -372,6 +395,7 @@
 				9ECC864A2B8865C900A615F6 /* WidgetWindowStateDelegate.swift in Sources */,
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
 				9ECC864E2B88674700A615F6 /* WidgetWindowState.swift in Sources */,
+				9ECC86762B89A67000A615F6 /* PreferencesWindowController.swift in Sources */,
 				9ECC86712B89797C00A615F6 /* WidgetStorage.swift in Sources */,
 				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
 				9ECC86502B88675E00A615F6 /* WidgetContent.swift in Sources */,

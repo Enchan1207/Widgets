@@ -74,6 +74,10 @@ final class WidgetCollection {
         
         // 削除前にデリゲートに通知
         self.delegate?.widgetCollection(self, willRemove: widgets[at])
+        
+        // ウィンドウを閉じ、WCを削除してからモデルクラスを消す
+        self.widgetWindowControllers[at].close()
+        self.widgetWindowControllers.remove(at: at)
         self.widgets.remove(at: at)
     }
     
