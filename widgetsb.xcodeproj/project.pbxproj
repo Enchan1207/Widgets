@@ -34,6 +34,7 @@
 		9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */; };
 		9ECC86662B889FAB00A615F6 /* WidgetCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */; };
 		9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */; };
+		9ECC86712B89797C00A615F6 /* WidgetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86702B89797C00A615F6 /* WidgetStorage.swift */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
@@ -73,6 +74,7 @@
 		9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerFactory.swift; sourceTree = "<group>"; };
 		9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollection.swift; sourceTree = "<group>"; };
 		9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionDelegate.swift; sourceTree = "<group>"; };
+		9ECC86702B89797C00A615F6 /* WidgetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStorage.swift; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
 		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaWidgetView.xib; sourceTree = "<group>"; };
@@ -106,6 +108,9 @@
 		9E2A0B722B7C7D3D0078AA06 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC86702B89797C00A615F6 /* WidgetStorage.swift */,
+				9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */,
+				9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */,
 				9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */,
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
 				9ECC86472B88656900A615F6 /* WidgetVisibility.swift */,
@@ -256,8 +261,6 @@
 		9ECC86642B889F9E00A615F6 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				9ECC86652B889FAB00A615F6 /* WidgetCollection.swift */,
-				9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				9ECC864A2B8865C900A615F6 /* WidgetWindowStateDelegate.swift in Sources */,
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
 				9ECC864E2B88674700A615F6 /* WidgetWindowState.swift in Sources */,
+				9ECC86712B89797C00A615F6 /* WidgetStorage.swift in Sources */,
 				9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */,
 				9ECC86502B88675E00A615F6 /* WidgetContent.swift in Sources */,
 				9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */,

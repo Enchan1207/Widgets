@@ -17,16 +17,18 @@ final class WidgetCollection {
     private var widgetWindowControllers: [WidgetWindowController]
     
     weak var delegate: WidgetCollectionDelegate?
-    
-    /// エンコード/デコードの際に使われるキー
-    private enum CodingKeys: String, CodingKey {
-        case widgets
-    }
-    
+
     // MARK: - Initializers
     
     init(widgets: [Widget]){
         self.widgets = widgets
+        
+        // TODO: コレクションにウィジェットがひとつもない場合は、ウェルカムウィジェットを追加する
+        if self.widgets.count == 0 {
+            // widgetCollection.addWidget(<#T##widget: Widget##Widget#>)
+        }
+        
+        // ウィンドウコントローラを初期化しておく
         self.widgetWindowControllers = widgets.compactMap({.init(widget: $0)})
     }
     
@@ -73,22 +75,6 @@ final class WidgetCollection {
         // 削除前にデリゲートに通知
         self.delegate?.widgetCollection(self, willRemove: widgets[at])
         self.widgets.remove(at: at)
-    }
-    
-}
-
-
-extension WidgetCollection: Codable {
-    
-    convenience init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let widgets = try values.decode([Widget].self, forKey: .widgets)
-        self.init(widgets: widgets)
-    }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(widgets, forKey: .widgets)
     }
     
 }
