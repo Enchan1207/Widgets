@@ -13,6 +13,10 @@ final class ShellWidgetContent: WidgetContent {
     /// 表示内容の変更を通知するデリゲート
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
+    var shortDescription: String { "Shell" }
+    
+    var longDescription: String { "Widget that provide shell script output. content updates periodically." }
+    
     /// 表示する最大行数
     var maxLines: Int {
         didSet {

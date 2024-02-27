@@ -12,5 +12,11 @@ protocol WidgetContent: AnyObject, Codable {
     
     /// デリゲート
     var delegates: MulticastDelegate<WidgetContentDelegate> { get }
+    
+    /// 表示内容の概要
+    var shortDescription: String { get }
+    
+    /// 表示内容の詳細
+    var longDescription: String { get }
 
 }

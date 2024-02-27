@@ -8,6 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PreferencesWindowController" customModule="widgetsb" customModuleProvider="target">
             <connections>
+                <outlet property="addButton" destination="bRu-CT-a0m" id="lTB-ht-GpT"/>
+                <outlet property="configureButton" destination="m9n-oe-7zw" id="YZh-Ls-AR5"/>
+                <outlet property="removeButton" destination="Bb3-XB-1jV" id="GwX-XC-eFd"/>
+                <outlet property="widgetsListView" destination="LHH-ds-ez0" id="vjc-nU-ei8"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -49,7 +53,7 @@
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                     <tableColumns>
-                                                        <tableColumn width="55" minWidth="30" maxWidth="1000" id="Z8g-Tv-m0d">
+                                                        <tableColumn identifier="col_visibility" width="55" minWidth="30" maxWidth="1000" id="Z8g-Tv-m0d">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Visibility">
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -61,7 +65,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView id="xTK-qU-GXg">
+                                                                <tableCellView id="xTK-qU-GXg" customClass="VisibilityCellView" customModule="widgetsb" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="0.0" width="53" height="55"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -74,10 +78,13 @@
                                                                             </buttonCell>
                                                                         </button>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="visibilityButton" destination="xg7-Lp-ktF" id="z0f-ya-KWj"/>
+                                                                    </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn width="50" minWidth="40" maxWidth="1000" id="b4D-4e-4bU">
+                                                        <tableColumn identifier="col_kind" width="50" minWidth="40" maxWidth="1000" id="b4D-4e-4bU">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Kind">
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -89,7 +96,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView id="mij-Re-eYS">
+                                                                <tableCellView identifier="col_kind" id="mij-Re-eYS" customClass="KindCellView" customModule="widgetsb" customModuleProvider="target">
                                                                     <rect key="frame" x="78" y="0.0" width="50" height="55"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -104,12 +111,12 @@
                                                                         </textField>
                                                                     </subviews>
                                                                     <connections>
-                                                                        <outlet property="textField" destination="nL3-Zk-HlN" id="PrU-IX-9MZ"/>
+                                                                        <outlet property="kindField" destination="nL3-Zk-HlN" id="EjP-jl-6Di"/>
                                                                     </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
-                                                        <tableColumn width="407" minWidth="40" maxWidth="1000" id="AXJ-lA-cxu">
+                                                        <tableColumn identifier="col_position" width="407" minWidth="40" maxWidth="1000" id="AXJ-lA-cxu">
                                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Position">
                                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,7 +128,7 @@
                                                             </textFieldCell>
                                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                             <prototypeCellViews>
-                                                                <tableCellView id="Ycg-Zw-apV">
+                                                                <tableCellView id="Ycg-Zw-apV" customClass="PositionCellView" customModule="widgetsb" customModuleProvider="target">
                                                                     <rect key="frame" x="145" y="0.0" width="404" height="55"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
@@ -131,11 +138,11 @@
                                                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="i8u-FW-PWK"/>
                                                                         </imageView>
                                                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axP-Dt-SfV">
-                                                                            <rect key="frame" x="59" y="2" width="160" height="50"/>
+                                                                            <rect key="frame" x="59" y="2" width="342" height="50"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                             <subviews>
                                                                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ijJ-8V-M7b">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="160" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="342" height="20"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Inset dx: 40 dy:40" id="w9R-ZW-RKV">
                                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -144,7 +151,7 @@
                                                                                     </textFieldCell>
                                                                                 </textField>
                                                                                 <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u9Y-6N-fGy">
-                                                                                    <rect key="frame" x="0.0" y="28" width="160" height="20"/>
+                                                                                    <rect key="frame" x="0.0" y="28" width="342" height="20"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Anchor: upside left" id="kiX-FW-PAT">
                                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -155,6 +162,11 @@
                                                                             </subviews>
                                                                         </customView>
                                                                     </subviews>
+                                                                    <connections>
+                                                                        <outlet property="anchorImageView" destination="17J-2S-YdT" id="OV1-AK-Ymt"/>
+                                                                        <outlet property="anchorInfoField" destination="u9Y-6N-fGy" id="OLA-SH-WW4"/>
+                                                                        <outlet property="insetInfoField" destination="ijJ-8V-M7b" id="7gY-MK-hYd"/>
+                                                                    </connections>
                                                                 </tableCellView>
                                                             </prototypeCellViews>
                                                         </tableColumn>
@@ -197,6 +209,9 @@
                                             <constraint firstAttribute="width" constant="31" id="gGL-cf-XvV"/>
                                             <constraint firstAttribute="height" constant="30" id="jWH-dP-qXr"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onClickAdd:" target="-2" id="Ota-bu-LM5"/>
+                                        </connections>
                                     </button>
                                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bb3-XB-1jV">
                                         <rect key="frame" x="39" y="3" width="31" height="25"/>
@@ -208,6 +223,9 @@
                                             <constraint firstAttribute="width" constant="31" id="Inp-B6-Ndn"/>
                                             <constraint firstAttribute="height" constant="30" id="Qwo-5y-Uoa"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onClickRemove:" target="-2" id="nlY-Cy-ncq"/>
+                                        </connections>
                                     </button>
                                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m9n-oe-7zw">
                                         <rect key="frame" x="78" y="0.0" width="31" height="30"/>
@@ -219,6 +237,9 @@
                                             <constraint firstAttribute="width" constant="31" id="CJ7-xe-W08"/>
                                             <constraint firstAttribute="height" constant="30" id="kyM-kj-pHF"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onClickEdit:" target="-2" id="FvP-S0-ZrV"/>
+                                        </connections>
                                     </button>
                                     <customView horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="brz-EN-jZO">
                                         <rect key="frame" x="117" y="0.0" width="443" height="30"/>
@@ -252,6 +273,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="eum-5L-SlB"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="onClickQuit:" target="-2" id="V3t-w8-Wv2"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

@@ -14,6 +14,11 @@
 		9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */; };
 		9E5593B32B8593C600E1D91B /* FallbackWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */; };
 		9E5593B42B8593C600E1D91B /* FallbackWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */; };
+		9E7236022B8DA65E004B5503 /* VisibilityCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */; };
+		9E7236042B8DA77B004B5503 /* KindCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236032B8DA77B004B5503 /* KindCellView.swift */; };
+		9E7236062B8DA783004B5503 /* PositionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236052B8DA783004B5503 /* PositionCellView.swift */; };
+		9E7236082B8DAF3D004B5503 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */; };
+		9E72360A2B8DB1DC004B5503 /* PreferenceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */; };
 		9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
@@ -54,6 +59,11 @@
 		9E39F5942B857FDC00C8CFF7 /* WidgetViewControllerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewControllerError.swift; sourceTree = "<group>"; };
 		9E5593B12B8593C600E1D91B /* FallbackWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackWidgetViewController.swift; sourceTree = "<group>"; };
 		9E5593B22B8593C600E1D91B /* FallbackWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FallbackWidgetView.xib; sourceTree = "<group>"; };
+		9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisibilityCellView.swift; sourceTree = "<group>"; };
+		9E7236032B8DA77B004B5503 /* KindCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindCellView.swift; sourceTree = "<group>"; };
+		9E7236052B8DA783004B5503 /* PositionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCellView.swift; sourceTree = "<group>"; };
+		9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCellView.swift; sourceTree = "<group>"; };
 		9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableImageView.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +115,7 @@
 				9ECAADAF2B7C50770043D51C /* WindowLevelExt.swift */,
 				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
 				9E39F5862B82F3AE00C8CFF7 /* UTTypeExt.swift */,
+				9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -275,6 +286,10 @@
 			isa = PBXGroup;
 			children = (
 				9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */,
+				9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */,
+				9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */,
+				9E7236032B8DA77B004B5503 /* KindCellView.swift */,
+				9E7236052B8DA783004B5503 /* PositionCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -379,9 +394,11 @@
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ProcessRunner.swift in Sources */,
+				9E7236062B8DA783004B5503 /* PositionCellView.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,
 				9E39F5872B82F3AE00C8CFF7 /* UTTypeExt.swift in Sources */,
 				9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */,
+				9E7236042B8DA77B004B5503 /* KindCellView.swift in Sources */,
 				9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */,
 				9ECC86462B88651800A615F6 /* Widget.swift in Sources */,
 				9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */,
@@ -389,9 +406,12 @@
 				9ECC86582B88791000A615F6 /* WidgetViewControllerFactory.swift in Sources */,
 				9ECAADB22B7C5B610043D51C /* NotificationNameExt.swift in Sources */,
 				9E39F5952B857FDC00C8CFF7 /* WidgetViewControllerError.swift in Sources */,
+				9E72360A2B8DB1DC004B5503 /* PreferenceCellView.swift in Sources */,
 				9ED7DCAB2B7E4CD2004957E0 /* ProcessRunnerDelegate.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */,
 				9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */,
+				9E7236022B8DA65E004B5503 /* VisibilityCellView.swift in Sources */,
+				9E7236082B8DAF3D004B5503 /* ArrayExtension.swift in Sources */,
 				9ECC864A2B8865C900A615F6 /* WidgetWindowStateDelegate.swift in Sources */,
 				9E39F5912B84EAD300C8CFF7 /* WidgetViewController.swift in Sources */,
 				9ECC864E2B88674700A615F6 /* WidgetWindowState.swift in Sources */,

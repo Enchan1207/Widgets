@@ -13,20 +13,20 @@ protocol WidgetCollectionDelegate: AnyObject {
     /// ウィジェットが追加された
     /// - Parameters:
     ///   - collection: ウィジェットコレクション
-    ///   - widget: 追加されたウィジェットインスタンス
-    func widgetCollection(_ collection: WidgetCollection, didAdd widget: Widget)
+    ///   - index: 追加されたウィジェットのインデックス
+    func widgetCollection(_ collection: WidgetCollection, didAddAt index: Int)
     
     /// ウィジェットを削除して良いか?
     /// - Parameters:
     ///   - collection: ウィジェットコレクション
-    ///   - widget: 削除しようとしているインスタンス
+    ///   - index: 削除しようとしているインスタンスのインデックス
     /// - Returns: 削除許可
-    func widgetCollection(_ collection: WidgetCollection, shouldRemove widget: Widget) -> Bool
+    func widgetCollection(_ collection: WidgetCollection, shouldRemoveAt index: Int) -> Bool
     
     /// ウィジェットが削除される
     /// - Parameters:
     ///   - collection: ウィジェットコレクション
-    ///   - widget: 削除されるウィジェットインスタンス
-    func widgetCollection(_ collection: WidgetCollection, willRemove widget: Widget)
+    ///   - index: 削除されるウィジェットインスタンスのインデックス
+    func widgetCollection(_ collection: WidgetCollection, willRemoveAt index: Int)
     
 }

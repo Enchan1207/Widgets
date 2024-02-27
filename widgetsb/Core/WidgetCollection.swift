@@ -57,7 +57,7 @@ final class WidgetCollection {
         windowController.showWindow(nil)
         
         // 追加後にデリゲートに通知
-        self.delegate?.widgetCollection(self, didAdd: widget)
+        self.delegate?.widgetCollection(self, didAddAt: widgets.count - 1)
     }
     
     /// ウィジェットを削除する
@@ -66,14 +66,14 @@ final class WidgetCollection {
         // デリゲートが設定されている場合は削除可能か調べる そうでなければ普通に消す
         let canRemove: Bool
         if let delegate = self.delegate {
-            canRemove = delegate.widgetCollection(self, shouldRemove: widgets[at])
+            canRemove = delegate.widgetCollection(self, shouldRemoveAt: at)
         }else{
             canRemove = true
         }
         guard canRemove else {return}
         
         // 削除前にデリゲートに通知
-        self.delegate?.widgetCollection(self, willRemove: widgets[at])
+        self.delegate?.widgetCollection(self, willRemoveAt: at)
         
         // ウィンドウを閉じ、WCを削除してからモデルクラスを消す
         self.widgetWindowControllers[at].close()

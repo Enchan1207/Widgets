@@ -13,6 +13,10 @@ final class MediaWidgetContent: WidgetContent {
     /// 表示内容の変更を通知するデリゲート
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
+    var shortDescription: String { "Media" }
+    
+    var longDescription: String { "Widget that provides media (images, videos, etc)." }
+    
     /// メディアのURL
     var mediaURL: URL {
         didSet {
