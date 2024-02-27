@@ -19,6 +19,7 @@
 		9E7236062B8DA783004B5503 /* PositionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236052B8DA783004B5503 /* PositionCellView.swift */; };
 		9E7236082B8DAF3D004B5503 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */; };
 		9E72360A2B8DB1DC004B5503 /* PreferenceCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */; };
+		9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */; };
 		9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
@@ -41,7 +42,7 @@
 		9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */; };
 		9ECC86712B89797C00A615F6 /* WidgetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86702B89797C00A615F6 /* WidgetStorage.swift */; };
 		9ECC86762B89A67000A615F6 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */; };
-		9ECC86772B89A67000A615F6 /* PreferencesWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */; };
+		9ECC86772B89A67000A615F6 /* PreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC86752B89A67000A615F6 /* PreferencesView.xib */; };
 		9ED6959D2B7ED7300046B70A /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED6959C2B7ED7300046B70A /* GradientTextView.swift */; };
 		9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */; };
 		9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED695A52B8091750046B70A /* MediaWidgetView.xib */; };
@@ -64,6 +65,7 @@
 		9E7236052B8DA783004B5503 /* PositionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCellView.swift; sourceTree = "<group>"; };
 		9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCellView.swift; sourceTree = "<group>"; };
+		9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableImageView.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +90,7 @@
 		9ECC86672B889FED00A615F6 /* WidgetCollectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetCollectionDelegate.swift; sourceTree = "<group>"; };
 		9ECC86702B89797C00A615F6 /* WidgetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetStorage.swift; sourceTree = "<group>"; };
 		9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesWindow.xib; sourceTree = "<group>"; };
+		9ECC86752B89A67000A615F6 /* PreferencesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesView.xib; sourceTree = "<group>"; };
 		9ED6959C2B7ED7300046B70A /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
 		9ED695A42B8091750046B70A /* MediaWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWidgetViewController.swift; sourceTree = "<group>"; };
 		9ED695A52B8091750046B70A /* MediaWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MediaWidgetView.xib; sourceTree = "<group>"; };
@@ -285,7 +287,7 @@
 		9ECC86792B89A67A00A615F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ECC86752B89A67000A615F6 /* PreferencesWindow.xib */,
+				9ECC86752B89A67000A615F6 /* PreferencesView.xib */,
 				9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */,
 				9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */,
 				9E7236032B8DA77B004B5503 /* KindCellView.swift */,
@@ -297,6 +299,7 @@
 		9ECC867A2B89A67E00A615F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */,
 				9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */,
 			);
 			path = Controller;
@@ -369,7 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9ECC86772B89A67000A615F6 /* PreferencesWindow.xib in Resources */,
+				9ECC86772B89A67000A615F6 /* PreferencesView.xib in Resources */,
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
 				9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */,
@@ -392,6 +395,7 @@
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
 				9ECC86662B889FAB00A615F6 /* WidgetCollection.swift in Sources */,
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
+				9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ProcessRunner.swift in Sources */,
 				9E7236062B8DA783004B5503 /* PositionCellView.swift in Sources */,
