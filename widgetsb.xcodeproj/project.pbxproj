@@ -178,6 +178,52 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		9E82ADB72B8F7CEA00F7649A /* Main screen */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC86752B89A67000A615F6 /* PreferencesView.xib */,
+				9E82ADB82B8F7D0000F7649A /* Cell views */,
+			);
+			path = "Main screen";
+			sourceTree = "<group>";
+		};
+		9E82ADB82B8F7D0000F7649A /* Cell views */ = {
+			isa = PBXGroup;
+			children = (
+				9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */,
+				9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */,
+				9E7236032B8DA77B004B5503 /* KindCellView.swift */,
+				9E7236052B8DA783004B5503 /* PositionCellView.swift */,
+			);
+			path = "Cell views";
+			sourceTree = "<group>";
+		};
+		9E82ADB92B8F7D3000F7649A /* Sub sheet */ = {
+			isa = PBXGroup;
+			children = (
+				9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */,
+			);
+			path = "Sub sheet";
+			sourceTree = "<group>";
+		};
+		9E82ADBA2B8F7D4200F7649A /* Main screen */ = {
+			isa = PBXGroup;
+			children = (
+				9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */,
+				9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */,
+			);
+			path = "Main screen";
+			sourceTree = "<group>";
+		};
+		9E82ADBB2B8F7D5500F7649A /* Sub sheet */ = {
+			isa = PBXGroup;
+			children = (
+				9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */,
+				9EE0AB532B8EFB90006621C6 /* WidgetConfigPageController.swift */,
+			);
+			path = "Sub sheet";
+			sourceTree = "<group>";
+		};
 		9ECAAD7F2B7AFBDD0043D51C = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +339,8 @@
 		9ECC86792B89A67A00A615F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9ECC86752B89A67000A615F6 /* PreferencesView.xib */,
-				9E7236092B8DB1DC004B5503 /* PreferenceCellView.swift */,
-				9E7236012B8DA65E004B5503 /* VisibilityCellView.swift */,
-				9E7236032B8DA77B004B5503 /* KindCellView.swift */,
-				9E7236052B8DA783004B5503 /* PositionCellView.swift */,
-				9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */,
+				9E82ADB72B8F7CEA00F7649A /* Main screen */,
+				9E82ADB92B8F7D3000F7649A /* Sub sheet */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,10 +348,8 @@
 		9ECC867A2B89A67E00A615F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */,
-				9ECC86742B89A67000A615F6 /* PreferencesWindowController.swift */,
-				9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */,
-				9EE0AB532B8EFB90006621C6 /* WidgetConfigPageController.swift */,
+				9E82ADBA2B8F7D4200F7649A /* Main screen */,
+				9E82ADBB2B8F7D5500F7649A /* Sub sheet */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
