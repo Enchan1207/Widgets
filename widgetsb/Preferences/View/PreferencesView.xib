@@ -125,7 +125,7 @@
                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                         <prototypeCellViews>
                                                             <tableCellView id="rAG-gr-nnZ" customClass="PositionCellView" customModule="widgetsb" customModuleProvider="target">
-                                                                <rect key="frame" x="145" y="0.0" width="374" height="55"/>
+                                                                <rect key="frame" x="145" y="0.0" width="404" height="55"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <subviews>
                                                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HeY-wB-hWV">
