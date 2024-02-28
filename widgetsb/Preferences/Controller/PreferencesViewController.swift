@@ -29,10 +29,17 @@ class PreferencesViewController: NSViewController {
         }
     }
     
-    /// ウィジェット編集ボタン
-    @IBOutlet weak var configureButton: NSButton! {
+    /// ウィジェットアンカー編集ボタン
+    @IBOutlet weak var anchorEditButton: NSButton! {
         didSet{
-            configureButton.isEnabled = false
+            anchorEditButton.isEnabled = false
+        }
+    }
+    
+    /// ウィジェットコンテンツ編集ボタン
+    @IBOutlet weak var contentEditButton: NSButton! {
+        didSet{
+            contentEditButton.isEnabled = false
         }
     }
     
@@ -64,8 +71,8 @@ class PreferencesViewController: NSViewController {
     // MARK: - GUI actions
     
     @IBAction func onClickAdd(_ sender: Any) {
-        // TODO: 構成ダイアログを出す
-        widgetCollection?.addWidget(.init(windowState: .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 100, height: 200))), content: ShellWidgetContent(maxLines: 30, updateInterval: 2)))
+        // ウィジェット追加シートを表示する
+        self.presentAsSheet(WidgetConfigViewController())
     }
     
     @IBAction func onClickRemove(_ sender: Any) {
@@ -73,8 +80,12 @@ class PreferencesViewController: NSViewController {
         widgetCollection?.removeWidget(at: widgetsListView.selectedRow)
     }
     
-    @IBAction func onClickEdit(_ sender: Any) {
-        self.presentAsSheet(WidgetConfigViewController())
+    @IBAction func onClickAnchorEdit(_ sender: Any) {
+        // TODO: アンカーを編集するビューを表示
+    }
+    
+    @IBAction func onClickContentEdit(_ sender: Any) {
+        // TODO: コンテンツを編集するビューを表示
     }
     
     @objc private func onClickVisibie(_ sender: NSButton){
@@ -127,7 +138,8 @@ extension PreferencesViewController: NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         let isRowSelected = widgetsListView.selectedRow >= 0
         removeButton.isEnabled = isRowSelected
-        configureButton.isEnabled = isRowSelected
+        contentEditButton.isEnabled = isRowSelected
+        anchorEditButton.isEnabled = isRowSelected
     }
     
 }
