@@ -24,7 +24,7 @@ class PreferencesWindowController: NSWindowController {
             window.title = "Widgets preferences"
             window.titlebarAppearsTransparent = true
             window.delegate = self
-            window.styleMask = [.titled, .closable]
+            window.styleMask = [.titled, .closable, .resizable]
         }
     }
     

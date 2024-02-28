@@ -74,7 +74,7 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func onClickEdit(_ sender: Any) {
-        // TODO: 構成ダイアログを出す
+        self.presentAsSheet(WidgetConfigViewController())
     }
     
     @objc private func onClickVisibie(_ sender: NSButton){
