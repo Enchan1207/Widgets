@@ -12,11 +12,15 @@ protocol WidgetContent: AnyObject, Codable {
     
     /// デリゲート
     var delegates: MulticastDelegate<WidgetContentDelegate> { get }
-
-    // TODO: 設定画面実装時に追加
-    /*
-    /// 設定VCの型
-    var widgetPreferencesViewControllerType: WidgetPreferencesViewController.Type { get }
-     */
+    
+    /// 表示内容の概要
+    static var shortDescription: String { get }
+    
+    /// 表示内容の詳細
+    static var longDescription: String { get }
+    
+    /// デフォルト構成のインスタンスを生成
+    /// - Returns: 生成されたインスタンス
+    static func initWithDefaultConfiguration() -> WidgetContent
 
 }

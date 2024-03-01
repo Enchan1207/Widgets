@@ -13,8 +13,12 @@ final class MediaWidgetContent: WidgetContent {
     /// 表示内容の変更を通知するデリゲート
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
+    static var shortDescription: String { "Media" }
+    
+    static var longDescription: String { "Widget that provides media (images, videos, etc)." }
+    
     /// メディアのURL
-    var mediaURL: URL {
+    var mediaURL: URL? {
         didSet {
             delegates.invoke({$0.widget(self, didChange: \MediaWidgetContent.mediaURL)})
         }
@@ -25,9 +29,13 @@ final class MediaWidgetContent: WidgetContent {
         case mediaURL
     }
     
-    init(mediaURL: URL) {
+    init(mediaURL: URL?) {
         self.delegates = .init()
         self.mediaURL = mediaURL
+    }
+    
+    static func initWithDefaultConfiguration() -> WidgetContent {
+        return MediaWidgetContent(mediaURL: nil)
     }
     
 }

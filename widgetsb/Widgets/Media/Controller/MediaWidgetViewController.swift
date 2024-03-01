@@ -53,6 +53,9 @@ final class MediaWidgetViewController: WidgetViewController {
         // モデルのコンテンツを反映
         if let mediaURL = (widgetContent as? MediaWidgetContent)?.mediaURL {
             updateMediaContent(with: mediaURL)
+        }else{
+            configureFallbackView()
+            addMediaViewIfNeeded()
         }
     }
     
@@ -61,12 +64,7 @@ final class MediaWidgetViewController: WidgetViewController {
     /// メディアコンテンツを更新する
     private func updateMediaContent(with mediaURL: URL){
         // パスの取得と存在チェック
-        let mediaPath: String
-        if #available(macOS 13.0, *) {
-            mediaPath = mediaURL.path()
-        } else {
-            mediaPath = mediaURL.path
-        }
+        let mediaPath = mediaURL.filePath
         guard FileManager.default.fileExists(atPath: mediaPath),
               FileManager.default.isReadableFile(atPath: mediaPath) else {return}
         
@@ -80,15 +78,14 @@ final class MediaWidgetViewController: WidgetViewController {
             configureVideoView(with: mediaURL)
             
         default:
-            // メディアウィジェットビューでサポートされていないことを示すビューをなにか用意する
+            // サポート外ならフォールバックビューに切り替える
             print("Unsupported media type: \(mediaType)")
+            configureFallbackView()
             break
         }
         
         // 正しく構成できたらviewに追加する
-        if let mediaView = mediaView, mediaView.superview == nil {
-            self.view.addSubview(mediaView)
-        }
+        addMediaViewIfNeeded()
     }
     
     /// レイヤに画像コンテンツを構成する
@@ -118,6 +115,20 @@ final class MediaWidgetViewController: WidgetViewController {
         player?.play()
     }
     
+    /// レイヤにフォールバックビューを構成する
+    private func configureFallbackView(){
+        let fallbackImage = NSImage(systemSymbolName: "photo", accessibilityDescription: "no image")!
+        mediaView = DraggableImageView(image: fallbackImage)
+        mediaView?.autoresizingMask = [.width, .height]
+        mediaView?.frame = self.view.bounds
+    }
+    
+    /// メディアビューが構成されていて、かつ宙ぶらりんの状態ならメインビューに追加する
+    private func addMediaViewIfNeeded(){
+        guard let mediaView = mediaView, mediaView.superview == nil else {return}
+        self.view.addSubview(mediaView)
+    }
+    
     /// メディアコンテンツを削除する
     private func removeMediaContent(){
         // 動画を停止
@@ -141,9 +152,16 @@ extension MediaWidgetViewController: WidgetContentDelegate {
         guard let widgetContent = widgetContent as? MediaWidgetContent,
               keyPath == \MediaWidgetContent.mediaURL else {return}
         
-        // コンテンツを削除して再構成
+        // 一旦削除
         removeMediaContent()
-        updateMediaContent(with: widgetContent.mediaURL)
+        
+        // 再構成
+        if let mediaURL = widgetContent.mediaURL {
+            updateMediaContent(with: mediaURL)
+        }else {
+            configureFallbackView()
+            addMediaViewIfNeeded()
+        }
     }
     
 }

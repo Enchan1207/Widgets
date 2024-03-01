@@ -10,15 +10,13 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    /// ウィジェットモデルの配列
-    // TODO: 追加/削除UIをちゃんと作る    
-    private let widgets: [Widget] = [
-        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: ShellWidgetContent(maxLines: 30, updateInterval: 5)),
-        .init(windowState: .init(visibility: .Show, frame: .init(x: 100, y: 100, width: 400, height: 300)), content: MediaWidgetContent(mediaURL: .init(fileURLWithPath: "/Users/enchantcode/Pictures/icon.jpg")))
-    ]
+    // MARK: - Properties
     
-    /// WCを保持するリスト
-    private var widgetWCs: [WidgetWindowController] = []
+    /// ウィジェットコレクション
+    private let widgetCollection = WidgetCollection(widgets: (try? WidgetStorage.load()) ?? [])
+    
+    /// 設定画面
+    private lazy var preferencesWindowController = PreferencesWindowController(widgetCollection: widgetCollection)
     
     /// メニューバーボタン
     private let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -29,9 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             // ボタンの状態を更新
             updateMenuBarButton()
             
-            // 編集モードに移行したならアプリをアクティベート
+            // 編集モードに移行したらアプリをアクティベートし、設定画面を表示
             if widgetMode == .Edittable {
                 activateApp()
+                preferencesWindowController.showWindow(nil)
             }
             
             // 各ウィンドウに通知
@@ -39,22 +38,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    // MARK: - Public methods
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // メニューバーボタンを構成
         configureMenuBarButton()
         
-        // ウィジェットモデルの配列からウィジェットWCを生成
-        widgetWCs = widgets.compactMap({.init(widget: $0)})
-        
         // アプリをアクティベート
         activateApp()
         
-        // ウィンドウを表示
-        widgetWCs.forEach({$0.showWindow(nil)})
+        // コレクションが持つウィジェットを表示
+        widgetCollection.showWidgets()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        // ウィジェットを全て閉じる
+        widgetCollection.closeWindows()
+        
+        // 保存
+        try? WidgetStorage.save(widgets: widgetCollection.widgets)
     }
     
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
@@ -62,8 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return true
+        return false
     }
+    
+    // MARK: - Private methods
     
     /// アプリケーションをアクティブにする
     private func activateApp(){

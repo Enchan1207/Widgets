@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WidgetConfigViewController" customModule="widgetsb" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="qvt-LK-FPl" id="eg1-98-feD"/>
+                <outlet property="configView" destination="kZR-xh-gz7" id="sKe-aG-j0f"/>
+                <outlet property="nextButton" destination="sbG-8d-opi" id="OlK-Gt-zJI"/>
+                <outlet property="pageController" destination="Gxw-qS-Ofp" id="N9X-Hw-WlY"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="417" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATv-j8-i0h">
+                    <rect key="frame" x="20" y="20" width="377" height="260"/>
+                    <subviews>
+                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OD7-qi-CyU">
+                            <rect key="frame" x="-2" y="240" width="381" height="20"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Add new widget" id="LhB-IH-fsU">
+                                <font key="font" metaFont="system" size="17"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <customView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kZR-xh-gz7">
+                            <rect key="frame" x="0.0" y="28" width="377" height="204"/>
+                        </customView>
+                        <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9XR-kR-02I">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="20"/>
+                            <subviews>
+                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qvt-LK-FPl">
+                                    <rect key="frame" x="-7" y="-7" width="104" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RcN-HG-Ubl">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                    </buttonCell>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="bhP-l6-ZgK"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="onClickCancel:" target="-2" id="oBT-uk-40w"/>
+                                    </connections>
+                                </button>
+                                <customView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-46-7Ky">
+                                    <rect key="frame" x="98" y="0.0" width="181" height="20"/>
+                                </customView>
+                                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sbG-8d-opi">
+                                    <rect key="frame" x="280" y="-7" width="104" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Fe-6J-mqt">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="onClickNext:" target="-2" id="oac-bY-K7y"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="sbG-8d-opi" firstAttribute="width" secondItem="qvt-LK-FPl" secondAttribute="width" id="bgf-iT-l0N"/>
+                            </constraints>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="9XR-kR-02I" firstAttribute="leading" secondItem="ATv-j8-i0h" secondAttribute="leading" id="04f-Vi-M7q"/>
+                        <constraint firstAttribute="trailing" secondItem="9XR-kR-02I" secondAttribute="trailing" id="79i-9S-GJf"/>
+                        <constraint firstAttribute="trailing" secondItem="OD7-qi-CyU" secondAttribute="trailing" id="q7y-Nw-0xk"/>
+                        <constraint firstItem="kZR-xh-gz7" firstAttribute="leading" secondItem="ATv-j8-i0h" secondAttribute="leading" id="rs5-y1-GjL"/>
+                        <constraint firstAttribute="trailing" secondItem="kZR-xh-gz7" secondAttribute="trailing" id="vdf-FY-Gmn"/>
+                        <constraint firstItem="OD7-qi-CyU" firstAttribute="leading" secondItem="ATv-j8-i0h" secondAttribute="leading" id="w1D-qk-g0e"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="ATv-j8-i0h" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="cQo-Fi-Zo1"/>
+                <constraint firstAttribute="bottom" secondItem="ATv-j8-i0h" secondAttribute="bottom" constant="20" id="fbE-US-VXb"/>
+                <constraint firstAttribute="trailing" secondItem="ATv-j8-i0h" secondAttribute="trailing" constant="20" id="k3A-1D-rV0"/>
+                <constraint firstItem="ATv-j8-i0h" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="neh-rJ-BMR"/>
+            </constraints>
+            <point key="canvasLocation" x="14.5" y="179"/>
+        </customView>
+        <pagecontroller transitionStyle="horizontalStrip" id="Gxw-qS-Ofp" customClass="WidgetConfigPageController" customModule="widgetsb" customModuleProvider="target">
+            <connections>
+                <outlet property="delegate" destination="-2" id="WqM-VG-A1O"/>
+                <outlet property="view" destination="kZR-xh-gz7" id="05W-Hr-XrZ"/>
+            </connections>
+        </pagecontroller>
+    </objects>
+</document>
