@@ -51,10 +51,10 @@ final class ShellWidgetViewController: WidgetViewController {
         processOutputView.textColor = .green.withAlphaComponent(0.5)
         processOutputView.startPoint = .init(x: 0.5, y: 0.3)
         processOutputView.font = .monospacedSystemFont(ofSize: 14.0, weight: .regular)
-        self.runner.delegate = self
+        runner.delegate = self
         
         // 一度実行要求を出してから更新タイマを構成
-        self.runner.requestForExecution()
+        runner.requestForExecution()
         configureUpdateTimer()
     }
     
@@ -109,20 +109,12 @@ extension ShellWidgetViewController: ProcessRunnerDelegate {
 }
 
 extension ShellWidgetViewController: WidgetContentDelegate {
+    
     func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
-        guard let widgetContent = widgetContent as? ShellWidgetContent else {return}
-        
-        switch keyPath {
-        case \ShellWidgetContent.maxLines:
-            guard let maxLines = widgetContent[keyPath: keyPath] as? Int else {return}
-            print("maxLines updated: \(maxLines)")
-            
-        case \ShellWidgetContent.updateInterval:
-            guard let updateInterval = widgetContent[keyPath: keyPath] as? Double else {return}
-            print("updateInterval updated: \(updateInterval)")
-            
-        default:
-            break
+        // 更新間隔に変更があったら、実行要求を出してタイマ再設定
+        if keyPath == \ShellWidgetContent.updateInterval {
+            runner.requestForExecution()
+            configureUpdateTimer()
         }
     }
 }

@@ -53,6 +53,9 @@ final class MediaWidgetViewController: WidgetViewController {
         // モデルのコンテンツを反映
         if let mediaURL = (widgetContent as? MediaWidgetContent)?.mediaURL {
             updateMediaContent(with: mediaURL)
+        }else{
+            configureFallbackView()
+            addMediaViewIfNeeded()
         }
     }
     
@@ -80,15 +83,14 @@ final class MediaWidgetViewController: WidgetViewController {
             configureVideoView(with: mediaURL)
             
         default:
-            // メディアウィジェットビューでサポートされていないことを示すビューをなにか用意する
+            // サポート外ならフォールバックビューに切り替える
             print("Unsupported media type: \(mediaType)")
+            configureFallbackView()
             break
         }
         
         // 正しく構成できたらviewに追加する
-        if let mediaView = mediaView, mediaView.superview == nil {
-            self.view.addSubview(mediaView)
-        }
+        addMediaViewIfNeeded()
     }
     
     /// レイヤに画像コンテンツを構成する
@@ -116,6 +118,20 @@ final class MediaWidgetViewController: WidgetViewController {
         mediaView?.layer?.frame = self.view.bounds
         
         player?.play()
+    }
+    
+    /// レイヤにフォールバックビューを構成する
+    private func configureFallbackView(){
+        let fallbackImage = NSImage(systemSymbolName: "photo", accessibilityDescription: "no image")!
+        mediaView = DraggableImageView(image: fallbackImage)
+        mediaView?.autoresizingMask = [.width, .height]
+        mediaView?.frame = self.view.bounds
+    }
+    
+    /// メディアビューが構成されていて、かつ宙ぶらりんの状態ならメインビューに追加する
+    private func addMediaViewIfNeeded(){
+        guard let mediaView = mediaView, mediaView.superview == nil else {return}
+        self.view.addSubview(mediaView)
     }
     
     /// メディアコンテンツを削除する
@@ -148,7 +164,8 @@ extension MediaWidgetViewController: WidgetContentDelegate {
         if let mediaURL = widgetContent.mediaURL {
             updateMediaContent(with: mediaURL)
         }else {
-            // TODO: URLが渡されなければフォールバックビューに差し替え
+            configureFallbackView()
+            addMediaViewIfNeeded()
         }
     }
     
