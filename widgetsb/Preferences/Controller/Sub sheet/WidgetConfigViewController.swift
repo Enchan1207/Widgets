@@ -26,6 +26,9 @@ class WidgetConfigViewController: NSViewController {
     @IBOutlet weak var nextButton: NSButton! {
         didSet{
             nextButton.isEnabled = false
+            
+            // 単一ページしかないなら表示しない
+            nextButton.isHidden = pageIdentifiers.count == 1
         }
     }
     
@@ -62,7 +65,7 @@ class WidgetConfigViewController: NSViewController {
     weak var delegate: WidgetConfigViewControllerDelegate?
     
     /// コンフィグシートが保持しているウィンドウ状態インスタンス
-    private var currentWidgetWindowState: WidgetWindowState
+    private var currentWidgetWindowState: WidgetWindowState?
     
     /// コンフィグシートが保持しているウィジェットコンテンツインスタンス
     private var currentWidgetContent: WidgetContent?
@@ -76,8 +79,11 @@ class WidgetConfigViewController: NSViewController {
     ///   - widgetContent: ウィジェットコンテンツ
     private init(pageIdentifiers: [PageIdentifier], widgetState: WidgetWindowState?, widgetContent: WidgetContent?){
         self.pageIdentifiers = pageIdentifiers
-        self.currentWidgetWindowState = widgetState ?? .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
+        
+        self.currentWidgetWindowState = widgetState
         self.currentWidgetContent = widgetContent
+        
+        // widgetContentがnilでなければ、currentWidgetKindTypeも設定してしまう
         if let widgetContent = widgetContent {
             self.currentWidgetKindType = type(of: widgetContent)
         } else {
@@ -106,7 +112,7 @@ class WidgetConfigViewController: NSViewController {
     @IBAction func onClickNext(_ sender: Any) {
         // 現在のページが最終ページならシートを閉じ、デリゲートに通知する
         guard pageController.selectedIndex < pageIdentifiers.count - 1 else {
-            self.delegate?.didPrepareNewWidget(self, state: currentWidgetWindowState, content: currentWidgetContent!)
+            self.delegate?.didPrepareNewWidget(self, state: currentWidgetWindowState!, content: currentWidgetContent!)
             dismiss(nil)
             return
         }
@@ -137,7 +143,9 @@ class WidgetConfigViewController: NSViewController {
     /// VCを新規ウィジェット追加用に構成する
     /// - Returns: 構成されたVC
     static func widgetAdditionSheet() -> WidgetConfigViewController {
-        .init(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: nil, widgetContent: nil)
+        // ウィジェット状態にはデフォルト値を渡しておく
+        let widgetState = WidgetWindowState(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
+        return WidgetConfigViewController(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: widgetState, widgetContent: nil)
     }
     
     /// VCをウィジェットコンテンツ編集用に構成する
