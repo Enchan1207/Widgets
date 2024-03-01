@@ -21,15 +21,15 @@ final class WidgetCollection {
     // MARK: - Initializers
     
     init(widgets: [Widget]){
-        self.widgets = widgets
-        
-        // TODO: コレクションにウィジェットがひとつもない場合は、ウェルカムウィジェットを追加する
-        if self.widgets.count == 0 {
-            // widgetCollection.addWidget(<#T##widget: Widget##Widget#>)
+        // ウィジェットが一つもなければウェルカムウィジェットを表示する
+        if widgets.count > 0 {
+            self.widgets = widgets
+        }else{
+            self.widgets = [.init(windowState: .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300))), content: WelcomeWidgetContent())]
         }
         
         // ウィンドウコントローラを初期化しておく
-        self.widgetWindowControllers = widgets.compactMap({.init(widget: $0)})
+        self.widgetWindowControllers = self.widgets.compactMap({.init(widget: $0)})
     }
     
     // MARK: - Public methods
