@@ -61,11 +61,11 @@ class WidgetConfigViewController: NSViewController {
     /// デリゲート
     weak var delegate: WidgetConfigViewControllerDelegate?
     
-    /// シートオープン時に与えられたウィンドウ状態
-    private weak var currentWidgetWindowState: WidgetWindowState?
+    /// コンフィグシートが保持しているウィンドウ状態インスタンス
+    private var currentWidgetWindowState: WidgetWindowState
     
-    ///　シートオープン時に与えられたウィジェットコンテンツ
-    private weak var currentWidgetContent: WidgetContent?
+    /// コンフィグシートが保持しているウィジェットコンテンツインスタンス
+    private var currentWidgetContent: WidgetContent?
     
     // MARK: - Initializers
     
@@ -76,7 +76,7 @@ class WidgetConfigViewController: NSViewController {
     ///   - widgetContent: ウィジェットコンテンツ
     private init(pageIdentifiers: [PageIdentifier], widgetState: WidgetWindowState?, widgetContent: WidgetContent?){
         self.pageIdentifiers = pageIdentifiers
-        self.currentWidgetWindowState = widgetState
+        self.currentWidgetWindowState = widgetState ?? .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
         self.currentWidgetContent = widgetContent
         if let widgetContent = widgetContent {
             self.currentWidgetKindType = type(of: widgetContent)
@@ -170,10 +170,7 @@ extension WidgetConfigViewController: NSPageControllerDelegate {
             (viewController as! WidgetKindSelectorViewController).delegate = self
             
         case .ContentEditor:
-            // ウィジェット表示内容の型が与えられている前提で、ウィジェットコンテンツが渡されていればそれを用い、そうでなければデフォルトコンテンツを生成
-            // TODO: ここでデフォルト構成を生成しちゃうと面倒なことになる(weakなのでインスタンスが解放される可能性がある)
-            guard let widgetKindType = currentWidgetKindType else {fatalError("Content modification requested but member currentWidgetKindType is not set")}
-            let widgetContent = currentWidgetContent ?? widgetKindType.initWithDefaultConfiguration()
+            guard let widgetContent = currentWidgetContent else {fatalError("Widget content instance not set")}
             switch widgetContent {
                 
             case let widgetContent as ShellWidgetContent:
@@ -187,12 +184,9 @@ extension WidgetConfigViewController: NSPageControllerDelegate {
             }
             
         case .AnchorEditor:
-            // ウィジェット状態への参照を渡してVC生成 状態がなければこの場で作る
-            // TODO: ここでデフォルト構成を生成しちゃうと面倒なことになる(weakなのでインスタンスが解放される可能性がある)
-            let widgetWindowState = currentWidgetWindowState ?? .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
-            viewController = WidgetAnchorEditorViewController(widgetWindowState: widgetWindowState)
+            // ウィジェット状態への参照を渡してVC生成
+            viewController = WidgetAnchorEditorViewController(widgetWindowState: currentWidgetWindowState)
             (viewController as! WidgetAnchorEditorViewController).delegate = self
-             
         }
         
         return viewController
@@ -204,6 +198,11 @@ extension WidgetConfigViewController: WidgetKindSelectorDelegate {
     
     func kindSelector(_ selector: WidgetKindSelectorViewController, didSelect kind: WidgetContent.Type) {
         currentWidgetKindType = kind
+        
+        // ユーザが選択した型に基づき、WidgetContentをそのデフォルト構成で生成しておく
+        if currentWidgetContent == nil {
+            currentWidgetContent = currentWidgetKindType?.initWithDefaultConfiguration()
+        }
     }
     
 }
