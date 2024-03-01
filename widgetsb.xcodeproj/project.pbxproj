@@ -22,6 +22,8 @@
 		9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */; };
 		9E7236172B8DF0F6004B5503 /* WidgetConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */; };
 		9E7236182B8DF0F6004B5503 /* WidgetConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */; };
+		9E80B4182B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */; };
+		9E80B4192B920A650053C039 /* WelcomeWidgetContentEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */; };
 		9E82ADBE2B9010DD00F7649A /* WidgetKindSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */; };
 		9E82ADBF2B9010DD00F7649A /* WidgetKindSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E82ADBD2B9010DD00F7649A /* WidgetKindSelectorView.xib */; };
 		9E82ADC32B9013D000F7649A /* WidgetKindSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADC22B9013D000F7649A /* WidgetKindSelectorDelegate.swift */; };
@@ -86,6 +88,8 @@
 		9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigViewController.swift; sourceTree = "<group>"; };
 		9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetConfigView.xib; sourceTree = "<group>"; };
+		9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWidgetContentEditorViewController.swift; sourceTree = "<group>"; };
+		9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWidgetContentEditorView.xib; sourceTree = "<group>"; };
 		9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKindSelectorViewController.swift; sourceTree = "<group>"; };
 		9E82ADBD2B9010DD00F7649A /* WidgetKindSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetKindSelectorView.xib; sourceTree = "<group>"; };
 		9E82ADC22B9013D000F7649A /* WidgetKindSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKindSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -436,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFF52BA2B91D24D00D49D7B /* WelcomeWidgetView.xib */,
+				9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				9EFF52B92B91D24D00D49D7B /* WelcomeWidgetViewController.swift */,
+				9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECC86772B89A67000A615F6 /* PreferencesView.xib in Resources */,
+				9E80B4192B920A650053C039 /* WelcomeWidgetContentEditorView.xib in Resources */,
 				9E7236182B8DF0F6004B5503 /* WidgetConfigView.xib in Resources */,
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
 				9EFF52BC2B91D24D00D49D7B /* WelcomeWidgetView.xib in Resources */,
@@ -572,6 +579,7 @@
 				9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */,
 				9EFF52BB2B91D24D00D49D7B /* WelcomeWidgetViewController.swift in Sources */,
 				9E7236022B8DA65E004B5503 /* VisibilityCellView.swift in Sources */,
+				9E80B4182B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift in Sources */,
 				9E7236082B8DAF3D004B5503 /* ArrayExtension.swift in Sources */,
 				9E82ADCC2B90C99B00F7649A /* MediaWidgetContentEditorViewController.swift in Sources */,
 				9ECC864A2B8865C900A615F6 /* WidgetWindowStateDelegate.swift in Sources */,

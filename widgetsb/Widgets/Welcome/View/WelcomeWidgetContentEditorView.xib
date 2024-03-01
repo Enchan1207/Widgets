@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="WelcomeWidgetContentEditorViewController" customModule="widgetsb" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="epX-EK-sel">
+                    <rect key="frame" x="0.0" y="10" width="400" height="200"/>
+                    <subviews>
+                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="b1X-xD-x6i">
+                            <rect key="frame" x="-2" y="181" width="404" height="19"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Edit widget" id="fKA-QB-xQ0">
+                                <font key="font" metaFont="system" size="16"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField focusRingType="none" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Atb-Tr-2WS">
+                            <rect key="frame" x="13" y="93" width="374" height="80"/>
+                            <textFieldCell key="cell" id="VHP-5W-aKu">
+                                <font key="font" metaFont="system"/>
+                                <string key="title">Welcome to preference screen! This is "widget content editor". 
+If selected widget has any options, you can edit it in this sheet. Unfortunately welcome widget has no mutable features, so it only provide this how-to.</string>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <customView horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="l7Z-fg-eXX">
+                            <rect key="frame" x="0.0" y="0.0" width="400" height="85"/>
+                        </customView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="b1X-xD-x6i" secondAttribute="trailing" id="BKp-Hi-naq"/>
+                        <constraint firstItem="Atb-Tr-2WS" firstAttribute="leading" secondItem="epX-EK-sel" secondAttribute="leading" constant="15" id="bCx-vp-z18"/>
+                        <constraint firstAttribute="trailing" secondItem="Atb-Tr-2WS" secondAttribute="trailing" constant="15" id="eHW-Oi-3U9"/>
+                        <constraint firstItem="b1X-xD-x6i" firstAttribute="leading" secondItem="epX-EK-sel" secondAttribute="leading" id="qOh-Ur-E3I"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="epX-EK-sel" secondAttribute="trailing" id="I3f-wY-FUw"/>
+                <constraint firstItem="epX-EK-sel" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="LEg-OW-dzC"/>
+                <constraint firstItem="epX-EK-sel" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="O1o-fc-bUb"/>
+                <constraint firstAttribute="bottom" secondItem="epX-EK-sel" secondAttribute="bottom" constant="10" id="Vli-N0-6SE"/>
+            </constraints>
+            <point key="canvasLocation" x="140" y="154"/>
+        </customView>
+    </objects>
+</document>
