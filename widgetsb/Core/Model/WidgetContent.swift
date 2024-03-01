@@ -14,9 +14,13 @@ protocol WidgetContent: AnyObject, Codable {
     var delegates: MulticastDelegate<WidgetContentDelegate> { get }
     
     /// 表示内容の概要
-    var shortDescription: String { get }
+    static var shortDescription: String { get }
     
     /// 表示内容の詳細
-    var longDescription: String { get }
+    static var longDescription: String { get }
+    
+    /// デフォルト構成のインスタンスを生成
+    /// - Returns: 生成されたインスタンス
+    static func initWithDefaultConfiguration() -> WidgetContent
 
 }

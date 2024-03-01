@@ -141,9 +141,15 @@ extension MediaWidgetViewController: WidgetContentDelegate {
         guard let widgetContent = widgetContent as? MediaWidgetContent,
               keyPath == \MediaWidgetContent.mediaURL else {return}
         
-        // コンテンツを削除して再構成
+        // 一旦削除
         removeMediaContent()
-        updateMediaContent(with: widgetContent.mediaURL)
+        
+        // 再構成
+        if let mediaURL = widgetContent.mediaURL {
+            updateMediaContent(with: mediaURL)
+        }else {
+            // TODO: URLが渡されなければフォールバックビューに差し替え
+        }
     }
     
 }

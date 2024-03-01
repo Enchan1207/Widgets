@@ -8,7 +8,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="WidgetConfigViewController" customModule="widgetsb" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="qvt-LK-FPl" id="eg1-98-feD"/>
                 <outlet property="configView" destination="kZR-xh-gz7" id="sKe-aG-j0f"/>
+                <outlet property="nextButton" destination="sbG-8d-opi" id="OlK-Gt-zJI"/>
                 <outlet property="pageController" destination="Gxw-qS-Ofp" id="N9X-Hw-WlY"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -38,7 +40,7 @@
                             <subviews>
                                 <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qvt-LK-FPl">
                                     <rect key="frame" x="-7" y="-7" width="104" height="32"/>
-                                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RcN-HG-Ubl">
+                                    <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RcN-HG-Ubl">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                         <string key="keyEquivalent" base64-UTF8="YES">

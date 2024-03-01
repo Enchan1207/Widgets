@@ -72,7 +72,9 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func onClickAdd(_ sender: Any) {
         // ウィジェット追加シートを表示する
-        self.presentAsSheet(WidgetConfigViewController())
+        let configVC = WidgetConfigViewController()
+        configVC.delegate = self
+        self.presentAsSheet(configVC)
     }
     
     @IBAction func onClickRemove(_ sender: Any) {
@@ -81,11 +83,17 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func onClickAnchorEdit(_ sender: Any) {
-        // TODO: アンカーを編集するビューを表示
+        guard widgetsListView.selectedRow >= 0 else {return}
+        let configVC = WidgetConfigViewController(widgetState: widgetCollection?.widgets[widgetsListView.selectedRow].windowState)
+        configVC.delegate = self
+        self.presentAsSheet(configVC)
     }
     
     @IBAction func onClickContentEdit(_ sender: Any) {
-        // TODO: コンテンツを編集するビューを表示
+        guard widgetsListView.selectedRow >= 0 else {return}
+        let configVC = WidgetConfigViewController(widgetContent: widgetCollection?.widgets[widgetsListView.selectedRow].content)
+        configVC.delegate = self
+        self.presentAsSheet(configVC)
     }
     
     @objc private func onClickVisibie(_ sender: NSButton){
@@ -130,6 +138,10 @@ extension PreferencesViewController: WidgetCollectionDelegate {
         widgetsListView.removeRows(at: [index], withAnimation: .slideUp)
         widgetsListView.endUpdates()
     }
+    
+}
+
+extension PreferencesViewController: WidgetConfigViewControllerDelegate {
     
 }
 

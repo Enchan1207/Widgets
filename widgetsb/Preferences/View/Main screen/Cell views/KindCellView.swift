@@ -12,7 +12,7 @@ class KindCellView: NSTableCellView, PreferenceCellView {
     @IBOutlet weak var kindField: NSTextField!
     
     func configure(with widget: Widget) {
-        kindField.stringValue = widget.content.shortDescription
+        kindField.stringValue = type(of: widget.content).shortDescription
     }
     
 }

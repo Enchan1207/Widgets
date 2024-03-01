@@ -13,9 +13,9 @@ final class ShellWidgetContent: WidgetContent {
     /// 表示内容の変更を通知するデリゲート
     private (set) public var delegates: MulticastDelegate<WidgetContentDelegate>
     
-    var shortDescription: String { "Shell" }
+    static var shortDescription: String { "Shell" }
     
-    var longDescription: String { "Widget that provide shell script output. content updates periodically." }
+    static var longDescription: String { "Widget that provide shell script output. content updates periodically." }
     
     /// 表示する最大行数
     var maxLines: Int {
@@ -41,6 +41,10 @@ final class ShellWidgetContent: WidgetContent {
         self.delegates = .init()
         self.maxLines = maxLines
         self.updateInterval = updateInterval
+    }
+    
+    static func initWithDefaultConfiguration() -> WidgetContent {
+        return ShellWidgetContent(maxLines: 20, updateInterval: 60)
     }
     
 }
