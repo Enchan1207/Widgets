@@ -16,6 +16,8 @@ final class WidgetViewControllerFactory {
     static func makeViewController(from content: WidgetContent) -> NSViewController {
         let widgetViewController: NSViewController
         switch content.self {
+        case is WelcomeWidgetContent:
+            widgetViewController = WelcomeWidgetViewController(widgetContent: content as! WelcomeWidgetContent)
         case is ShellWidgetContent:
             widgetViewController = ShellWidgetViewController(widgetContent: content as! ShellWidgetContent)
         case is MediaWidgetContent:

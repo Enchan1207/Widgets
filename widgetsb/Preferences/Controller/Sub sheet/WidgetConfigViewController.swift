@@ -192,6 +192,9 @@ extension WidgetConfigViewController: NSPageControllerDelegate {
                 
             case let widgetContent as MediaWidgetContent:
                 viewController = MediaWidgetContentEditorViewController(mediaWidgetContent: widgetContent)
+            
+            case let widgetContent as WelcomeWidgetContent:
+                viewController = WelcomeWidgetContentEditorViewController(welcomeWidgetContent: widgetContent)
                 
             default:
                 fatalError("Unknown content type: \(widgetContent.self)")

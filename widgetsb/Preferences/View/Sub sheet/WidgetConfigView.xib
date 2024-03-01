@@ -24,7 +24,7 @@
                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ATv-j8-i0h">
                     <rect key="frame" x="20" y="20" width="377" height="260"/>
                     <subviews>
-                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OD7-qi-CyU">
+                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="OD7-qi-CyU">
                             <rect key="frame" x="-2" y="240" width="381" height="20"/>
                             <textFieldCell key="cell" lineBreakMode="clipping" title="Add new widget" id="LhB-IH-fsU">
                                 <font key="font" metaFont="system" size="17"/>

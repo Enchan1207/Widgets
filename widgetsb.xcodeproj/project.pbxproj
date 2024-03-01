@@ -22,6 +22,8 @@
 		9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */; };
 		9E7236172B8DF0F6004B5503 /* WidgetConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */; };
 		9E7236182B8DF0F6004B5503 /* WidgetConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */; };
+		9E80B4182B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */; };
+		9E80B4192B920A650053C039 /* WelcomeWidgetContentEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */; };
 		9E82ADBE2B9010DD00F7649A /* WidgetKindSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */; };
 		9E82ADBF2B9010DD00F7649A /* WidgetKindSelectorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E82ADBD2B9010DD00F7649A /* WidgetKindSelectorView.xib */; };
 		9E82ADC32B9013D000F7649A /* WidgetKindSelectorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADC22B9013D000F7649A /* WidgetKindSelectorDelegate.swift */; };
@@ -65,6 +67,9 @@
 		9ED7DCA32B7DDC43004957E0 /* ProcessRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCA22B7DDC43004957E0 /* ProcessRunner.swift */; };
 		9ED7DCAB2B7E4CD2004957E0 /* ProcessRunnerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED7DCAA2B7E4CD1004957E0 /* ProcessRunnerDelegate.swift */; };
 		9EE0AB542B8EFB90006621C6 /* WidgetConfigPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0AB532B8EFB90006621C6 /* WidgetConfigPageController.swift */; };
+		9EFF52BB2B91D24D00D49D7B /* WelcomeWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF52B92B91D24D00D49D7B /* WelcomeWidgetViewController.swift */; };
+		9EFF52BC2B91D24D00D49D7B /* WelcomeWidgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EFF52BA2B91D24D00D49D7B /* WelcomeWidgetView.xib */; };
+		9EFF52C12B91D2C400D49D7B /* WelcomeWidgetContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EFF52C02B91D2C400D49D7B /* WelcomeWidgetContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +88,8 @@
 		9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigViewController.swift; sourceTree = "<group>"; };
 		9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetConfigView.xib; sourceTree = "<group>"; };
+		9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWidgetContentEditorViewController.swift; sourceTree = "<group>"; };
+		9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWidgetContentEditorView.xib; sourceTree = "<group>"; };
 		9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKindSelectorViewController.swift; sourceTree = "<group>"; };
 		9E82ADBD2B9010DD00F7649A /* WidgetKindSelectorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetKindSelectorView.xib; sourceTree = "<group>"; };
 		9E82ADC22B9013D000F7649A /* WidgetKindSelectorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKindSelectorDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +135,9 @@
 		9ED7DCA22B7DDC43004957E0 /* ProcessRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRunner.swift; sourceTree = "<group>"; };
 		9ED7DCAA2B7E4CD1004957E0 /* ProcessRunnerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRunnerDelegate.swift; sourceTree = "<group>"; };
 		9EE0AB532B8EFB90006621C6 /* WidgetConfigPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigPageController.swift; sourceTree = "<group>"; };
+		9EFF52B92B91D24D00D49D7B /* WelcomeWidgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWidgetViewController.swift; sourceTree = "<group>"; };
+		9EFF52BA2B91D24D00D49D7B /* WelcomeWidgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWidgetView.xib; sourceTree = "<group>"; };
+		9EFF52C02B91D2C400D49D7B /* WelcomeWidgetContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWidgetContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -409,10 +419,47 @@
 		9ED7DC992B7DD05F004957E0 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				9EFF52B82B91D21C00D49D7B /* Welcome */,
 				9ECC865A2B887D7E00A615F6 /* Media */,
 				9ECC86592B887D7600A615F6 /* Shell */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		9EFF52B82B91D21C00D49D7B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				9EFF52BF2B91D2AF00D49D7B /* Model */,
+				9EFF52BD2B91D25600D49D7B /* View */,
+				9EFF52BE2B91D25B00D49D7B /* Controller */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		9EFF52BD2B91D25600D49D7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9EFF52BA2B91D24D00D49D7B /* WelcomeWidgetView.xib */,
+				9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9EFF52BE2B91D25B00D49D7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9EFF52B92B91D24D00D49D7B /* WelcomeWidgetViewController.swift */,
+				9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9EFF52BF2B91D2AF00D49D7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9EFF52C02B91D2C400D49D7B /* WelcomeWidgetContent.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,8 +521,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9ECC86772B89A67000A615F6 /* PreferencesView.xib in Resources */,
+				9E80B4192B920A650053C039 /* WelcomeWidgetContentEditorView.xib in Resources */,
 				9E7236182B8DF0F6004B5503 /* WidgetConfigView.xib in Resources */,
 				9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */,
+				9EFF52BC2B91D24D00D49D7B /* WelcomeWidgetView.xib in Resources */,
 				9ED695A72B8091750046B70A /* MediaWidgetView.xib in Resources */,
 				9E82ADD12B90CAB900F7649A /* ShellWidgetContentEditorView.xib in Resources */,
 				9ED7DC9D2B7DD079004957E0 /* ShellWidgetView.xib in Resources */,
@@ -496,6 +545,7 @@
 			files = (
 				9E39F58B2B847B2100C8CFF7 /* MuticastDelegate.swift in Sources */,
 				9ECC864C2B88667E00A615F6 /* WidgetContentDelegate.swift in Sources */,
+				9EFF52C12B91D2C400D49D7B /* WelcomeWidgetContent.swift in Sources */,
 				9ECC86522B886CFF00A615F6 /* ShellWidgetContent.swift in Sources */,
 				9ECC86482B88656900A615F6 /* WidgetVisibility.swift in Sources */,
 				9ECAAD9F2B7B1BFF0043D51C /* WidgetMode.swift in Sources */,
@@ -527,7 +577,9 @@
 				9ED7DCAB2B7E4CD2004957E0 /* ProcessRunnerDelegate.swift in Sources */,
 				9ED7DC9C2B7DD079004957E0 /* ShellWidgetViewController.swift in Sources */,
 				9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */,
+				9EFF52BB2B91D24D00D49D7B /* WelcomeWidgetViewController.swift in Sources */,
 				9E7236022B8DA65E004B5503 /* VisibilityCellView.swift in Sources */,
+				9E80B4182B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift in Sources */,
 				9E7236082B8DAF3D004B5503 /* ArrayExtension.swift in Sources */,
 				9E82ADCC2B90C99B00F7649A /* MediaWidgetContentEditorViewController.swift in Sources */,
 				9ECC864A2B8865C900A615F6 /* WidgetWindowStateDelegate.swift in Sources */,
@@ -688,6 +740,7 @@
 				DEVELOPMENT_TEAM = 9JTFXT4CWH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Enchan1207";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
@@ -717,6 +770,7 @@
 				DEVELOPMENT_TEAM = 9JTFXT4CWH;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "2024 Enchan1207";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
