@@ -33,6 +33,7 @@
 		9E82ADD12B90CAB900F7649A /* ShellWidgetContentEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E82ADCF2B90CAB900F7649A /* ShellWidgetContentEditorView.xib */; };
 		9E82ADD32B91766000F7649A /* WidgetAnchorEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADD22B91766000F7649A /* WidgetAnchorEditorDelegate.swift */; };
 		9E82ADD52B9199DF00F7649A /* WidgetConfigViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADD42B9199DF00F7649A /* WidgetConfigViewControllerDelegate.swift */; };
+		9E82ADD92B91CC3A00F7649A /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADD82B91CC3A00F7649A /* URLExtension.swift */; };
 		9EB1461C2B85F25C00B0560B /* DraggableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */; };
 		9ECAAD8C2B7AFBDE0043D51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */; };
 		9ECAAD8E2B7AFBE10043D51C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ECAAD8D2B7AFBE10043D51C /* Assets.xcassets */; };
@@ -93,6 +94,7 @@
 		9E82ADCF2B90CAB900F7649A /* ShellWidgetContentEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShellWidgetContentEditorView.xib; sourceTree = "<group>"; };
 		9E82ADD22B91766000F7649A /* WidgetAnchorEditorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetAnchorEditorDelegate.swift; sourceTree = "<group>"; };
 		9E82ADD42B9199DF00F7649A /* WidgetConfigViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigViewControllerDelegate.swift; sourceTree = "<group>"; };
+		9E82ADD82B91CC3A00F7649A /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		9EB1461B2B85F25C00B0560B /* DraggableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableImageView.swift; sourceTree = "<group>"; };
 		9ECAAD882B7AFBDE0043D51C /* widgetsb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = widgetsb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ECAAD8B2B7AFBDE0043D51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				9ECAADB12B7C5B610043D51C /* NotificationNameExt.swift */,
 				9E39F5862B82F3AE00C8CFF7 /* UTTypeExt.swift */,
 				9E7236072B8DAF3D004B5503 /* ArrayExtension.swift */,
+				9E82ADD82B91CC3A00F7649A /* URLExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				9E7236172B8DF0F6004B5503 /* WidgetConfigViewController.swift in Sources */,
 				9E7236042B8DA77B004B5503 /* KindCellView.swift in Sources */,
 				9ECC86542B886D0700A615F6 /* MediaWidgetContent.swift in Sources */,
+				9E82ADD92B91CC3A00F7649A /* URLExtension.swift in Sources */,
 				9ECC86462B88651800A615F6 /* Widget.swift in Sources */,
 				9ECC86682B889FED00A615F6 /* WidgetCollectionDelegate.swift in Sources */,
 				9ED695A62B8091750046B70A /* MediaWidgetViewController.swift in Sources */,

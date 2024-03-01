@@ -39,13 +39,7 @@ final class WidgetStorage {
     /// - Parameter url: 読込み元
     /// - Returns: 復元されたウィジェット配列
     static func load(from url: URL = WidgetStorage.widgetConfigDir) throws -> [Widget] {
-        let urlPath: String
-        if #available(macOS 13.0, *) {
-            urlPath = url.path()
-        } else {
-            urlPath = url.path
-        }
-        print("Load widgets from \(urlPath)")
+        print("Load widgets from \(url.filePath)")
         
         do {
             let storedWidgetData = try Data(contentsOf: url)

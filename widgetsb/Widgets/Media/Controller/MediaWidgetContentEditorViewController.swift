@@ -55,13 +55,7 @@ class MediaWidgetContentEditorViewController: NSViewController {
     // MARK: - Private methods
     
     private func updateFilePathField(){
-        let mediaFilePath: String?
-        if #available(macOS 13.0, *) {
-            mediaFilePath = mediaWidgetContent?.mediaURL?.path()
-        } else {
-            mediaFilePath = mediaWidgetContent?.mediaURL?.path
-        }
-        filePathField.stringValue = mediaFilePath ?? "(media not set)"
+        filePathField.stringValue = mediaWidgetContent?.mediaURL?.filePath ?? "(media not set)"
     }
     
 }

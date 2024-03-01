@@ -64,12 +64,7 @@ final class MediaWidgetViewController: WidgetViewController {
     /// メディアコンテンツを更新する
     private func updateMediaContent(with mediaURL: URL){
         // パスの取得と存在チェック
-        let mediaPath: String
-        if #available(macOS 13.0, *) {
-            mediaPath = mediaURL.path()
-        } else {
-            mediaPath = mediaURL.path
-        }
+        let mediaPath = mediaURL.filePath
         guard FileManager.default.fileExists(atPath: mediaPath),
               FileManager.default.isReadableFile(atPath: mediaPath) else {return}
         
