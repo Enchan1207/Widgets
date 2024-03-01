@@ -33,12 +33,6 @@ class WelcomeWidgetViewController: WidgetViewController {
         
     }
     
-    // MARK: - GUI action
-    
-    @IBAction func onClickPreferenceButton(_ sender: Any) {
-        // TODO: 設定画面の表示
-    }
-    
     // MARK: - Private methods
     
     private func lookupInfoPlist(_ key: String) -> String? {
