@@ -72,7 +72,7 @@ class PreferencesViewController: NSViewController {
     
     @IBAction func onClickAdd(_ sender: Any) {
         // ウィジェット追加シートを表示する
-        let configVC = WidgetConfigViewController()
+        let configVC = WidgetConfigViewController.widgetAdditionSheet()
         configVC.delegate = self
         self.presentAsSheet(configVC)
     }
@@ -83,15 +83,15 @@ class PreferencesViewController: NSViewController {
     }
     
     @IBAction func onClickAnchorEdit(_ sender: Any) {
-        guard widgetsListView.selectedRow >= 0 else {return}
-        let configVC = WidgetConfigViewController(widgetState: widgetCollection?.widgets[widgetsListView.selectedRow].windowState)
+        guard widgetsListView.selectedRow >= 0, let widgetState = widgetCollection?.widgets[widgetsListView.selectedRow].windowState else {return}
+        let configVC = WidgetConfigViewController.stateModificationSheet(widgetState: widgetState)
         configVC.delegate = self
         self.presentAsSheet(configVC)
     }
     
     @IBAction func onClickContentEdit(_ sender: Any) {
-        guard widgetsListView.selectedRow >= 0 else {return}
-        let configVC = WidgetConfigViewController(widgetContent: widgetCollection?.widgets[widgetsListView.selectedRow].content)
+        guard widgetsListView.selectedRow >= 0, let widgetContent = widgetCollection?.widgets[widgetsListView.selectedRow].content else {return}
+        let configVC = WidgetConfigViewController.contentModificationSheet(widgetContent: widgetContent)
         configVC.delegate = self
         self.presentAsSheet(configVC)
     }
@@ -142,6 +142,10 @@ extension PreferencesViewController: WidgetCollectionDelegate {
 }
 
 extension PreferencesViewController: WidgetConfigViewControllerDelegate {
+    
+    func didPrepareNewWidget(_ viewController: WidgetConfigViewController, state: WidgetWindowState, content: WidgetContent) {
+        widgetCollection?.addWidget(.init(windowState: state, content: content))
+    }
     
 }
 

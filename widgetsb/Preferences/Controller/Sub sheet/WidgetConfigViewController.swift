@@ -91,21 +91,6 @@ class WidgetConfigViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /// ウィジェット追加画面を構成する
-    convenience init() {
-        self.init(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: nil, widgetContent: nil)
-    }
-    
-    /// ウィジェットコンテンツ編集画面を構成する
-    convenience init(widgetContent: WidgetContent?) {
-        self.init(pageIdentifiers: [.ContentEditor], widgetState: nil, widgetContent: widgetContent)
-    }
-    
-    /// ウィジェットアンカー編集画面を構成する
-    convenience init(widgetState: WidgetWindowState?) {
-        self.init(pageIdentifiers: [.AnchorEditor], widgetState: widgetState, widgetContent: nil)
-    }
-    
     deinit {
         print("config vc deinitiailized")
     }
@@ -121,7 +106,7 @@ class WidgetConfigViewController: NSViewController {
     @IBAction func onClickNext(_ sender: Any) {
         // 現在のページが最終ページならシートを閉じ、デリゲートに通知する
         guard pageController.selectedIndex < pageIdentifiers.count - 1 else {
-            // TODO: デリゲートに通知
+            self.delegate?.didPrepareNewWidget(self, state: currentWidgetWindowState, content: currentWidgetContent!)
             dismiss(nil)
             return
         }
@@ -144,8 +129,29 @@ class WidgetConfigViewController: NSViewController {
     }
     
     @IBAction func onClickCancel(_ sender: Any) {
-        // TODO: デリゲートに通知
         dismiss(nil)
+    }
+    
+    // MARK: - Static methods
+    
+    /// VCを新規ウィジェット追加用に構成する
+    /// - Returns: 構成されたVC
+    static func widgetAdditionSheet() -> WidgetConfigViewController {
+        .init(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: nil, widgetContent: nil)
+    }
+    
+    /// VCをウィジェットコンテンツ編集用に構成する
+    /// - Parameter widgetContent: 編集対象のコンテンツ
+    /// - Returns: 構成されたVC
+    static func contentModificationSheet(widgetContent: WidgetContent) -> WidgetConfigViewController {
+        .init(pageIdentifiers: [.ContentEditor], widgetState: nil, widgetContent: widgetContent)
+    }
+    
+    /// VCをウィジェットアンカー編集用に構成する
+    /// - Parameter widgetState: 編集対象のウィジェットアンカー
+    /// - Returns: 構成されたVC
+    static func stateModificationSheet(widgetState: WidgetWindowState) -> WidgetConfigViewController {
+        .init(pageIdentifiers: [.AnchorEditor], widgetState: widgetState, widgetContent: nil)
     }
     
 }

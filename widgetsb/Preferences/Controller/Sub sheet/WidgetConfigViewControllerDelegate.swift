@@ -10,4 +10,11 @@ import Foundation
 /// 構成エディタのデリゲート
 protocol WidgetConfigViewControllerDelegate: AnyObject {
     
+    /// ユーザにより、新しいウィジェットを追加する準備が整った
+    /// - Parameters:
+    ///   - viewController: 構成エディタインスタンス
+    ///   - state: 新しいウィジェットの状態
+    ///   - content: 新しいウィジェットのコンテンツ
+    func didPrepareNewWidget(_ viewController: WidgetConfigViewController, state: WidgetWindowState, content: WidgetContent)
+    
 }
