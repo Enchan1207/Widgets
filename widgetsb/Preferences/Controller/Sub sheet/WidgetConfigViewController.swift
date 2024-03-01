@@ -36,10 +36,6 @@ class WidgetConfigViewController: NSViewController {
     
     override var nibName: NSNib.Name? { "WidgetConfigView" }
     
-    private let vcs: [NSViewController] = [
-        WidgetKindSelectorViewController()
-    ]
-    
     /// ページ識別子
     private enum PageIdentifier: NSPageController.ObjectIdentifier {
         /// 種別セレクタ
@@ -167,7 +163,10 @@ extension WidgetConfigViewController: NSPageControllerDelegate {
         switch pageIdentifier {
             
         case .KindSelector:
-            viewController = WidgetKindSelectorViewController()
+            viewController = WidgetKindSelectorViewController(widgetKindTypes: [
+                ShellWidgetContent.self,
+                MediaWidgetContent.self
+            ])
             (viewController as! WidgetKindSelectorViewController).delegate = self
             
         case .ContentEditor:
@@ -175,8 +174,6 @@ extension WidgetConfigViewController: NSPageControllerDelegate {
             // TODO: ここでデフォルト構成を生成しちゃうと面倒なことになる(weakなのでインスタンスが解放される可能性がある)
             guard let widgetKindType = currentWidgetKindType else {fatalError("Content modification requested but member currentWidgetKindType is not set")}
             let widgetContent = currentWidgetContent ?? widgetKindType.initWithDefaultConfiguration()
-            
-            // TODO: エディタがWidgetContentで型分岐するのは正直どうなの
             switch widgetContent {
                 
             case let widgetContent as ShellWidgetContent:

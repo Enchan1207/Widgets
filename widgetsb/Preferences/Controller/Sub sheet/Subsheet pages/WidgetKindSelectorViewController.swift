@@ -30,14 +30,21 @@ class WidgetKindSelectorViewController: NSViewController {
     override var nibName: NSNib.Name? { "WidgetKindSelectorView" }
     
     /// ウィジェット種別のリスト
-    private let widgetKindTypes: [WidgetContent.Type] = [
-        // TODO: コントローラがこの情報を内部で握っているのはマズいかも (DI? Model追加?)
-        ShellWidgetContent.self,
-        MediaWidgetContent.self
-    ]
+    private let widgetKindTypes: [WidgetContent.Type]
     
     /// デリゲート
     weak var delegate: WidgetKindSelectorDelegate?
+    
+    // MARK: - Initializers
+    
+    init(widgetKindTypes: [WidgetContent.Type]){
+        self.widgetKindTypes = widgetKindTypes
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 }
 
