@@ -70,7 +70,7 @@ extension MediaWidgetContentEditorViewController: WidgetContentDelegate {
     
     func widget(_ widgetContent: WidgetContent, didChange keyPath: AnyKeyPath) {
         // 変更内容がメディアURLのそれであることを確認
-        guard let widgetContent = widgetContent as? MediaWidgetContent,
+        guard widgetContent is MediaWidgetContent,
               keyPath == \MediaWidgetContent.mediaURL else {return}
         updateFilePathField()
     }
