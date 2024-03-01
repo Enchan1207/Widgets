@@ -67,9 +67,8 @@ class WidgetWindow: NSWindow {
             self?.animator().alphaValue = 1.0
         }
         
-        // 完全に表示されたらマウスイベントを受け付け、メインウィンドウに切り替える
+        // 完全に表示されたらマウスイベントを受け付ける
         self.ignoresMouseEvents = false
-        self.becomeMain()
     }
     
     /// ウィジェットを背景に移動する
