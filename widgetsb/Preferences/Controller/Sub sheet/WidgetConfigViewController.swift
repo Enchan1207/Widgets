@@ -97,10 +97,6 @@ class WidgetConfigViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("config vc deinitiailized")
-    }
-    
     // MARK: - View lifecycles
     
     override func viewDidLoad() {
@@ -113,7 +109,8 @@ class WidgetConfigViewController: NSViewController {
         // 現在のページが最終ページならシートを閉じ、デリゲートに通知する
         guard pageController.selectedIndex < pageIdentifiers.count - 1 else {
             self.delegate?.didPrepareNewWidget(self, state: currentWidgetWindowState!, content: currentWidgetContent!)
-            dismiss(nil)
+            self.delegate?.willCloseSheet(self)
+            self.dismiss(nil)
             return
         }
         
@@ -135,7 +132,8 @@ class WidgetConfigViewController: NSViewController {
     }
     
     @IBAction func onClickCancel(_ sender: Any) {
-        dismiss(nil)
+        self.delegate?.willCloseSheet(self)
+        self.dismiss(nil)
     }
     
     // MARK: - Static methods
@@ -144,8 +142,7 @@ class WidgetConfigViewController: NSViewController {
     /// - Returns: 構成されたVC
     static func widgetAdditionSheet() -> WidgetConfigViewController {
         // ウィジェット状態にはデフォルト値を渡しておく
-        let widgetState = WidgetWindowState(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
-        return WidgetConfigViewController(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: widgetState, widgetContent: nil)
+        return WidgetConfigViewController(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: .init(windowWidth: .Pixel(400), windowHeight: .Pixel(300)), widgetContent: nil)
     }
     
     /// VCをウィジェットコンテンツ編集用に構成する

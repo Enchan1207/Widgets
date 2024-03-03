@@ -25,7 +25,7 @@ final class WidgetCollection {
         if widgets.count > 0 {
             self.widgets = widgets
         }else{
-            self.widgets = [.init(windowState: .init(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300))), content: WelcomeWidgetContent())]
+            self.widgets = [.init(windowState: .init(windowWidth: .zero, windowHeight: .zero), content: WelcomeWidgetContent())]
         }
         
         // ウィンドウコントローラを初期化しておく

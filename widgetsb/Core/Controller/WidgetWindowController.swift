@@ -41,7 +41,6 @@ class WidgetWindowController: NSWindowController {
         
         // ファクトリを用いてWidgetModelからVCを生成し、contentVCに割り当て
         self.contentViewController = WidgetViewControllerFactory.makeViewController(from: widget.content)
-        self.window!.setFrame(widget.windowState.frame, display: true)
         
         // ウィンドウのデリゲート、モデルのデリゲートを自身に設定
         self.window?.delegate = self
@@ -60,6 +59,9 @@ class WidgetWindowController: NSWindowController {
     
     override func showWindow(_ sender: Any?) {
         guard windowState?.visibility == .Show else {return}
+        // 位置と寸法を設定
+        self.updatePositionAndSize()
+        
         super.showWindow(sender)
         isObserved = true
     }
@@ -75,6 +77,19 @@ class WidgetWindowController: NSWindowController {
         
         widgetWindow.widgetMode = newMode
     }
+    
+    /// ウィンドウ状態に従って位置と寸法を更新
+    private func updatePositionAndSize(){
+        guard let windowState = self.windowState, let window = self.window else {return}
+        
+        // リサイズ
+        let windowSize = NSSize(width: .init(windowState.windowWidth.toPixel), height: .init(windowState.windowHeight.toPixel))
+        window.setContentSize(windowSize)
+        
+        // 原点移動
+        let windowOrigin = WidgetGeometryConverter.getWindowOrigin(halign: windowState.horizontalAlignment, valign: windowState.verticalAlignment, for: window)
+        window.setFrameOrigin(windowOrigin)
+    }
 }
 
 extension WidgetWindowController: NSWindowDelegate {
@@ -85,7 +100,7 @@ extension WidgetWindowController: NSWindowDelegate {
 
 extension WidgetWindowController: WidgetWindowStateDelegate {
     
-    func widget(_ windowState: WidgetWindowState, didChange visibility: WidgetVisibility) {
+    func widget(_ windowState: WidgetWindowState, didChangeVisibility visibility: WidgetVisibility) {
         DispatchQueue.main.async{[weak self] in
             switch visibility {
             case .Show:
@@ -96,10 +111,8 @@ extension WidgetWindowController: WidgetWindowStateDelegate {
         }
     }
     
-    func widget(_ windowState: WidgetWindowState, didChange frame: NSRect) {
-        DispatchQueue.main.async{[weak self] in
-            self?.window?.setFrame(frame, display: true)
-        }
+    func didChangePositionInfo(_ windowState: WidgetWindowState) {
+        updatePositionAndSize()
     }
     
 }

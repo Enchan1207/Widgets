@@ -143,6 +143,10 @@ extension PreferencesViewController: WidgetCollectionDelegate {
 
 extension PreferencesViewController: WidgetConfigViewControllerDelegate {
     
+    func willCloseSheet(_ viewController: WidgetConfigViewController) {
+        widgetsListView.reloadData()
+    }
+    
     func didPrepareNewWidget(_ viewController: WidgetConfigViewController, state: WidgetWindowState, content: WidgetContent) {
         widgetCollection?.addWidget(.init(windowState: state, content: content))
     }

@@ -17,4 +17,8 @@ protocol WidgetConfigViewControllerDelegate: AnyObject {
     ///   - content: 新しいウィジェットのコンテンツ
     func didPrepareNewWidget(_ viewController: WidgetConfigViewController, state: WidgetWindowState, content: WidgetContent)
     
+    /// 構成エディタが閉じようとしている
+    /// - Parameter viewController: 構成エディタインスタンス
+    func willCloseSheet(_ viewController: WidgetConfigViewController)
+    
 }
