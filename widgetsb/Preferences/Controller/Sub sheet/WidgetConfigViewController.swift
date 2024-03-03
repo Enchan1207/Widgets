@@ -109,7 +109,8 @@ class WidgetConfigViewController: NSViewController {
         // 現在のページが最終ページならシートを閉じ、デリゲートに通知する
         guard pageController.selectedIndex < pageIdentifiers.count - 1 else {
             self.delegate?.didPrepareNewWidget(self, state: currentWidgetWindowState!, content: currentWidgetContent!)
-            dismiss(nil)
+            self.delegate?.willCloseSheet(self)
+            self.dismiss(nil)
             return
         }
         
@@ -131,7 +132,8 @@ class WidgetConfigViewController: NSViewController {
     }
     
     @IBAction func onClickCancel(_ sender: Any) {
-        dismiss(nil)
+        self.delegate?.willCloseSheet(self)
+        self.dismiss(nil)
     }
     
     // MARK: - Static methods
