@@ -1,12 +1,7 @@
-# widgetsb
+# Widgets
 
-## Overview
-
-透明ウィンドウの表示
+![banner](banner.png)
 
 ## License
 
 This repository is published under [MIT License](LICENSE).
-
-
-
