@@ -16,7 +16,7 @@ class WidgetAnchorEditorViewController: NSViewController {
     @IBOutlet weak var horizontalAlignSelector: NSSegmentedControl! {
         didSet {
             guard let horizontalAlignment = widgetWindowState?.horizontalAlignment else {return}
-            horizontalAlignSelector.selectedSegment = horizontalSegmentIndexTable[horizontalAlignment]!
+            horizontalAlignSelector.selectedSegment = horizontalAlignment.toSegmentIndex
         }
     }
     
@@ -32,7 +32,7 @@ class WidgetAnchorEditorViewController: NSViewController {
     @IBOutlet weak var verticalAlignSelector: NSSegmentedControl! {
         didSet {
             guard let verticalAlignment = widgetWindowState?.verticalAlignment else {return}
-            verticalAlignSelector.selectedSegment = verticalSegmentIndexTable[verticalAlignment]!
+            verticalAlignSelector.selectedSegment = verticalAlignment.toSegmentIndex
         }
     }
     
@@ -129,14 +129,6 @@ class WidgetAnchorEditorViewController: NSViewController {
     
     override var nibName: NSNib.Name? { "WidgetAnchorEditorView" }
     
-    private let horizontalSegmentIndexTable: [WidgetHorizontalAlignment:Int] = [.Left : 0, .Center : 1, .Right : 2]
-    
-    private let verticalSegmentIndexTable: [WidgetVerticalAlignment:Int] = [.Top : 0, .Middle : 1, .Bottom : 2]
-    
-    private let horizontalSegmentTable: [Int:WidgetHorizontalAlignment] = [0: .Left, 1: .Center, 2: .Right]
-    
-    private let verticalSegmentTable: [Int:WidgetVerticalAlignment] = [0: .Top, 1: .Middle, 2: .Bottom]
-    
     /// デリゲート
     weak var delegate: WidgetAnchorEditorDelegate?
     
@@ -173,13 +165,13 @@ class WidgetAnchorEditorViewController: NSViewController {
     // MARK: - GUI actions
     
     @IBAction func didHorizontalSelectionChange(_ sender: Any) {
-        guard let horizontalAlignment = horizontalSegmentTable[horizontalAlignSelector.selectedSegment] else {return}
+        guard let horizontalAlignment = WidgetHorizontalAlignment.fromSegmentIndex(horizontalAlignSelector.selectedSegment) else {return}
         horizontalAlignmentLabel.stringValue = horizontalAlignment.rawValue
         widgetWindowState?.horizontalAlignment = horizontalAlignment
     }
     
     @IBAction func didVerticalSelectionChange(_ sender: Any) {
-        guard let verticalAlignment = verticalSegmentTable[verticalAlignSelector.selectedSegment] else {return}
+        guard let verticalAlignment = WidgetVerticalAlignment.fromSegmentIndex(verticalAlignSelector.selectedSegment) else {return}
         verticalAlignmentLabel.stringValue = verticalAlignment.rawValue
         widgetWindowState?.verticalAlignment = verticalAlignment
     }
@@ -192,15 +184,6 @@ class WidgetAnchorEditorViewController: NSViewController {
     }
     
     // MARK: - Private methods
-    
-    private func isGeometryPixel(_ geometry: WidgetGeometry) -> Bool {
-        switch geometry {
-        case .Pixel(_):
-            true
-        case .Screen(_):
-            false
-        }
-    }
     
     /// ジオメトリの値をGUIに反映する
     /// - Parameters:
@@ -278,6 +261,8 @@ class WidgetAnchorEditorViewController: NSViewController {
         }
     }
     
+    /// フィールド用の数値フォーマッタを構成する
+    /// - Returns: フォーマッタ
     private func configureNumberFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -324,6 +309,30 @@ extension WidgetAnchorEditorViewController: WidgetWindowStateDelegate {
         updateGeometryUI(to: .height, from: windowState.windowHeight)
         updateGeometryUI(to: .insetX, from: windowState.insetX)
         updateGeometryUI(to: .insetY, from: windowState.insetY)
+    }
+    
+}
+
+fileprivate extension WidgetHorizontalAlignment {
+    
+    /// segment-controlのインデックスに変換
+    var toSegmentIndex: Int { [.Left : 0, .Center : 1, .Right : 2][self]! }
+    
+    /// segmentインデックスに対応するアライメントを返す
+    static func fromSegmentIndex(_ index: Int) -> WidgetHorizontalAlignment? {
+        [0: .Left, 1: .Center, 2: .Right][index]
+    }
+    
+}
+
+fileprivate extension WidgetVerticalAlignment {
+    
+    /// segment-controlのインデックスに変換
+    var toSegmentIndex: Int { [.Top : 0, .Middle : 1, .Bottom : 2][self]! }
+    
+    /// segmentインデックスに対応するアライメントを返す
+    static func fromSegmentIndex(_ index: Int) -> WidgetVerticalAlignment? {
+        [0: .Top, 1: .Middle, 2: .Bottom][index]
     }
     
 }
