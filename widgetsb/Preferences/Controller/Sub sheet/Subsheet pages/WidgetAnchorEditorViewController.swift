@@ -24,16 +24,32 @@ class WidgetAnchorEditorViewController: NSViewController {
     /// 垂直方向アライメントラベル
     @IBOutlet weak var verticalAlignmentLabel: NSTextField!
     
-    /// x方向インセットフィールド
-    @IBOutlet weak var insetXField: NSTextField! {
+    /// 幅フィールド
+    @IBOutlet weak var widthField: NSTextField!
+    
+    /// 幅単位セレクタ
+    @IBOutlet weak var widthUnitSelector: NSComboBox! {
         didSet {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            // formatter.allowsFloats = false
-            insetXField.formatter = formatter
+            widthUnitSelector.usesDataSource = true
+            widthUnitSelector.delegate = self
+            widthUnitSelector.dataSource = self
         }
     }
     
+    /// 高さフィールド
+    @IBOutlet weak var heightField: NSTextField!
+    
+    /// 高さ単位セレクタ
+    @IBOutlet weak var heightUnitSelector: NSComboBox! {
+        didSet {
+            heightUnitSelector.usesDataSource = true
+            heightUnitSelector.delegate = self
+            heightUnitSelector.dataSource = self
+        }
+    }
+    
+    /// x方向インセットフィールド
+    @IBOutlet weak var insetXField: NSTextField!
     /// x方向単位セレクタ
     @IBOutlet weak var insetXUnitSelector: NSComboBox! {
         didSet {
@@ -44,14 +60,7 @@ class WidgetAnchorEditorViewController: NSViewController {
     }
     
     /// y方向インセットフィールド
-    @IBOutlet weak var insetYField: NSTextField! {
-        didSet {
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .decimal
-            // formatter.allowsFloats = false
-            insetYField.formatter = formatter
-        }
-    }
+    @IBOutlet weak var insetYField: NSTextField!
     
     /// y方向単位セレクタ
     @IBOutlet weak var insetYUnitSelector: NSComboBox! {
