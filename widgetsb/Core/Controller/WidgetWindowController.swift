@@ -96,7 +96,7 @@ extension WidgetWindowController: WidgetWindowStateDelegate {
     }
     
     func didChangePositionInfo(_ windowState: WidgetWindowState) {
-        print("\(#file) position updated")
+        // TODO: 再配置
     }
     
 }

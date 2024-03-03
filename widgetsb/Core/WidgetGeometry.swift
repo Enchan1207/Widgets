@@ -13,11 +13,8 @@ enum WidgetGeometry: Codable {
     /// ピクセル単位
     case Pixel(_ value: Int)
     
-    /// ディスプレイ幅比率単位
-    case ScreenX(_ ratio: Double)
-    
-    /// ディスプレイ高さ比率単位
-    case ScreenY(_ ratio: Double)
+    /// ディスプレイ比率単位
+    case Screen(_ ratio: Double)
     
     /// ゼロ
     static var zero: WidgetGeometry {.Pixel(0)}
