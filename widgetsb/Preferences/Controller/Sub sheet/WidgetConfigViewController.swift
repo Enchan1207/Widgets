@@ -97,10 +97,6 @@ class WidgetConfigViewController: NSViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("config vc deinitiailized")
-    }
-    
     // MARK: - View lifecycles
     
     override func viewDidLoad() {
