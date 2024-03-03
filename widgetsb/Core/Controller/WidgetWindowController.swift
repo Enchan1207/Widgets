@@ -59,6 +59,9 @@ class WidgetWindowController: NSWindowController {
     
     override func showWindow(_ sender: Any?) {
         guard windowState?.visibility == .Show else {return}
+        // 位置と寸法を設定
+        self.updatePositionAndSize()
+        
         super.showWindow(sender)
         isObserved = true
     }
@@ -73,6 +76,19 @@ class WidgetWindowController: NSWindowController {
               let widgetWindow = window as? WidgetWindow else {return}
         
         widgetWindow.widgetMode = newMode
+    }
+    
+    /// ウィンドウ状態に従って位置と寸法を更新
+    private func updatePositionAndSize(){
+        guard let windowState = self.windowState, let window = self.window else {return}
+        
+        // リサイズ
+        let windowSize = NSSize(width: .init(windowState.windowWidth.toPixel), height: .init(windowState.windowHeight.toPixel))
+        window.setContentSize(windowSize)
+        
+        // 原点移動
+        let windowOrigin = WidgetGeometryConverter.getWindowOrigin(halign: windowState.horizontalAlignment, valign: windowState.verticalAlignment, for: window)
+        window.setFrameOrigin(windowOrigin)
     }
 }
 
@@ -96,7 +112,7 @@ extension WidgetWindowController: WidgetWindowStateDelegate {
     }
     
     func didChangePositionInfo(_ windowState: WidgetWindowState) {
-        // TODO: 再配置
+        updatePositionAndSize()
     }
     
 }

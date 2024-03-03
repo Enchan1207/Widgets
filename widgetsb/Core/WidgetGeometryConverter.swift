@@ -18,7 +18,7 @@ final class WidgetGeometryConverter {
         case .Pixel(let n):
             n
         case .Screen(let ratio):
-            .init(NSScreen.main!.frame.width * ratio)
+            .init(NSScreen.main!.frame.width * (ratio / 100.0))
         }
     }
     
