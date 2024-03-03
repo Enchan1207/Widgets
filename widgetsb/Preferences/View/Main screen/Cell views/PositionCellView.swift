@@ -17,7 +17,6 @@ class PositionCellView: NSTableCellView, PreferenceCellView {
     
     func configure(with widget: Widget) {
         anchorInfoField.stringValue = "Widget anchor is now developing"
-        insetInfoField.stringValue = "Frame: \(widget.windowState.frame)"
     }
     
 }

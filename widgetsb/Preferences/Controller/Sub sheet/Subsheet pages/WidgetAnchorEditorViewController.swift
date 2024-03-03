@@ -132,12 +132,12 @@ extension WidgetAnchorEditorViewController: NSComboBoxDataSource {
 
 extension WidgetAnchorEditorViewController: WidgetWindowStateDelegate {
     
-    func widget(_ windowState: WidgetWindowState, didChange visibility: WidgetVisibility) {
-        print("\(#file) \(visibility)")
+    func widget(_ windowState: WidgetWindowState, didChangeVisibility visibility: WidgetVisibility) {
+        // アンカーエディタでは何もしない
     }
     
-    func widget(_ windowState: WidgetWindowState, didChange frame: NSRect) {
-        print("\(#file) \(frame)")
+    func didChangePositionInfo(_ windowState: WidgetWindowState) {
+        print("\(#file) position updated")
     }
     
 }

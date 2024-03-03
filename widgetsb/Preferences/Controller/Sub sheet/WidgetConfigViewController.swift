@@ -144,8 +144,7 @@ class WidgetConfigViewController: NSViewController {
     /// - Returns: 構成されたVC
     static func widgetAdditionSheet() -> WidgetConfigViewController {
         // ウィジェット状態にはデフォルト値を渡しておく
-        let widgetState = WidgetWindowState(visibility: .Show, frame: .init(origin: .zero, size: .init(width: 400, height: 300)))
-        return WidgetConfigViewController(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: widgetState, widgetContent: nil)
+        return WidgetConfigViewController(pageIdentifiers: [.KindSelector, .ContentEditor, .AnchorEditor], widgetState: .init(windowWidth: .Pixel(400), windowHeight: .Pixel(300)), widgetContent: nil)
     }
     
     /// VCをウィジェットコンテンツ編集用に構成する

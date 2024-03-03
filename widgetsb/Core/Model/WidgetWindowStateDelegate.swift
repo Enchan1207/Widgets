@@ -14,12 +14,10 @@ protocol WidgetWindowStateDelegate {
     /// - Parameters:
     ///   - windowState: ウィジェット状態
     ///   - visibility: 表示状態
-    func widget(_ windowState: WidgetWindowState, didChange visibility: WidgetVisibility)
+    func widget(_ windowState: WidgetWindowState, didChangeVisibility visibility: WidgetVisibility)
     
-    /// フレームが変化した
-    /// - Parameters:
-    ///   - windowState: ウィジェット状態
-    ///   - frame: フレーム
-    func widget(_ windowState: WidgetWindowState, didChange frame: NSRect)
+    /// ウィジェットの表示位置情報が変化した
+    /// - Parameter windowState: ウィジェット状態
+    func didChangePositionInfo(_ windowState: WidgetWindowState)
     
 }

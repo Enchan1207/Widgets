@@ -22,6 +22,9 @@
 		9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */; };
 		9E7236172B8DF0F6004B5503 /* WidgetConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */; };
 		9E7236182B8DF0F6004B5503 /* WidgetConfigView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */; };
+		9E72E79A2B941D7300D788D6 /* WidgetAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72E7992B941D7300D788D6 /* WidgetAlignment.swift */; };
+		9E72E79C2B9422AF00D788D6 /* WidgetGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72E79B2B9422AF00D788D6 /* WidgetGeometry.swift */; };
+		9E72E79E2B9438E300D788D6 /* WidgetGeometryConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E72E79D2B9438E300D788D6 /* WidgetGeometryConverter.swift */; };
 		9E80B4182B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */; };
 		9E80B4192B920A650053C039 /* WelcomeWidgetContentEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */; };
 		9E82ADBE2B9010DD00F7649A /* WidgetKindSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */; };
@@ -88,6 +91,9 @@
 		9E7236132B8DE60D004B5503 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		9E7236152B8DF0F6004B5503 /* WidgetConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetConfigViewController.swift; sourceTree = "<group>"; };
 		9E7236162B8DF0F6004B5503 /* WidgetConfigView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WidgetConfigView.xib; sourceTree = "<group>"; };
+		9E72E7992B941D7300D788D6 /* WidgetAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetAlignment.swift; sourceTree = "<group>"; };
+		9E72E79B2B9422AF00D788D6 /* WidgetGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGeometry.swift; sourceTree = "<group>"; };
+		9E72E79D2B9438E300D788D6 /* WidgetGeometryConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetGeometryConverter.swift; sourceTree = "<group>"; };
 		9E80B4162B920A650053C039 /* WelcomeWidgetContentEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeWidgetContentEditorViewController.swift; sourceTree = "<group>"; };
 		9E80B4172B920A650053C039 /* WelcomeWidgetContentEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeWidgetContentEditorView.xib; sourceTree = "<group>"; };
 		9E82ADBC2B9010DD00F7649A /* WidgetKindSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetKindSelectorViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				9ECC86572B88791000A615F6 /* WidgetViewControllerFactory.swift */,
 				9ECAAD9E2B7B1BFF0043D51C /* WidgetMode.swift */,
 				9ECC86472B88656900A615F6 /* WidgetVisibility.swift */,
+				9E72E7992B941D7300D788D6 /* WidgetAlignment.swift */,
+				9E72E79B2B9422AF00D788D6 /* WidgetGeometry.swift */,
+				9E72E79D2B9438E300D788D6 /* WidgetGeometryConverter.swift */,
 				9E39F58A2B847B2100C8CFF7 /* MuticastDelegate.swift */,
 				9E39F5962B85868700C8CFF7 /* Model */,
 				9E39F5982B8586D400C8CFF7 /* View */,
@@ -554,9 +563,12 @@
 				9ECAADB02B7C50770043D51C /* WindowLevelExt.swift in Sources */,
 				9E7236142B8DE60D004B5503 /* PreferencesViewController.swift in Sources */,
 				9ECAAD9D2B7B0B680043D51C /* WidgetWindowController.swift in Sources */,
+				9E72E79C2B9422AF00D788D6 /* WidgetGeometry.swift in Sources */,
 				9ED7DCA32B7DDC43004957E0 /* ProcessRunner.swift in Sources */,
+				9E72E79E2B9438E300D788D6 /* WidgetGeometryConverter.swift in Sources */,
 				9E7236062B8DA783004B5503 /* PositionCellView.swift in Sources */,
 				9E82ADC32B9013D000F7649A /* WidgetKindSelectorDelegate.swift in Sources */,
+				9E72E79A2B941D7300D788D6 /* WidgetAlignment.swift in Sources */,
 				9E82ADD02B90CAB900F7649A /* ShellWidgetContentEditorViewController.swift in Sources */,
 				9E82ADBE2B9010DD00F7649A /* WidgetKindSelectorViewController.swift in Sources */,
 				9E2A0B7A2B7C8A890078AA06 /* WidgetBackgroundView.swift in Sources */,

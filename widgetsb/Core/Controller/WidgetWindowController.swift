@@ -41,7 +41,6 @@ class WidgetWindowController: NSWindowController {
         
         // ファクトリを用いてWidgetModelからVCを生成し、contentVCに割り当て
         self.contentViewController = WidgetViewControllerFactory.makeViewController(from: widget.content)
-        self.window!.setFrame(widget.windowState.frame, display: true)
         
         // ウィンドウのデリゲート、モデルのデリゲートを自身に設定
         self.window?.delegate = self
@@ -85,7 +84,7 @@ extension WidgetWindowController: NSWindowDelegate {
 
 extension WidgetWindowController: WidgetWindowStateDelegate {
     
-    func widget(_ windowState: WidgetWindowState, didChange visibility: WidgetVisibility) {
+    func widget(_ windowState: WidgetWindowState, didChangeVisibility visibility: WidgetVisibility) {
         DispatchQueue.main.async{[weak self] in
             switch visibility {
             case .Show:
@@ -96,10 +95,8 @@ extension WidgetWindowController: WidgetWindowStateDelegate {
         }
     }
     
-    func widget(_ windowState: WidgetWindowState, didChange frame: NSRect) {
-        DispatchQueue.main.async{[weak self] in
-            self?.window?.setFrame(frame, display: true)
-        }
+    func didChangePositionInfo(_ windowState: WidgetWindowState) {
+        print("\(#file) position updated")
     }
     
 }
